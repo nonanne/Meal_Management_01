@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Eiyoukun</string>
+
+    <string-array name="list">
+        <item>ダイエット</item>>
+        <item>デブエット</item>>
+    </string-array>
+    >
+
+    <string-array name="list1">
+        <item>男性</item>>
+        <item>女性</item>>
+    </string-array>
+    >
+
+    <string-array name="list2">
+        <item>ほぼ運動しない</item>>
+        <item>軽い運動をしている</item>>
+        <item>中程度の運動をしている</item>>
+        <item>激しい運動をしている</item>>
+        <item>非常に激しい運動をしている</item>>
+    </string-array>
+    >
+strings.xml
+</resources>
