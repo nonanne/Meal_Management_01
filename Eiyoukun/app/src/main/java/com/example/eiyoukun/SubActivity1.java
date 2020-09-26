@@ -28,12 +28,24 @@ public class SubActivity1 extends Activity {
 
         // activity_main画面へ遷移するボタン
         Button returnButton = findViewById(R.id.toKojinButton);
-
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
                 SubActivity1.this.finish();
             }
         });
+
+        // activity_main内のregistButtonを取得
+        Button foodRegistButton = findViewById(R.id.foodRegistButton);
+        //ボタンがクリックされた時の処理を追加
+        foodRegistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+                //Intentを利用して他のアクティビティに遷移する
+                Intent intent = new Intent(SubActivity1.this, FoodRegistActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
