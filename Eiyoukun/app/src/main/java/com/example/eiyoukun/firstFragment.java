@@ -113,8 +113,149 @@ public class firstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        View v = inflater.inflate(R.layout.fragment_first, container, false);
+
+        return v;
+    }
+
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        useridForm = view.findViewById(R.id.useridForm);
+        ageForm = view.findViewById(R.id.ageForm);
+        weightForm = view.findViewById(R.id.weightForm);
+        heightForm = view.findViewById(R.id.heightForm);
+        sexForm = view.findViewById(R.id.sexForm);
+        activityLevelForm = view.findViewById(R.id.activityLevelForm);
+        purposeForm = view.findViewById(R.id.purposeForm);
+
+        calorieForm = view.findViewById(R.id.calorieForm);
+        proteinForm = view.findViewById(R.id.proteinForm);
+        carbonForm = view.findViewById(R.id.carbonForm);
+        fatForm = view.findViewById(R.id.fatForm);
+
+        // activity_main内のregistButtonを取得
+        Button goRegistButton = view.findViewById(R.id.regist);
+        //ボタンがクリックされた時の処理を追加
+        goRegistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+
+                //Intentを利用して他のアクティビティに遷移する
+                Intent intent = new Intent(getActivity(), RegistActivity.class);
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+        loadData();
+        setData();
+        try {
+            calNutrition();
+        } catch (Exception e){
+
+        }
+
+    }
+
+
+    public void loadData() {
+        accountInf = getSharedPreferences(SHARED_PREF_NAME);
+        strUserid = accountInf.getString(KEY_USERID, "");
+        strAge = accountInf.getString(KEY_AGE, "");
+        strWeight = accountInf.getString(KEY_WEIGHT, "");
+        strHeight = accountInf.getString(KEY_HEIGHT, "string");
+        strSex = accountInf.getString(KEY_SEX, "string");
+        strActivityLevel = accountInf.getString(KEY_ACTIVITYLEVEL, "string");
+        strPurpose = accountInf.getString(KEY_PURPOSE, "string");
+    }
+
+    public void setData() {
+        useridForm.setText(strUserid);
+        ageForm.setText(strAge);
+        weightForm.setText(strWeight);
+        heightForm.setText(strHeight);
+        sexForm.setText(strSex);
+        activityLevelForm.setText(strActivityLevel);
+        purposeForm.setText(strPurpose);
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        useridForm = view.findViewById(R.id.useridForm);
+        ageForm = findViewById(R.id.ageForm);
+        weightForm = findViewById(R.id.weightForm);
+        heightForm = findViewById(R.id.heightForm);
+        sexForm = findViewById(R.id.sexForm);
+        activityLevelForm = findViewById(R.id.activityLevelForm);
+        purposeForm = findViewById(R.id.purposeForm);
+
+        calorieForm = this.findViewById(R.id.calorieForm);
+        proteinForm = this.findViewById(R.id.proteinForm);
+        carbonForm = this.findViewById(R.id.carbonForm);
+        fatForm = this.findViewById(R.id.fatForm);
+
+        loadData();
+        setData();
+        try {
+            calNutrition();
+        } catch (Exception e){
+        }
+    }
+
+
+ */
+
+    public void calNutrition() {
+
+        double protein, carbon, fat, age, weight, height;
+        age = Double.parseDouble(strAge);
+        weight = Double.parseDouble(strWeight);
+        height = Double.parseDouble(strHeight);
+
+
+        // case文で処理したい
+        double calorie = 0;
+        if (strSex.equals("男性") && strActivityLevel.equals("ほぼ運動しない")) {
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.2; //  String msg0　時に四捨五入
+        } else if (strSex.equals("男性") && strActivityLevel.equals("軽い運動をしている")) {
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.375;
+        } else if (strSex.equals("男性") && strActivityLevel.equals("中程度の運動をしている")) {
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.55;
+        } else if (strSex.equals("男性") && strActivityLevel.equals("激しい運動をしている")) {
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.725;
+        } else if (strSex.equals("男性") && strActivityLevel.equals("非常に激しい運動をしている")) {
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.9;
+        } else if (strSex.equals("女性") && strActivityLevel.equals("ほぼ運動しない")) {
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.2) * 10) / 10.0; // この時点で四捨五入
+        } else if (strSex.equals("女性") && strActivityLevel.equals("軽い運動をしている")) {
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.375) * 10) / 10.0;
+        } else if (strSex.equals("女性") && strActivityLevel.equals("中程度の運動をしている")) {
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.55) * 10) / 10.0;
+        } else if (strSex.equals("女性") && strActivityLevel.equals("激しい運動をしている")) {
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.725) * 10) / 10.0;
+        } else if (strSex.equals("女性") && strActivityLevel.equals("非常に激しい運動をしている")) {
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.9) * 10) / 10.0;
+        }
+
+        protein = weight * 2.3;
+        carbon = weight * 2.65;
+        fat = weight * 0.9;
+
+        String msg0 = String.format("%.1fcal", calorie); // 四捨五入
+        String msg1 = protein + "g";
+        String msg2 = carbon + "g";
+        String msg3 = fat + "g";
+
+
+        calorieForm.setText(msg0);
+        proteinForm.setText(msg1);
+        carbonForm.setText(msg2);
+        fatForm.setText(msg3);
     }
 
 

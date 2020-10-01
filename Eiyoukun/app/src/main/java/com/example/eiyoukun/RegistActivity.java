@@ -71,9 +71,7 @@ public class RegistActivity extends Activity {
 //Intentクラスのオブジェクトを生成
                 int id = view2.getId();
                 Intent intent = new Intent();
-
                 saveData();
-
                 setResult(RESULT_OK, intent);
 
                 finish();

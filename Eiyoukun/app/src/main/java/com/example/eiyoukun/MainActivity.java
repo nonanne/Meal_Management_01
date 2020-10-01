@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         //bottomNav.setOnNavigationItemReselectedListener((BottomNavigationView.OnNavigationItemReselectedListener) navListener);
         //getFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new firstFragment()).commit();
 
-        useridForm = findViewById(R.id.useridForm);
+    /*    useridForm = findViewById(R.id.useridForm);
         ageForm = findViewById(R.id.ageForm);
         weightForm = findViewById(R.id.weightForm);
         heightForm = findViewById(R.id.heightForm);
@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e){
 
         }
-    }
+ */   }
 
 
 
-       public void loadData() {
+ /*      public void loadData() {
             accountInf = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
             strUserid = accountInf.getString(KEY_USERID, "");
             strAge = accountInf.getString(KEY_AGE, "");
@@ -219,7 +219,7 @@ public void calNutrition() {
     carbonForm.setText(msg2);
     fatForm.setText(msg3);
  }
-
+*/
 }
 
 
