@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.widget.Button;
@@ -18,11 +21,15 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-
-
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private TextView useridForm;
     private TextView ageForm;
@@ -55,11 +62,19 @@ public class MainActivity extends Activity {
     private String strActivityLevel;
     private String strPurpose;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //activity_mainのレイアウトをContentViewに設定
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
+        NavController navController = Navigation.findNavController(this, R.id.fragment2);
+        NavigationUI.setupWithNavController(bottomNav, navController);
+
+        //bottomNav.setOnNavigationItemReselectedListener((BottomNavigationView.OnNavigationItemReselectedListener) navListener);
+        //getFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new firstFragment()).commit();
 
         useridForm = findViewById(R.id.useridForm);
         ageForm = findViewById(R.id.ageForm);
@@ -108,7 +123,7 @@ public class MainActivity extends Activity {
 
 
 
-        public void loadData() {
+       public void loadData() {
             accountInf = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
             strUserid = accountInf.getString(KEY_USERID, "");
             strAge = accountInf.getString(KEY_AGE, "");
