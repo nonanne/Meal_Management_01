@@ -208,7 +208,6 @@ public class firstFragment extends Fragment {
     }
 
 
- */
 
     public void calNutrition() {
 
