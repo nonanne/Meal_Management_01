@@ -1,5 +1,6 @@
 package com.example.eiyoukun;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -160,7 +161,8 @@ public class firstFragment extends Fragment {
 
 
     public void loadData() {
-        accountInf = getSharedPreferences(SHARED_PREF_NAME);
+        //fragmentはsharedPreferenceを直接呼び出せないので、親のactivityを呼んでそこから取得する
+        accountInf = requireActivity().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         strUserid = accountInf.getString(KEY_USERID, "");
         strAge = accountInf.getString(KEY_AGE, "");
         strWeight = accountInf.getString(KEY_WEIGHT, "");
@@ -183,21 +185,21 @@ public class firstFragment extends Fragment {
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        useridForm = view.findViewById(R.id.useridForm);
-        ageForm = findViewById(R.id.ageForm);
-        weightForm = findViewById(R.id.weightForm);
-        heightForm = findViewById(R.id.heightForm);
-        sexForm = findViewById(R.id.sexForm);
-        activityLevelForm = findViewById(R.id.activityLevelForm);
-        purposeForm = findViewById(R.id.purposeForm);
+        useridForm = getView().findViewById(R.id.useridForm);
+        ageForm = getView().findViewById(R.id.ageForm);
+        weightForm = getView().findViewById(R.id.weightForm);
+        heightForm = getView().findViewById(R.id.heightForm);
+        sexForm = getView().findViewById(R.id.sexForm);
+        activityLevelForm = getView().findViewById(R.id.activityLevelForm);
+        purposeForm = getView().findViewById(R.id.purposeForm);
 
-        calorieForm = this.findViewById(R.id.calorieForm);
-        proteinForm = this.findViewById(R.id.proteinForm);
-        carbonForm = this.findViewById(R.id.carbonForm);
-        fatForm = this.findViewById(R.id.fatForm);
+        calorieForm = getView().findViewById(R.id.calorieForm);
+        proteinForm = getView().findViewById(R.id.proteinForm);
+        carbonForm = getView().findViewById(R.id.carbonForm);
+        fatForm = getView().findViewById(R.id.fatForm);
 
         loadData();
         setData();
