@@ -36,6 +36,44 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        // activity_main内のregistButtonを取得
+        Button gofoodAddButton = findViewById(R.id.foodAddButton);
+        //ボタンがクリックされた時の処理を追加
+        gofoodAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Intentを利用して他のアクティビティに遷移する
+                Intent intent = new Intent(FoodActivity.this, FoodAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // activity_main内のregistButtonを取得
+        Button gofoodUpdateButton = findViewById(R.id.foodUpdateButton);
+        //ボタンがクリックされた時の処理を追加
+        gofoodAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Intentを利用して他のアクティビティに遷移する
+                Intent intent = new Intent(FoodActivity.this, FoodUpdateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // activity_main内のregistButtonを取得
+        Button gofoodDeleteButton = findViewById(R.id.foodDeleteButton);
+        //ボタンがクリックされた時の処理を追加
+        gofoodAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Intentを利用して他のアクティビティに遷移する
+                Intent intent = new Intent(FoodActivity.this, FoodDeleteActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

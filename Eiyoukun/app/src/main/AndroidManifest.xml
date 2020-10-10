@@ -27,6 +27,19 @@
             android:label="string/app_name" >
         </activity>
 
+        <activity android:name=".FoodAddActivity"
+            android:label="string/app_name" >
+        </activity>
+
+        <activity android:name=".FoodUpdateActivity"
+            android:label="string/app_name" >
+        </activity>
+
+        <activity android:name=".FoodDeleteActivity"
+            android:label="string/app_name" >
+        </activity>
+
+
 
     </application>
 

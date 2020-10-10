@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/foodRegistButton"
+        android:id="@+id/foodAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -32,17 +32,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/foodUpdateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="更新"
         app:layout_constraintBottom_toTopOf="@+id/returnButton"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/foodRegistButton" />
+        app:layout_constraintEnd_toStartOf="@+id/foodDeleteButton"
+        app:layout_constraintStart_toEndOf="@+id/foodAddButton" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/foodDeleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
