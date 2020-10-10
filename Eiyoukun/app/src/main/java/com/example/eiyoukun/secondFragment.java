@@ -1,5 +1,6 @@
 package com.example.eiyoukun;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -76,5 +78,22 @@ public class secondFragment extends Fragment {
         String date = (time.month+1) + "月" + time.monthDay + "日";
         dateText.setText(date);
 
+
+
+    // activity_main内のregistButtonを取得
+    Button gofoodActivityButton = view.findViewById(R.id.foodButton);
+    //ボタンがクリックされた時の処理を追加
+        gofoodActivityButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+            //Intentを利用して他のアクティビティに遷移する
+            Intent intent = new Intent(getActivity(), FoodActivity.class);
+            startActivity(intent);
+        }
+    });
+
     }
+
+
 }

@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //superコールの前にスタイル設定（LauncherScreenを入れたので）
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         //activity_mainのレイアウトをContentViewに設定
         setContentView(R.layout.activity_main);

@@ -474,7 +474,7 @@
     </androidx.gridlayout.widget.GridLayout>
 
     <Button
-        android:id="@+id/foodRegistButton"
+        android:id="@+id/foodButton"
         android:layout_width="121dp"
         android:layout_height="54dp"
         android:text="食事情報追加"
