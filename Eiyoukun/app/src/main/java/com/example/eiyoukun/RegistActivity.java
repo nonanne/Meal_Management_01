@@ -62,7 +62,7 @@ public class RegistActivity extends Activity {
         spinnerPurpose = findViewById(R.id.spinnerPurpose);
 
 
-        // activity_main画面へ遷移するボタン
+        // fragment_first画面へ遷移するボタン
         Button returnButton = findViewById(R.id.registButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class RegistActivity extends Activity {
         });
 
 
-        // activity_main画面へ遷移するボタン
+        // fragment_first画面へ遷移するボタン
          Button return1Button = findViewById(R.id.registStopButton);
         return1Button.setOnClickListener(new View.OnClickListener() {
             @Override

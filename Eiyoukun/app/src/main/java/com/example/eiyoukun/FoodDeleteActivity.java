@@ -31,7 +31,7 @@ public class FoodDeleteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view2) {
 
-                finish();
+                FoodDeleteActivity.this.finish();
             }
         });
 

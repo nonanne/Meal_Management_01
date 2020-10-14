@@ -2,8 +2,10 @@ package com.example.eiyoukun;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,45 +18,55 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import java.util.ArrayList;
+import android.widget.ListView;
 
 public class FoodActivity extends AppCompatActivity {
+    private static final int FOODADD_REQUEST_CODE = 1;
+    private MySQLiteOpenHelper helper;
+    private ListView listView;
+    private ArrayList<Product> products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //activity_regist.xmlに作成した内容を画面に表示
+        helper = new MySQLiteOpenHelper(this);
+
+        //activity_food.xmlに作成した内容を画面に表示
         setContentView(R.layout.activity_food);
 
-        // activity_main画面へ遷移するボタン
+        // fragment_second画面へ遷移するボタン
         Button returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
 
-                finish();
+                FoodActivity.this.finish();
             }
         });
 
-        // activity_main内のregistButtonを取得
+        // activity_food内のfoodAddButtonを取得
         Button gofoodAddButton = findViewById(R.id.foodAddButton);
         //ボタンがクリックされた時の処理を追加
         gofoodAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //Intentを利用して他のアクティビティに遷移する
                 Intent intent = new Intent(FoodActivity.this, FoodAddActivity.class);
                 startActivity(intent);
+
             }
         });
 
-        // activity_main内のregistButtonを取得
+        // activity_food内のfoodUpdateButtonを取得
         Button gofoodUpdateButton = findViewById(R.id.foodUpdateButton);
         //ボタンがクリックされた時の処理を追加
-        gofoodAddButton.setOnClickListener(new View.OnClickListener() {
+        gofoodUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
 
                 //Intentを利用して他のアクティビティに遷移する
                 Intent intent = new Intent(FoodActivity.this, FoodUpdateActivity.class);
@@ -62,10 +74,10 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
-        // activity_main内のregistButtonを取得
+        // activity_food内のfoodDeleteButtonを取得
         Button gofoodDeleteButton = findViewById(R.id.foodDeleteButton);
         //ボタンがクリックされた時の処理を追加
-        gofoodAddButton.setOnClickListener(new View.OnClickListener() {
+        gofoodDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -75,6 +87,52 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        listView = (ListView)findViewById(R.id.listView1);
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        products = new ArrayList<Product>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        String[] columns = {"id", "foodName", "calorie", "protain", "carbon", "fat"};
+
+        Cursor cursor = db.query("Products", columns, null, null, null, null, null);
+
+        while(cursor.moveToNext()) {
+            int id = cursor.getInt(0) ;
+            String foodName = cursor.getString(1);
+            double calorie = cursor.getDouble(2);
+            double protain = cursor.getDouble(3);
+            double carbon = cursor.getDouble(4);
+            double fat = cursor.getDouble(5);
+
+            products.add(
+                    new Product(id, foodName, calorie, protain, carbon, fat)
+            );
+        }
+
+        String[] items = new String[products.size()];
+
+        for(int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
+            items[i] = product.getfoodName();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_single_choice, items);
+
+        listView.setAdapter(adapter);
+
+        listView.setItemChecked(0, true);
+
+        db.close();
+    }
+
+
 
 }

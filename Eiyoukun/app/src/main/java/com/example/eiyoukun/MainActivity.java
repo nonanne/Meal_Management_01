@@ -30,7 +30,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
-
+/*
     private TextView useridForm;
     private TextView ageForm;
     private TextView weightForm;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private String strSex;
     private String strActivityLevel;
     private String strPurpose;
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -33,7 +33,7 @@ public class FoodUpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view2) {
 
-                finish();
+                FoodUpdateActivity.this.finish();
             }
         });
 

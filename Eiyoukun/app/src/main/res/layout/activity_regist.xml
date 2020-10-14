@@ -25,7 +25,7 @@
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/grid_border"
+
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -52,7 +52,6 @@
         android:layout_marginStart="155dp"
         android:layout_marginLeft="155dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/grid_border"
         android:gravity="center"
         android:entries="@array/list"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +75,7 @@
         android:layout_marginStart="180dp"
         android:layout_marginLeft="180dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/grid_border"
+
         android:entries="@array/list1"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,8 +140,8 @@
 
     <TextView
         android:id="@+id/kg"
-        android:layout_width="26dp"
-        android:layout_height="17dp"
+        android:layout_width="23dp"
+        android:layout_height="21dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
@@ -168,7 +167,7 @@
         android:layout_marginStart="130dp"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/grid_border"
+
         android:entries="@array/list2"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"

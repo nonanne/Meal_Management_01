@@ -11,7 +11,7 @@
         android:id="@+id/userid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:text="ユーザー名"
@@ -25,7 +25,7 @@
         android:layout_gravity="fill"
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/grid_border"
         android:ems="10"
         android:gravity="center"
@@ -271,7 +271,7 @@
             android:layout_gravity="fill"
             android:background="@drawable/grid_border"
             android:gravity="center"
-            android:text="タンパク質" />
+            android:text="　タンパク質　" />
 
         <TextView
             android:id="@+id/carbon"

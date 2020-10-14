@@ -4,26 +4,22 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
     private int id ; //ID
-    private String name; //ユーザー名
-    private String purpose; //目的
-    private String sex ; //性別
-    private int age ; //年齢
-    private double weight ; //体重
-    private double height ; //身長
-    private String activityLevel ; //活動レベル
+    private String foodName; //食べ物名
+    private double calorie ; //カロリー
+    private double protain ; //タンパク質
+    private double carbon ; //炭水化物
+    private double fat ; //脂質
 
     //コンストラクタ
     public Product() {}
 
-    public Product(int id, String name,String purpose, String sex, int age, double weight, double height, String activityLevel){
+    public Product(int id, String foodName,double calorie, double protain, double carbon, double fat){
         this.id = id;
-        this.name = name;
-        this.purpose = purpose;
-        this.sex = sex;
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
-        this.activityLevel = activityLevel;
+        this.foodName = foodName;
+        this.calorie = calorie;
+        this.protain = protain;
+        this.carbon = carbon;
+        this.fat = fat;
     }
 
     //セッタ&ゲッタ 引数をメンバ変数に設定、メンバ変数を返す
@@ -34,50 +30,39 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getfoodName() {
+        return foodName;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPurpose() { return purpose; }
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
+    public void setfoodName(String foodName) {
+        this.foodName = foodName;
     }
 
-    public String getSex() {
-        return sex;
+    public double getCalorie() {
+        return calorie;
     }
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
+    public void setCalorie(double calorie) {
+        this.calorie = calorie;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getProtain() {
+        return protain;
     }
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-    public void setHeight(double height) {
-        this.height = height;
+    public void setProtain(double protain) {
+        this.protain = protain;
     }
 
-    public String getActivityLevel() {
-        return activityLevel;
+    public double getCarbon() {
+        return carbon;
     }
-    public void setActivityLevel(String activityLevel) {
-        this.activityLevel = activityLevel;
+    public void setCarbon(double carbon) {
+        this.carbon = carbon;
     }
+
+    public double getFat() {
+        return fat;
+    }
+    public void setFat(double fat) {
+        this.fat = fat;
+    }
+
 }

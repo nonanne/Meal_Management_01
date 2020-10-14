@@ -9,8 +9,6 @@ import android.content.ContentValues;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Sqlite1.db";   // DB名
-    private static final String TABLE_NAME = "sqlite1";
-
     private static int DB_VERSION = 1;           // DBのVersion
     // コンストラクタ
     // CREATE用のSQLを取得する
@@ -25,13 +23,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         //テーブルの作成用SQL文の設定
         String sql = "CREATE TABLE Prpducts" ;
         sql += " id INTEGER PRIMARY KEY AUTOINCREMENT" ;
-        sql += "name TEXT NOT NULL" ;
-        sql += "purpose TEXT NOT NULL" ;
-        sql += "sex TEXt NOT NULL" ;
-        sql += "age INTEGER NOT NULL" ;
-        sql += "weight INTEGER NOT NULL" ;
-        sql += "height INTEGER NOT NULL";
-        sql += "activityLevel TEXT NOT NULL";
+        sql += "foodName TEXT NOT NULL" ;
+        sql += "calorie INTEGER NOT NULL" ;
+        sql += "protain INTEGER NOT NULL" ;
+        sql += "carbon INTEGER NOT NULL";
+        sql += "fat TEXT NOT NULL";
 
         //テーブル作成用SQL文を実行
         db.execSQL(sql) ;
