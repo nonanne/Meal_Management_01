@@ -66,10 +66,15 @@ public class FoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
+                int checkedPosition = listView.getCheckedItemPosition();
+                // 未選択 または 不正な選択状態になった場合
+                if (checkedPosition < 0 || checkedPosition >= products.size()) {
+                    return;
+                }
+                Product selected = products.get(checkedPosition);
                 //Intentを利用して他のアクティビティに遷移する
                 Intent intent = new Intent(FoodActivity.this, FoodUpdateActivity.class);
+                intent.putExtra("PRODUCT", selected);
                 startActivity(intent);
             }
         });
