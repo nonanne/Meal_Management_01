@@ -99,20 +99,21 @@ public class FoodActivity extends AppCompatActivity {
         products = new ArrayList<Product>();
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        String[] columns = {"id", "foodName", "calorie", "protain", "carbon", "fat"};
+        String[] columns = {"id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"};
 
         Cursor cursor = db.query("Products", columns, null, null, null, null, null);
 
         while(cursor.moveToNext()) {
             int id = cursor.getInt(0) ;
             String foodName = cursor.getString(1);
-            double calorie = cursor.getDouble(2);
-            double protain = cursor.getDouble(3);
-            double carbon = cursor.getDouble(4);
-            double fat = cursor.getDouble(5);
+            double foodgram = cursor.getDouble(2);
+            double calorie = cursor.getDouble(3);
+            double protain = cursor.getDouble(4);
+            double carbon = cursor.getDouble(5);
+            double fat = cursor.getDouble(6);
 
             products.add(
-                    new Product(id, foodName, calorie, protain, carbon, fat)
+                    new Product(id, foodName, foodgram, calorie, protain, carbon, fat)
             );
         }
 

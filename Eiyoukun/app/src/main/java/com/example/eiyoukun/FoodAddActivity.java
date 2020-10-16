@@ -20,6 +20,7 @@ import android.content.SharedPreferences.Editor;
 public class FoodAddActivity extends AppCompatActivity {
     private MySQLiteOpenHelper helper; //MySQLiteOpenHelperクラス
     private EditText addFoodEdit;
+    private EditText foodGram;
     private EditText addCalorie;
     private EditText addProtain;
     private EditText addCarbon;
@@ -33,6 +34,7 @@ public class FoodAddActivity extends AppCompatActivity {
 
         helper = new MySQLiteOpenHelper(this);
         addFoodEdit = (EditText) findViewById(R.id.addFoodEdit);
+        foodGram = (EditText) findViewById(R.id.foodGram);
         addCalorie = (EditText) findViewById(R.id.addCalorie);
         addProtain = (EditText) findViewById(R.id.addProtain);
         addCarbon = (EditText) findViewById(R.id.addCarbon);
@@ -82,6 +84,7 @@ private boolean registRecord() {
 
         SQLiteDatabase db = helper.getWritableDatabase();
         String foodName = addFoodEdit.getText().toString();
+        double foodgram = Integer.parseInt(foodGram.getText().toString());
         double calorie = Integer.parseInt(addCalorie.getText().toString());
         double protain = Integer.parseInt(addProtain.getText().toString());
         double carbon = Integer.parseInt(addCarbon.getText().toString());
@@ -89,6 +92,7 @@ private boolean registRecord() {
 
         ContentValues value = new ContentValues();
         value.put("foodName", foodName);
+        value.put("foodGram", foodgram);
         value.put("calorie", calorie);
         value.put("protain", protain);
         value.put("carbon", carbon);

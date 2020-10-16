@@ -24,6 +24,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE Products (";
         sql += "id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sql += "foodName TEXT NOT NULL,";
+        sql += "foodgram INTEGER NOT NULL,";
         sql += "calorie INTEGER NOT NULL,";
         sql += "protain INTEGER NOT NULL,";
         sql += "carbon INTEGER NOT NULL,";

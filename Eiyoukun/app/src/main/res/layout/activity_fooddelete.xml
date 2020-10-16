@@ -26,11 +26,11 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:text="食品名"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        app:layout_constraintEnd_toStartOf="@+id/deleteFood"
+        app:layout_constraintTop_toTopOf="@+id/deleteFood" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <TextView
+        android:id="@+id/deleteFood"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginTop="90dp"
@@ -49,11 +49,11 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="カロリー"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintEnd_toStartOf="@+id/deleteCalorie"
+        app:layout_constraintTop_toTopOf="@+id/deleteCalorie" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+    <TextView
+        android:id="@+id/deleteCalorie"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -62,10 +62,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/foodGram" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
+    <TextView
+        android:id="@+id/deleteProtain"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -74,7 +74,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteCalorie" />
 
     <TextView
         android:id="@+id/textView6"
@@ -84,11 +84,11 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="タンパク質"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintEnd_toStartOf="@+id/deleteProtain"
+        app:layout_constraintTop_toTopOf="@+id/deleteProtain" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
+    <TextView
+        android:id="@+id/deleteCarbon"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -97,7 +97,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteProtain" />
 
     <TextView
         android:id="@+id/textView7"
@@ -107,11 +107,11 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="炭水化物"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toStartOf="@+id/deleteCarbon"
+        app:layout_constraintTop_toTopOf="@+id/deleteCarbon" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
+    <TextView
+        android:id="@+id/deleteFat"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
@@ -120,7 +120,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteCarbon" />
 
     <TextView
         android:id="@+id/textView8"
@@ -130,8 +130,8 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="脂質"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintEnd_toStartOf="@+id/deleteFat"
+        app:layout_constraintTop_toTopOf="@+id/deleteFat" />
 
     <Button
         android:id="@+id/foodDeletebutton"
@@ -150,8 +150,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="cal"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintBottom_toBottomOf="@+id/deleteCalorie"
+        app:layout_constraintStart_toEndOf="@+id/deleteCalorie" />
 
     <TextView
         android:id="@+id/textView12"
@@ -159,8 +159,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintBottom_toBottomOf="@+id/deleteProtain"
+        app:layout_constraintStart_toEndOf="@+id/deleteProtain" />
 
     <TextView
         android:id="@+id/textView13"
@@ -168,8 +168,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintBottom_toBottomOf="@+id/deleteCarbon"
+        app:layout_constraintStart_toEndOf="@+id/deleteCarbon" />
 
     <TextView
         android:id="@+id/textView14"
@@ -177,8 +177,30 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintBottom_toBottomOf="@+id/deleteFat"
+        app:layout_constraintStart_toEndOf="@+id/deleteFat" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:text="量"
+        app:layout_constraintEnd_toStartOf="@+id/foodGram"
+        app:layout_constraintTop_toTopOf="@+id/foodGram" />
+
+    <TextView
+        android:id="@+id/foodGram"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteFood" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
