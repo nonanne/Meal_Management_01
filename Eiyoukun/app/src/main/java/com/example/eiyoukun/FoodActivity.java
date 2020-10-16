@@ -61,17 +61,19 @@ public class FoodActivity extends AppCompatActivity {
 
         // activity_food内のfoodUpdateButtonを取得
         Button gofoodUpdateButton = findViewById(R.id.foodUpdateButton);
+
         //ボタンがクリックされた時の処理を追加
         gofoodUpdateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 int checkedPosition = listView.getCheckedItemPosition();
+
                 // 未選択 または 不正な選択状態になった場合
                 if (checkedPosition < 0 || checkedPosition >= products.size()) {
                     return;
                 }
                 Product selected = products.get(checkedPosition);
+
                 //Intentを利用して他のアクティビティに遷移する
                 Intent intent = new Intent(FoodActivity.this, FoodUpdateActivity.class);
                 intent.putExtra("PRODUCT", selected);
@@ -126,7 +128,7 @@ public class FoodActivity extends AppCompatActivity {
 
         for(int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            items[i] = product.getfoodName();
+            items[i] = product.getfoodName() + "：" + product.getfoodgram() + "\n" + "C:" + product.getCalorie() + "   p:" + product.getProtain() + "   c:" +product.getCarbon() + "   f:" + product.getFat();
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
