@@ -129,9 +129,7 @@ public class RegistActivity extends Activity {
         ageForm.setText(strAge);
         weightForm.setText(strWeight);
         heightForm.setText(strHeight);
-        spinnerSex.setAdapter(strSex);
-        activityLevelForm.setAdapter(strActivityLevel);
-        spinnerPurpose.setAdapter(strPurpose);
+
     }
 
 }

@@ -93,6 +93,7 @@ public class secondFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -162,7 +163,8 @@ public class secondFragment extends Fragment {
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult
+            (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         carbonGoal = getView().findViewById(R.id.calorieGoal);
