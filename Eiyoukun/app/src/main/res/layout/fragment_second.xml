@@ -6,11 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".secondFragment">
 
-    <GridLayout
+    <LinearLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="top"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/grid_border"
+        android:elevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,30 +30,36 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="fill"
-            android:background="@drawable/grid_border2"
             android:gravity="center"
             android:text="今日の日付"
+            android:textStyle="bold"
             app:layout_column="0"
             app:layout_row="0" />
 
         <TextView
             android:id="@+id/kojin_purpose"
-            android:layout_width="240dp"
+            android:layout_width="262dp"
             android:layout_height="match_parent"
             android:layout_gravity="fill"
-            android:background="@drawable/grid_border2"
             android:gravity="center"
             android:text="ダイエット"
+            android:textStyle="bold"
             app:layout_column="1"
             app:layout_row="0" />
-    </GridLayout>
+    </LinearLayout>
 
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/grid_border3"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/grid_border"
+        android:elevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,22 +71,21 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="0" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/textViewCalorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="カロリー"
-            android:background="@drawable/grid_border"
             android:gravity="center"
-            app:layout_columnWeight="1"
+            android:text="カロリー"
+            android:textStyle="bold"
             app:layout_column="1"
-            app:layout_row="0"
-            app:layout_columnSpan="2" />
-
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
 
 
         <TextView
@@ -81,32 +93,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="0" />
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_columnWeight="1"
             android:text=""
-
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="0" />
 
         <TextView
-            android:id="@+id/textView56"
+            android:id="@+id/textViewProtain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="タンパク質"
-            android:background="@drawable/grid_border"
             android:gravity="center"
-            app:layout_columnWeight="1"
-            app:layout_columnSpan="2"
+            android:text="タンパク質"
+            android:textStyle="bold"
             app:layout_column="5"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
             app:layout_row="0" />
-
 
 
         <TextView
@@ -114,8 +124,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="0" />
 
         <TextView
@@ -123,8 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -132,18 +142,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_columnWeight="1"
             app:layout_column="1"
+            app:layout_columnWeight="1"
             app:layout_gravity="fill"
             app:layout_row="1" />
 
         <TextView
-            android:id="@+id/textView155"
+            android:id="@+id/calorieGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="2"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -151,8 +162,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cal"
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -160,8 +171,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -169,17 +180,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_columnWeight="1"
             app:layout_column="5"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
-            android:id="@+id/textView159"
+            android:id="@+id/proteinGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="6"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -187,8 +199,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="g"
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="1" />
 
         <TextView
@@ -196,8 +208,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -205,8 +217,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_columnWeight="1"
             app:layout_column="1"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -214,8 +226,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="2"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -223,8 +236,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cal"
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -232,8 +245,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -241,8 +254,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_columnWeight="1"
             app:layout_column="5"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -250,8 +263,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="6"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
 
@@ -260,8 +274,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="g"
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="2" />
 
         <TextView
@@ -269,22 +283,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="3" />
 
         <TextView
-            android:id="@+id/textView170"
+            android:id="@+id/textViewCarbon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="炭水化物"
-            android:background="@drawable/grid_border"
             android:gravity="center"
-            app:layout_columnWeight="1"
+            android:text="炭水化物"
+            android:textStyle="bold"
             app:layout_column="1"
-            app:layout_row="3"
-            app:layout_columnSpan="2"/>
-
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="3" />
 
 
         <TextView
@@ -292,8 +305,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="3" />
 
         <TextView
@@ -301,21 +314,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="3" />
 
         <TextView
-            android:id="@+id/textView174"
+            android:id="@+id/textViewFat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="脂質"
-            android:background="@drawable/grid_border"
             android:gravity="center"
-            app:layout_columnWeight="1"
+            android:text="脂質"
+            android:textStyle="bold"
             app:layout_column="5"
-            app:layout_row="3"
-            app:layout_columnSpan="2"/>
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="2"
+            app:layout_row="3" />
 
 
         <TextView
@@ -323,8 +336,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="3" />
 
         <TextView
@@ -332,8 +345,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
@@ -341,15 +354,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_columnWeight="1"
             app:layout_column="1"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
-            android:id="@+id/textView179"
+            android:id="@+id/carbonGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="right"
             app:layout_column="2"
             app:layout_columnWeight="1"
             app:layout_row="4" />
@@ -359,8 +373,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cal"
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
@@ -368,8 +382,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
@@ -377,17 +391,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_columnWeight="1"
             app:layout_column="5"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
-            android:id="@+id/textView183"
+            android:id="@+id/fatGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="6"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
@@ -395,8 +410,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="g"
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="4" />
 
         <TextView
@@ -404,8 +419,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="0"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -413,8 +428,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_columnWeight="1"
             app:layout_column="1"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -422,8 +437,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="2"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -431,8 +447,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cal"
-            app:layout_columnWeight="1"
             app:layout_column="3"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -440,8 +456,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
             app:layout_column="4"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -449,8 +465,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_columnWeight="1"
             app:layout_column="5"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -458,8 +474,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            app:layout_columnWeight="1"
+            android:gravity="right"
             app:layout_column="6"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
         <TextView
@@ -467,2473 +484,935 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="g"
-            app:layout_columnWeight="1"
             app:layout_column="7"
+            app:layout_columnWeight="1"
             app:layout_row="5" />
 
     </androidx.gridlayout.widget.GridLayout>
 
     <Button
-        android:id="@+id/foodButton"
-        android:layout_width="121dp"
-        android:layout_height="54dp"
+        android:id="@+id/foodRegistButton"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:elevation="15dp"
         android:text="食事情報追加"
+        android:background="@drawable/button_shape"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout4" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+
+    <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:background="@drawable/grid_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:context=".MainActivity">
+        app:layout_constraintTop_toBottomOf="@+id/foodRegistButton">
 
-        <androidx.gridlayout.widget.GridLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/title1.1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/grid_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/foodRegistButton">
-
-            <TextView
-                android:id="@+id/textView189"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="食事①"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView190"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView191"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView192"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="100g"
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView193"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView194"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="100g"
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView195"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView196"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="100g"
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView197"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView198"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="100g"
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="0" />
-
-            <TextView
-                android:id="@+id/textView199"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="鶏肉（もも）"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView200"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="100g"
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView201"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView202"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView203"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView204"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView205"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView206"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView207"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView208"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="1" />
-
-            <TextView
-                android:id="@+id/textView209"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView210"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView211"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView212"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView213"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView214"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView215"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView216"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView217"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView218"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="2" />
-
-            <TextView
-                android:id="@+id/textView219"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView220"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView221"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView222"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView223"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView224"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView225"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView226"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView227"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView228"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="3" />
-
-            <TextView
-                android:id="@+id/textView229"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView230"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView231"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView232"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView233"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView234"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView235"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView236"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView237"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView238"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="4" />
-
-            <TextView
-                android:id="@+id/textView239"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView240"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView241"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView242"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView243"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView244"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView245"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView246"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView247"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView248"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="5" />
-
-            <TextView
-                android:id="@+id/textView249"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="食事②"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView250"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView251"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView252"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView253"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView254"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView255"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView256"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView257"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView258"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="6" />
-
-            <TextView
-                android:id="@+id/textView259"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView260"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView261"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView262"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView263"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView264"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView265"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView266"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView267"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView268"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="7" />
-
-            <TextView
-                android:id="@+id/textView269"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView270"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView271"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView272"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView273"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView274"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView275"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView277"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView278"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="8" />
-
-            <TextView
-                android:id="@+id/textView279"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView280"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView281"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView282"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView283"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView284"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView285"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView286"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView287"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView288"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="9" />
-
-            <TextView
-                android:id="@+id/textView289"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView290"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView291"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView292"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView293"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView294"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView295"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView296"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView297"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView298"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="10" />
-
-            <TextView
-                android:id="@+id/textView299"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView300"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView301"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView302"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView303"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView304"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView305"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView306"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView307"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView308"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="11" />
-
-            <TextView
-                android:id="@+id/textView309"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="食事③"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView310"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView311"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView312"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView313"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView314"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView315"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView316"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView317"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView318"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="12" />
-
-            <TextView
-                android:id="@+id/textView319"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView320"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView321"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView322"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView323"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView324"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView325"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView326"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView327"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView328"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="13" />
-
-            <TextView
-                android:id="@+id/textView329"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView330"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView331"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView332"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView333"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView334"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView335"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView336"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView337"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView338"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="14" />
-
-            <TextView
-                android:id="@+id/textView339"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView340"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView341"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView342"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView343"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView344"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView345"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView346"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView347"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView348"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="15" />
-
-            <TextView
-                android:id="@+id/textView349"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView350"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView351"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView352"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView353"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView354"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView355"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView356"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView357"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView358"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="16" />
-
-            <TextView
-                android:id="@+id/textView359"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView360"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView361"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView362"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView363"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView364"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView365"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView366"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView367"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView368"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="17" />
-
-            <TextView
-                android:id="@+id/textView369"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="食事④"
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView370"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView371"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView372"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView373"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView374"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView375"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView376"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView377"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView378"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/grid_border2"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="18" />
-
-            <TextView
-                android:id="@+id/textView379"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView380"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView381"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView382"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView383"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView384"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView385"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView386"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView387"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView388"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="19" />
-
-            <TextView
-                android:id="@+id/textView389"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView390"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView391"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView395"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView396"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView397"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView398"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView399"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView400"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView401"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="20" />
-
-            <TextView
-                android:id="@+id/textView402"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView403"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView404"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView405"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView406"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView407"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView408"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView409"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView410"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView411"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="21" />
-
-            <TextView
-                android:id="@+id/textView412"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView413"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView414"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView415"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView416"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView417"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView418"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView419"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView420"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView421"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="22" />
-
-            <TextView
-                android:id="@+id/textView422"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="0"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView423"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="1"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView424"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="2"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView425"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="3"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView426"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="P"
-                app:layout_column="4"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView427"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="5"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView428"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="C"
-                app:layout_column="6"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView429"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="7"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView430"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="F"
-                app:layout_column="8"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-            <TextView
-                android:id="@+id/textView431"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text=""
-                app:layout_column="9"
-                app:layout_columnWeight="1"
-                app:layout_row="23" />
-
-        </androidx.gridlayout.widget.GridLayout>
-    </ScrollView>
+            android:text="     "
+            app:layout_columnWeight="1"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/title1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="    "
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/title1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="    "
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/titleFood1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="食事①　　　　"
+            android:textStyle="bold"
+            app:layout_column="3"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/title1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="    "
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/title1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="    "
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/title1.6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     "
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="0" />
+
+        <TextView
+            android:id="@+id/calorieSum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="カロリー"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/proteinSum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="タンパク質"
+            android:textStyle="bold"
+            app:layout_column="2"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/carbonSum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="炭水化物"
+            android:textStyle="bold"
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/fatSum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="脂質"
+            android:textStyle="bold"
+            app:layout_column="6"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/calorieSumForm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="　　　　　"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/calorieSumGram1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="g"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/proteinSumForm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="　　　　　"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/proteinSumGram1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="g"
+            android:textStyle="bold"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/carbonSumForm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="　　　　　"
+            app:layout_column="4"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/carbonSumGram1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="g"
+            android:textStyle="bold"
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/fatSumForm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="　　　　　"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/fatSumGram1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="g"
+            android:textStyle="bold"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="2" />
+
+        <EditText
+            android:id="@+id/foodForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="0"
+            app:layout_columnSpan="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="3" />
+
+        <EditText
+            android:id="@+id/foodGramForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            app:layout_column="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="3" />
+
+
+        <TextView
+            android:id="@+id/foodGram1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="g"
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="3" />
+
+        <Button
+            android:id="@+id/foodButton1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="決定"
+            app:layout_column="6"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/calorie1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="カロリー："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/calorieForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="2888.8"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/calorieCal1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="cal"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/protein1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="タンパク質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/proteinForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="288.8"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/proteinGram1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="4" />
+
+        <TextView
+            android:id="@+id/carbon1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="炭水化物："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/carbonForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="278.5"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/carbonGram1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/fat1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="　　　脂質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/fatForm1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="378.9"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <TextView
+            android:id="@+id/fatGram1.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="5" />
+
+        <EditText
+            android:id="@+id/foodForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="0"
+            app:layout_columnSpan="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="6" />
+
+        <EditText
+            android:id="@+id/foodGramForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            app:layout_column="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="6" />
+
+        <TextView
+            android:id="@+id/foodGram1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g"
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="6" />
+
+        <Button
+            android:id="@+id/foodButton1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="決定"
+
+            app:layout_column="6"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill"
+            app:layout_row="6" />
+
+        <TextView
+            android:id="@+id/textView1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="6" />
+
+        <TextView
+            android:id="@+id/calorie1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="カロリー："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/calorieForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="2888.8"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/calorieCal1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="cal"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/protein1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="タンパク質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/proteinForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="288.8"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/proteinGram1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="7" />
+
+        <TextView
+            android:id="@+id/carbon1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="炭水化物："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <TextView
+            android:id="@+id/carbonForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="278.5"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <TextView
+            android:id="@+id/carbonGram1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <TextView
+            android:id="@+id/fat1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="　　　脂質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <TextView
+            android:id="@+id/fatForm1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="378.9"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <TextView
+            android:id="@+id/fatGram1.2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="8" />
+
+        <EditText
+            android:id="@+id/foodForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="0"
+            app:layout_columnSpan="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="9" />
+
+        <EditText
+            android:id="@+id/foodGramForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            app:layout_column="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="9" />
+
+        <TextView
+            android:id="@+id/foodGram1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g"
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="9" />
+
+        <Button
+            android:id="@+id/foodButton1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="決定"
+            app:layout_column="6"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill"
+            app:layout_row="9" />
+
+        <TextView
+            android:id="@+id/textView1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="9" />
+
+        <TextView
+            android:id="@+id/calorie1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="カロリー："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/calorieForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="2888.8"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/calorieCal1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="cal"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/protein1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="タンパク質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/proteinForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="288.8"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/proteinGram1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="10" />
+
+        <TextView
+            android:id="@+id/carbon1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="炭水化物："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <TextView
+            android:id="@+id/carbonForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="278.5"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <TextView
+            android:id="@+id/carbonGram1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <TextView
+            android:id="@+id/fat1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="　　　脂質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <TextView
+            android:id="@+id/fatForm1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="378.9"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <TextView
+            android:id="@+id/fatGram1.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="11" />
+
+        <EditText
+            android:id="@+id/foodForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="0"
+            app:layout_columnSpan="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="12" />
+
+        <EditText
+            android:id="@+id/foodGramForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            app:layout_column="4"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="12" />
+
+        <TextView
+            android:id="@+id/foodGram1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g"
+            app:layout_column="5"
+            app:layout_columnWeight="1"
+            app:layout_row="12" />
+
+        <Button
+            android:id="@+id/foodButton1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="決定"
+            app:layout_column="6"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill"
+            app:layout_row="12" />
+
+        <TextView
+            android:id="@+id/textView1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="12" />
+
+        <TextView
+            android:id="@+id/calorie1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="カロリー："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/calorieForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="2888.8"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/calorieCal1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="cal"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/protein1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="タンパク質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/proteinForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="288.8"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/proteinGram1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="13" />
+
+        <TextView
+            android:id="@+id/carbon1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="炭水化物："
+            app:layout_column="0"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+
+        <TextView
+            android:id="@+id/carbonForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="278.5"
+            app:layout_column="2"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+
+        <TextView
+            android:id="@+id/carbonGram1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="3"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+
+        <TextView
+            android:id="@+id/fat1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="　　　脂質："
+            app:layout_column="4"
+            app:layout_columnSpan="2"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+
+        <TextView
+            android:id="@+id/fatForm1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="378.9"
+            app:layout_column="6"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+
+        <TextView
+            android:id="@+id/fatGram1.4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="g"
+            app:layout_column="7"
+            app:layout_columnWeight="1"
+            app:layout_row="14" />
+    </androidx.gridlayout.widget.GridLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

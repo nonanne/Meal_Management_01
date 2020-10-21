@@ -14,6 +14,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:text="ユーザー名"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/useridForm"
         app:layout_constraintTop_toTopOf="@+id/useridForm" />
 
@@ -25,7 +26,8 @@
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="100dp"
-
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -40,6 +42,7 @@
         android:layout_marginRight="65dp"
         android:layout_marginBottom="31dp"
         android:text="目的"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/sex"
         app:layout_constraintEnd_toStartOf="@+id/spinnerPurpose"
         app:layout_constraintTop_toTopOf="@+id/spinnerPurpose" />
@@ -53,6 +56,9 @@
         android:layout_marginLeft="155dp"
         android:layout_marginTop="25dp"
         android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:entries="@array/list"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/useridForm" />
@@ -65,6 +71,7 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:text="性別"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/spinnerSex"
         app:layout_constraintTop_toTopOf="@+id/spinnerSex" />
 
@@ -75,7 +82,9 @@
         android:layout_marginStart="180dp"
         android:layout_marginLeft="180dp"
         android:layout_marginTop="25dp"
-
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:entries="@array/list1"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +98,7 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:text="年齢"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/ageForm"
         app:layout_constraintTop_toTopOf="@+id/ageForm" />
 
@@ -100,7 +110,11 @@
         android:layout_marginLeft="180dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:inputType="number"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSex" />
 
@@ -112,6 +126,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
         android:text="歳"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ageForm"
         app:layout_constraintTop_toTopOf="@+id/ageForm" />
 
@@ -123,6 +138,7 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:text="体重"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/weightForm"
         app:layout_constraintTop_toTopOf="@+id/weightForm" />
 
@@ -134,7 +150,11 @@
         android:layout_marginLeft="180dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:inputType="number"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightForm" />
 
@@ -146,6 +166,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
         android:text="kg"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/weightForm"
         app:layout_constraintTop_toTopOf="@+id/weightForm" />
 
@@ -157,6 +178,7 @@
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:text="活動レベル"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/activityLevelForm"
         app:layout_constraintTop_toTopOf="@+id/activityLevelForm" />
 
@@ -167,7 +189,9 @@
         android:layout_marginStart="130dp"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="25dp"
-
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:entries="@array/list2"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,6 +205,7 @@
         android:layout_marginEnd="90dp"
         android:layout_marginRight="90dp"
         android:text="身長"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/heightForm"
         app:layout_constraintTop_toTopOf="@+id/heightForm" />
 
@@ -192,7 +217,11 @@
         android:layout_marginLeft="180dp"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:inputType="number"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageForm" />
 
@@ -204,6 +233,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="15dp"
         android:text="cm"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/heightForm"
         app:layout_constraintTop_toTopOf="@+id/heightForm" />
 
@@ -216,6 +246,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:text="登録"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_shape"
         app:layout_constraintBottom_toTopOf="@+id/oneDayNeedEiyou"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activityLevelForm" />

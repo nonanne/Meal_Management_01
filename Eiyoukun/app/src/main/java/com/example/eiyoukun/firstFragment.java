@@ -33,6 +33,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link firstFragment#newInstance} factory method to
@@ -62,6 +63,15 @@ public class firstFragment extends Fragment {
     private static final String KEY_SEX = "sex";
     private static final String KEY_ACTIVITYLEVEL = "activityLevel";
     private static final String KEY_PURPOSE = "purpose";
+
+
+    private SharedPreferences EiyouInf;
+    private static final String SHARED_PREF_NAME1 = "EiyouInf";
+    private static final String KEY_CALORIE = "calorie";
+    private static final String KEY_PROTAIN = "protain";
+    private static final String KEY_CARBON = "carbon";
+    private static final String KEY_FAT = "fat";
+    private static final String KEY_PURPOSE2 = "purpose2";
 
     private String strUserid;
     private String strAge;
@@ -156,7 +166,7 @@ public class firstFragment extends Fragment {
         } catch (Exception e){
 
         }
-
+        saveData();
     }
 
 
@@ -166,10 +176,10 @@ public class firstFragment extends Fragment {
         strUserid = accountInf.getString(KEY_USERID, "");
         strAge = accountInf.getString(KEY_AGE, "");
         strWeight = accountInf.getString(KEY_WEIGHT, "");
-        strHeight = accountInf.getString(KEY_HEIGHT, "string");
-        strSex = accountInf.getString(KEY_SEX, "string");
-        strActivityLevel = accountInf.getString(KEY_ACTIVITYLEVEL, "string");
-        strPurpose = accountInf.getString(KEY_PURPOSE, "string");
+        strHeight = accountInf.getString(KEY_HEIGHT, "");
+        strSex = accountInf.getString(KEY_SEX, "");
+        strActivityLevel = accountInf.getString(KEY_ACTIVITYLEVEL, "");
+        strPurpose = accountInf.getString(KEY_PURPOSE, "");
     }
 
     public void setData() {
@@ -247,10 +257,10 @@ public class firstFragment extends Fragment {
         carbon = weight * 2.65;
         fat = weight * 0.9;
 
-        String msg0 = String.format("%.1fcal", calorie); // 四捨五入
-        String msg1 = protein + "g";
-        String msg2 = carbon + "g";
-        String msg3 = fat + "g";
+        String msg0 = String.format("%.1f", calorie); // 四捨五入
+        String msg1 = String.format("%.1f", protein);
+        String msg2 = String.format("%.1f", carbon);
+        String msg3 = String.format("%.1f", fat);
 
 
         calorieForm.setText(msg0);
@@ -259,5 +269,16 @@ public class firstFragment extends Fragment {
         fatForm.setText(msg3);
     }
 
+
+    public void saveData() {
+        EiyouInf = requireActivity().getSharedPreferences(SHARED_PREF_NAME1, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = EiyouInf.edit();
+        editor.putString(KEY_CALORIE,calorieForm.getText().toString());
+        editor.putString(KEY_PROTAIN,proteinForm.getText().toString());
+        editor.putString(KEY_CARBON,carbonForm.getText().toString());
+        editor.putString(KEY_FAT,fatForm.getText().toString());
+        editor.putString(KEY_PURPOSE2,purposeForm.getText().toString());
+        editor.apply();
+    }
 
 }

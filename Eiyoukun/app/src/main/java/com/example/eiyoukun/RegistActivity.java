@@ -2,6 +2,7 @@ package com.example.eiyoukun;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.widget.EditText;
@@ -92,6 +93,9 @@ public class RegistActivity extends Activity {
                 RegistActivity.this.finish();
             }
          });
+
+        loadData();
+        setData();
     }
 
 
@@ -108,7 +112,27 @@ public class RegistActivity extends Activity {
         editor.apply();
     }
 
+    public void loadData() {
+        //fragmentはsharedPreferenceを直接呼び出せないので、親のactivityを呼んでそこから取得する
+        accountInf = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        strUserid = accountInf.getString(KEY_USERID, "");
+        strAge = accountInf.getString(KEY_AGE, "");
+        strWeight = accountInf.getString(KEY_WEIGHT, "");
+        strHeight = accountInf.getString(KEY_HEIGHT, "");
+        strSex = accountInf.getString(KEY_SEX, "");
+        strActivityLevel = accountInf.getString(KEY_ACTIVITYLEVEL, "");
+        strPurpose = accountInf.getString(KEY_PURPOSE, "");
+    }
 
+    public void setData() {
+        useridForm.setText(strUserid);
+        ageForm.setText(strAge);
+        weightForm.setText(strWeight);
+        heightForm.setText(strHeight);
+        spinnerSex.setAdapter(strSex);
+        activityLevelForm.setAdapter(strActivityLevel);
+        spinnerPurpose.setAdapter(strPurpose);
+    }
 
 }
 

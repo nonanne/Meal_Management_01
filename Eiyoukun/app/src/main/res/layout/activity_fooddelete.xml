@@ -26,6 +26,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:text="食品名"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteFood"
         app:layout_constraintTop_toTopOf="@+id/deleteFood" />
 
@@ -37,9 +38,41 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:text="量"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/foodGram"
+        app:layout_constraintTop_toTopOf="@+id/foodGram" />
+
+    <TextView
+        android:id="@+id/foodGram"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteFood" />
 
     <TextView
         android:id="@+id/textView5"
@@ -49,6 +82,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="カロリー"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteCalorie"
         app:layout_constraintTop_toTopOf="@+id/deleteCalorie" />
 
@@ -60,6 +94,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodGram" />
@@ -72,6 +110,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteCalorie" />
@@ -84,6 +126,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="タンパク質"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteProtain"
         app:layout_constraintTop_toTopOf="@+id/deleteProtain" />
 
@@ -95,6 +138,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteProtain" />
@@ -107,6 +154,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="炭水化物"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteCarbon"
         app:layout_constraintTop_toTopOf="@+id/deleteCarbon" />
 
@@ -118,6 +166,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
+        android:gravity="center"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteCarbon" />
@@ -130,6 +182,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="脂質"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/deleteFat"
         app:layout_constraintTop_toTopOf="@+id/deleteFat" />
 
@@ -141,6 +194,8 @@
         android:layout_marginLeft="75dp"
         android:layout_marginBottom="100dp"
         android:text="削除"
+        android:background="@drawable/button_shape"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -150,6 +205,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="cal"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/deleteCalorie"
         app:layout_constraintStart_toEndOf="@+id/deleteCalorie" />
 
@@ -159,6 +215,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/deleteProtain"
         app:layout_constraintStart_toEndOf="@+id/deleteProtain" />
 
@@ -168,6 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/deleteCarbon"
         app:layout_constraintStart_toEndOf="@+id/deleteCarbon" />
 
@@ -177,30 +235,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/deleteFat"
         app:layout_constraintStart_toEndOf="@+id/deleteFat" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:text="量"
-        app:layout_constraintEnd_toStartOf="@+id/foodGram"
-        app:layout_constraintTop_toTopOf="@+id/foodGram" />
-
-    <TextView
-        android:id="@+id/foodGram"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteFood" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

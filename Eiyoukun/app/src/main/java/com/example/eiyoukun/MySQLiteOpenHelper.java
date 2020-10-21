@@ -24,11 +24,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE Products (";
         sql += "id INTEGER PRIMARY KEY AUTOINCREMENT,";
         sql += "foodName TEXT NOT NULL,";
-        sql += "foodgram INTEGER NOT NULL,";
-        sql += "calorie INTEGER NOT NULL,";
-        sql += "protain INTEGER NOT NULL,";
-        sql += "carbon INTEGER NOT NULL,";
-        sql += "fat INTEGER NOT NULL);";
+        sql += "foodgram DECIMAL NOT NULL,";
+        sql += "calorie DECIMAL NOT NULL,";
+        sql += "protain DECIMAL NOT NULL,";
+        sql += "carbon DECIMAL NOT NULL,";
+        sql += "fat DECIMAL NOT NULL);";
 
         //テーブル作成用SQL文を実行
         db.execSQL(sql) ;
