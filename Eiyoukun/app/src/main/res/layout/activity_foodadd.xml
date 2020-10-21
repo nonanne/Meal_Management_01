@@ -26,6 +26,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:text="食品名"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addFoodEdit"
         app:layout_constraintTop_toTopOf="@+id/addFoodEdit" />
 
@@ -37,6 +38,9 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:ems="10"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +53,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="カロリー"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addCalorie"
         app:layout_constraintTop_toTopOf="@+id/addCalorie" />
 
@@ -60,7 +65,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodGram" />
 
@@ -72,7 +80,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCalorie" />
 
@@ -84,6 +95,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="タンパク質"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addProtain"
         app:layout_constraintTop_toTopOf="@+id/addProtain" />
 
@@ -95,7 +107,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addProtain" />
 
@@ -107,6 +122,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="炭水化物"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addCarbon"
         app:layout_constraintTop_toTopOf="@+id/addCarbon" />
 
@@ -118,7 +134,10 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCarbon" />
 
@@ -130,6 +149,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="脂質"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/addFat"
         app:layout_constraintTop_toTopOf="@+id/addFat" />
 
@@ -141,6 +161,8 @@
         android:layout_marginLeft="75dp"
         android:layout_marginBottom="100dp"
         android:text="登録"
+        android:background="@drawable/button_shape"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -150,6 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="cal"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/addCalorie"
         app:layout_constraintStart_toEndOf="@+id/addCalorie" />
 
@@ -159,6 +182,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/addProtain"
         app:layout_constraintStart_toEndOf="@+id/addProtain" />
 
@@ -168,6 +192,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/addCarbon"
         app:layout_constraintStart_toEndOf="@+id/addCarbon" />
 
@@ -177,6 +202,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="g"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/addFat"
         app:layout_constraintStart_toEndOf="@+id/addFat" />
 
@@ -188,6 +214,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:text="量"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/foodGram"
         app:layout_constraintTop_toTopOf="@+id/foodGram" />
 
@@ -198,6 +225,10 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
+        android:elevation="3dp"
+        android:background="@drawable/grid_border"
+        android:gravity="center"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addFoodEdit" />
 
