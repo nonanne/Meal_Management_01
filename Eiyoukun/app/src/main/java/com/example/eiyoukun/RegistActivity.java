@@ -5,14 +5,18 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.format.Time;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
 import java.lang.Math;
+import java.util.Collections;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.SharedPreferences;
@@ -27,6 +31,8 @@ public class RegistActivity extends Activity {
     private Spinner spinnerSex;
     private Spinner activityLevelForm;
     private Spinner spinnerPurpose;
+
+    private String[] spinnerItems = {"男性", "女性"};
 
     private static int REQUEST_CODE = 1000;
     private SharedPreferences accountInf;
@@ -125,14 +131,39 @@ public class RegistActivity extends Activity {
     }
 
     public void setData() {
+
         useridForm.setText(strUserid);
         ageForm.setText(strAge);
         weightForm.setText(strWeight);
         heightForm.setText(strHeight);
-        spinnerSex.setAdapter(spinnerSex);
-        spinnerPurpose.setAdapter(strPurpose);
-        activityLevelForm.setAdapter(strActivityLevel);
+        SpinnerAdapter adapter = spinnerSex.getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (adapter.getItem(i).equals(strSex)) {
+                spinnerSex.setSelection(i);
+                break;
+            }
+        }
+
+        SpinnerAdapter adapter1 = activityLevelForm.getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (adapter1.getItem(i).equals(strActivityLevel)) {
+                activityLevelForm.setSelection(i);
+                break;
+            }
+        }
+
+        SpinnerAdapter adapter2 = spinnerPurpose.getAdapter();
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (adapter2.getItem(i).equals(strPurpose)) {
+                spinnerPurpose.setSelection(i);
+                break;
+            }
+        }
+
     }
 
+
 }
+
+
 
