@@ -1,6 +1,7 @@
 package com.example.eiyoukun;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,12 +23,23 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
 import java.lang.Math;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import android.content.SharedPreferences;
 import android.text.format.Time;
+
+import com.example.eiyoukun.mealFragments.PageFragment1;
+import com.example.eiyoukun.mealFragments.PageFragment2;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link secondFragment#newInstance} factory method to
@@ -54,6 +67,13 @@ public class secondFragment extends Fragment {
     private String strCarbon;
     private String strFat;
     private String strPurpose2;
+
+    private ViewPager pager;
+    private PagerAdapter pagerAdapter;
+
+    private AutoCompleteTextView foodlist;
+    private MySQLiteOpenHelper mydb;
+    private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -111,7 +131,7 @@ public class secondFragment extends Fragment {
         TextView dateText = view.findViewById(R.id.today);
         Time time = new Time("Asia/Tokyo");
         time.setToNow();
-        String date = (time.month+1) + "月" + time.monthDay + "日";
+        String date = (time.month + 1) + "月" + time.monthDay + "日";
         dateText.setText(date);
 
         calorieGoal = view.findViewById(R.id.calorieGoal);
@@ -120,7 +140,30 @@ public class secondFragment extends Fragment {
         fatGoal = view.findViewById(R.id.fatGoal);
         kojin_purpose = view.findViewById(R.id.kojin_purpose);
 
+        List<Fragment> list = new ArrayList<>();
+        list.add(new PageFragment1());
+        list.add(new PageFragment2());
 
+        pager = view.findViewById(R.id.pager);
+        pagerAdapter = new SidePagerAdapter(getChildFragmentManager(), list) {
+            @Override
+            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+                return false;
+            }
+        };
+        pager.setAdapter(pagerAdapter);
+
+        /*
+       foodlist = (AutoCompleteTextView)view.findViewById(R.id.foodForm1_1);
+       mydb = new MySQLiteOpenHelper(this);
+       db = mydb.getDatabaseName();
+       final String [
+
+       ] mydata;
+        ArrayList<String> array = new ArrayList<>();
+        String sql = "SELECT * FROM Products";
+        Cursor cr = db.rawQuery
+*/
     // activity_main内のregistButtonを取得
     Button gofoodActivityButton = view.findViewById(R.id.foodRegistButton);
     //ボタンがクリックされた時の処理を追加
@@ -138,6 +181,14 @@ public class secondFragment extends Fragment {
         loadData();
         setData();
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        loadData();
+        setData();
     }
 
     public void loadData() {
