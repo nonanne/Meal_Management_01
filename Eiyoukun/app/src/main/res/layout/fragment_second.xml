@@ -504,14 +504,13 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout4" />
+        />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="405dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="240dp">
+        android:layout_height="wrap_content">
 
     </androidx.viewpager.widget.ViewPager>
 

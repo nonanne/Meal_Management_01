@@ -217,6 +217,7 @@ public class firstFragment extends Fragment {
             calNutrition();
         } catch (Exception e){
         }
+        saveData();
     }
 
 

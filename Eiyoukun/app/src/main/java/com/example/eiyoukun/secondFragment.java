@@ -39,6 +39,8 @@ import android.text.format.Time;
 
 import com.example.eiyoukun.mealFragments.PageFragment1;
 import com.example.eiyoukun.mealFragments.PageFragment2;
+import com.example.eiyoukun.mealFragments.PageFragment3;
+import com.example.eiyoukun.mealFragments.PageFragment4;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -143,13 +145,11 @@ public class secondFragment extends Fragment {
         List<Fragment> list = new ArrayList<>();
         list.add(new PageFragment1());
         list.add(new PageFragment2());
+        list.add(new PageFragment3());
+        list.add(new PageFragment4());
 
         pager = view.findViewById(R.id.pager);
         pagerAdapter = new SidePagerAdapter(getChildFragmentManager(), list) {
-            @Override
-            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                return false;
-            }
         };
         pager.setAdapter(pagerAdapter);
 

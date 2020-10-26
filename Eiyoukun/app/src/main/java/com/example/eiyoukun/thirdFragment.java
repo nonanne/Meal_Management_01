@@ -1,19 +1,37 @@
 package com.example.eiyoukun;
 
+import android.app.FragmentManager;
+import android.os.Build;
 import android.os.Bundle;
+import com.example.eiyoukun.calenderFragments.thirdCalenderFragment;
+import com.example.eiyoukun.calenderFragments.thirdWeightFragment;
+import com.example.eiyoukun.mealFragments.PageFragment1;
+import com.example.eiyoukun.mealFragments.PageFragment2;
+import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link thirdFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class thirdFragment extends Fragment {
+public class thirdFragment extends Fragment{
+
+    private ViewPager pager2;
+    private PagerAdapter pagerAdapter2;
+    private TabLayout tabLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,12 +71,50 @@ public class thirdFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+        View v = inflater.inflate(R.layout.fragment_third, container, false);
+        return v;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        tabLayout = view.findViewById(R.id.tabLayout);
+        tabLayout.addTab(tabLayout.newTab().setText("体重"));
+        tabLayout.addTab(tabLayout.newTab().setText("カレンダー"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        pager2 = (ViewPager) getView().findViewById(R.id.pagerThird);
+        pagerAdapter2 = new SidePagerAdapter2(getChildFragmentManager(), tabLayout.getTabCount());
+        pager2.setAdapter(pagerAdapter2);
+        pager2.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+    }
+
 }
