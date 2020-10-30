@@ -73,9 +73,6 @@ public class secondFragment extends Fragment {
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
-    private AutoCompleteTextView foodlist;
-    private MySQLiteOpenHelper mydb;
-    private SQLiteDatabase db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -153,17 +150,7 @@ public class secondFragment extends Fragment {
         };
         pager.setAdapter(pagerAdapter);
 
-        /*
-       foodlist = (AutoCompleteTextView)view.findViewById(R.id.foodForm1_1);
-       mydb = new MySQLiteOpenHelper(this);
-       db = mydb.getDatabaseName();
-       final String [
 
-       ] mydata;
-        ArrayList<String> array = new ArrayList<>();
-        String sql = "SELECT * FROM Products";
-        Cursor cr = db.rawQuery
-*/
     // activity_main内のregistButtonを取得
     Button gofoodActivityButton = view.findViewById(R.id.foodRegistButton);
     //ボタンがクリックされた時の処理を追加
