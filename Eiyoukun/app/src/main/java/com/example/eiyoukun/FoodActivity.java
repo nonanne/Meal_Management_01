@@ -19,6 +19,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import android.widget.ListView;
 
 public class FoodActivity extends AppCompatActivity {
@@ -135,14 +138,14 @@ public class FoodActivity extends AppCompatActivity {
 
         for(int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            items[i] = product.getfoodName() + "：" + product.getfoodgram() + "\n" + "C:" + product.getCalorie() + "   p:" + product.getProtain() + "   c:" +product.getCarbon() + "   f:" + product.getFat();
+            items[i] = product.getfoodName() + "：" + product.getfoodgram() + "\n" + "C:" + product.getCalorie() + "   p:" + product.getProtain() + "\n" +"   c:" +product.getCarbon() + "   f:" + product.getFat();
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_single_choice, items);
 
         listView.setAdapter(adapter);
-
+        Collections.sort((List<Comparable>) adapter);
         listView.setItemChecked(0, true);
 
         db.close();

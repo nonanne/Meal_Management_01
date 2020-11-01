@@ -113,7 +113,6 @@
         android:gravity="center"
         android:elevation="3dp"
         android:background="@drawable/grid_border"
-
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSex" />
