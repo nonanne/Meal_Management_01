@@ -15,6 +15,7 @@ public class SidePagerAdapter2 extends FragmentStatePagerAdapter {
     public SidePagerAdapter2(FragmentManager fm, int NumberOfTabs) {
         super(fm);
         this.mNoOfTabs = NumberOfTabs;
+        return;
     }
 
     @NonNull
@@ -34,6 +35,6 @@ public class SidePagerAdapter2 extends FragmentStatePagerAdapter {
 }
     @Override
     public int getCount() {
-        return 0;
+        return mNoOfTabs;
     }
 }

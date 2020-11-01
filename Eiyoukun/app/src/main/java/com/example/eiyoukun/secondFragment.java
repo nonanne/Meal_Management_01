@@ -1,46 +1,37 @@
 package com.example.eiyoukun;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Activity;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.widget.Button;
-import android.view.View;
-import java.lang.Math;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import android.content.SharedPreferences;
-import android.text.format.Time;
 
 import com.example.eiyoukun.mealFragments.PageFragment1;
 import com.example.eiyoukun.mealFragments.PageFragment2;
 import com.example.eiyoukun.mealFragments.PageFragment3;
 import com.example.eiyoukun.mealFragments.PageFragment4;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,9 +64,9 @@ public class secondFragment extends Fragment {
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
-    private AutoCompleteTextView foodlist;
-    private MySQLiteOpenHelper mydb;
-    private SQLiteDatabase db;
+    private ArrayList<Product> products;
+    private ListView listView;
+    private MySQLiteOpenHelper helper;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -153,17 +144,7 @@ public class secondFragment extends Fragment {
         };
         pager.setAdapter(pagerAdapter);
 
-        /*
-       foodlist = (AutoCompleteTextView)view.findViewById(R.id.foodForm1_1);
-       mydb = new MySQLiteOpenHelper(this);
-       db = mydb.getDatabaseName();
-       final String [
 
-       ] mydata;
-        ArrayList<String> array = new ArrayList<>();
-        String sql = "SELECT * FROM Products";
-        Cursor cr = db.rawQuery
-*/
     // activity_main内のregistButtonを取得
     Button gofoodActivityButton = view.findViewById(R.id.foodRegistButton);
     //ボタンがクリックされた時の処理を追加
@@ -189,6 +170,57 @@ public class secondFragment extends Fragment {
 
         loadData();
         setData();
+
+        //DBの情報が再度読みこみのつもり V１
+        products = new ArrayList<Product>();
+        helper = new MySQLiteOpenHelper(requireActivity());
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String[] columns = {"id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"};
+        Cursor cursor = db.query("Products", columns, null, null, null, null, null);
+
+        while(cursor.moveToNext()) {
+            int id = cursor.getInt(0) ;
+            String foodName = cursor.getString(1);
+            double foodgram = cursor.getDouble(2);
+            double calorie = cursor.getDouble(3);
+            double protain = cursor.getDouble(4);
+            double carbon = cursor.getDouble(5);
+            double fat = cursor.getDouble(6);
+
+            products.add(
+                    new Product(id, foodName, foodgram, calorie, protain, carbon, fat)
+            );
+        }
+
+        //DBの情報が再度読みこみのつもり V2 eroorが出る
+     /*
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:Products.db");
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery( "select * from Products" );
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        while( rs.next() ) {
+            System.out.println( rs.getString( 1 ) );
+            System.out.println( rs.getInt( 2 ) );
+        }
+
+        // 閉じる
+        conn.close();
+*/
     }
 
     public void loadData() {
