@@ -145,7 +145,7 @@ public class FoodActivity extends AppCompatActivity {
                 (this, android.R.layout.simple_list_item_single_choice, items);
 
         listView.setAdapter(adapter);
-        Collections.sort((List<Comparable>) adapter);
+
         listView.setItemChecked(0, true);
 
         db.close();
