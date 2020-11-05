@@ -87,6 +87,7 @@ public class thirdFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 
 
+
         tabLayout = view.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("体重"));
         tabLayout.addTab(tabLayout.newTab().setText("カレンダー"));
