@@ -171,56 +171,6 @@ public class secondFragment extends Fragment {
         loadData();
         setData();
 
-        //DBの情報が再度読みこみのつもり V１
-        products = new ArrayList<Product>();
-        helper = new MySQLiteOpenHelper(requireActivity());
-        SQLiteDatabase db = helper.getReadableDatabase();
-        String[] columns = {"id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"};
-        Cursor cursor = db.query("Products", columns, null, null, null, null, null);
-
-        while(cursor.moveToNext()) {
-            int id = cursor.getInt(0) ;
-            String foodName = cursor.getString(1);
-            double foodgram = cursor.getDouble(2);
-            double calorie = cursor.getDouble(3);
-            double protain = cursor.getDouble(4);
-            double carbon = cursor.getDouble(5);
-            double fat = cursor.getDouble(6);
-
-            products.add(
-                    new Product(id, foodName, foodgram, calorie, protain, carbon, fat)
-            );
-        }
-
-        //DBの情報が再度読みこみのつもり V2 eroorが出る
-     /*
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection("jdbc:sqlite:Products.db");
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        Statement stmt = null;
-        try {
-            stmt = conn.createStatement();
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-
-        ResultSet rs = null;
-        try {
-            rs = stmt.executeQuery( "select * from Products" );
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-        while( rs.next() ) {
-            System.out.println( rs.getString( 1 ) );
-            System.out.println( rs.getInt( 2 ) );
-        }
-
-        // 閉じる
-        conn.close();
-*/
     }
 
     public void loadData() {
