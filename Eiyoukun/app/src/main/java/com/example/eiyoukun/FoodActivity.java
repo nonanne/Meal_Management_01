@@ -138,7 +138,7 @@ public class FoodActivity extends AppCompatActivity {
 
         for(int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            items[i] = product.getfoodName() + "：" + product.getfoodgram() + "\n" + "C:" + product.getCalorie() + "   p:" + product.getProtain() + "\n" +"   c:" +product.getCarbon() + "   f:" + product.getFat();
+            items[i] = product.getfoodName() + "：" + product.getfoodgram() + "\n" + "C:" + product.getCalorie() + "   p:" + product.getProtain()  +"   c:" +product.getCarbon() + "   f:" + product.getFat();
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
