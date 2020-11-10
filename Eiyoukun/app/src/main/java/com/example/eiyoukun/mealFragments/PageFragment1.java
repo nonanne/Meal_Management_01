@@ -58,12 +58,34 @@ public class PageFragment1 extends Fragment {
     private EditText foodGramForm2;
     private EditText foodGramForm3;
     private EditText foodGramForm4;
+    private TextView calorieTotalForm;
+    private TextView protainTotalForm;
+    private TextView carbonTotalForm;
+    private TextView fatTotalForm;
 
     private double foodgram = 0.0d;
     private double calorie = 0.0d;
     private double protain = 0.0d;
     private double carbon = 0.0d;
     private double fat = 0.0d;
+
+    private double msg1_0;
+    private double msg1_1;
+    private double msg1_2;
+    private double msg1_3;
+    private double msg2_0;
+    private double msg2_1;
+    private double msg2_2;
+    private double msg2_3;
+    private double msg3_0;
+    private double msg3_1;
+    private double msg3_2;
+    private double msg3_3;
+    private double msg4_0;
+    private double msg4_1;
+    private double msg4_2;
+    private double msg4_3;
+
 
     private MySQLiteOpenHelper mydb;
     private SQLiteDatabase db;
@@ -113,6 +135,10 @@ public class PageFragment1 extends Fragment {
         foodGramForm2 = view.findViewById(R.id.foodGramForm1_2);
         foodGramForm3 = view.findViewById(R.id.foodGramForm1_3);
         foodGramForm4 = view.findViewById(R.id.foodGramForm1_4);
+        calorieTotalForm = view.findViewById(R.id.calorieSumForm1);
+        protainTotalForm = view.findViewById(R.id.proteinSumForm1);
+        carbonTotalForm = view.findViewById(R.id.carbonSumForm1);
+        fatTotalForm = view.findViewById(R.id.fatSumForm1);
 
         //データベースの取り込み
         mydb = new MySQLiteOpenHelper(requireActivity());
@@ -165,14 +191,17 @@ public class PageFragment1 extends Fragment {
                 }
 
                 // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
-                double msg0 = calorie * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
-                double msg1 = protain * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
-                double msg2 = carbon * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
-                double msg3 = fat * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
-                calorieSum1.setText(String.valueOf(msg0));
-                protainSum1.setText(String.valueOf(msg1));
-                carbonSum1.setText(String.valueOf(msg2));
-                fatSum1.setText(String.valueOf(msg3));
+                msg1_0 = calorie * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+                msg1_1 = protain * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+                msg1_2 = carbon * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+                msg1_3 = fat * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+                calorieSum1.setText(String.valueOf(msg1_0));
+                protainSum1.setText(String.valueOf(msg1_1));
+                carbonSum1.setText(String.valueOf(msg1_2));
+                fatSum1.setText(String.valueOf(msg1_3));
+
+                EiyouTotal();
+
             }
         });
 
@@ -207,14 +236,16 @@ public class PageFragment1 extends Fragment {
                 }
 
                 // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
-                double msg0 = calorie * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
-                double msg1 = protain * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
-                double msg2 = carbon * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
-                double msg3 = fat * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
-                calorieSum2.setText(String.valueOf(msg0));
-                protainSum2.setText(String.valueOf(msg1));
-                carbonSum2.setText(String.valueOf(msg2));
-                fatSum2.setText(String.valueOf(msg3));
+                msg2_0 = calorie * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+                msg2_1 = protain * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+                msg2_2 = carbon * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+                msg2_3 = fat * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+                calorieSum2.setText(String.valueOf(msg2_0));
+                protainSum2.setText(String.valueOf(msg2_1));
+                carbonSum2.setText(String.valueOf(msg2_2));
+                fatSum2.setText(String.valueOf(msg2_3));
+
+                EiyouTotal();
             }
         });
 
@@ -249,14 +280,16 @@ public class PageFragment1 extends Fragment {
                 }
 
                 // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
-                double msg0 = calorie * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
-                double msg1 = protain * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
-                double msg2 = carbon * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
-                double msg3 = fat * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
-                calorieSum3.setText(String.valueOf(msg0));
-                protainSum3.setText(String.valueOf(msg1));
-                carbonSum3.setText(String.valueOf(msg2));
-                fatSum3.setText(String.valueOf(msg3));
+                msg3_0 = calorie * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+                msg3_1 = protain * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+                msg3_2 = carbon * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+                msg3_3 = fat * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+                calorieSum3.setText(String.valueOf(msg3_0));
+                protainSum3.setText(String.valueOf(msg3_1));
+                carbonSum3.setText(String.valueOf(msg3_2));
+                fatSum3.setText(String.valueOf(msg3_3));
+
+                EiyouTotal();
             }
         });
 
@@ -290,19 +323,33 @@ public class PageFragment1 extends Fragment {
                     fat = 0;
                 }
                 // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
-                double msg0 = calorie * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
-                double msg1 = protain * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
-                double msg2 = carbon * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
-                double msg3 = fat * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
-                calorieSum4.setText(String.valueOf(msg0));
-                protainSum4.setText(String.valueOf(msg1));
-                carbonSum4.setText(String.valueOf(msg2));
-                fatSum4.setText(String.valueOf(msg3));
+                msg4_0 = calorie * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+                msg4_1 = protain * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+                msg4_2 = carbon * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+                msg4_3 = fat * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+                calorieSum4.setText(String.valueOf(msg4_0));
+                protainSum4.setText(String.valueOf(msg4_1));
+                carbonSum4.setText(String.valueOf(msg4_2));
+                fatSum4.setText(String.valueOf(msg4_3));
+
+                EiyouTotal();
             }
         });
 
 
     }
+
+    public void EiyouTotal (){
+        String msg0Total = String.valueOf(msg1_0 + msg2_0 + msg3_0 + msg4_0);
+        calorieTotalForm.setText(msg0Total);
+        String msg1Total = String.valueOf(msg1_1 + msg2_1 + msg3_1 + msg4_1);
+        protainTotalForm.setText(msg1Total);
+        String msg2Total = String.valueOf(msg1_2 + msg2_2 + msg3_2 + msg4_2);
+        carbonTotalForm.setText(msg2Total);
+        String msg3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
+        fatTotalForm.setText(msg3Total);
+    }
+
 
     @Override
     public void onResume() {
