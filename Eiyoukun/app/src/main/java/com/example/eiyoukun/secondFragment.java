@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
@@ -44,6 +45,10 @@ public class secondFragment extends Fragment {
     private TextView proteinGoal;
     private TextView carbonGoal;
     private TextView fatGoal;
+    private TextView calorieNow;
+    private TextView proteinNow;
+    private TextView carbonNow;
+    private TextView fatNow;
     private TextView kojin_purpose;
 
 
@@ -106,7 +111,14 @@ public class secondFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
+        getChildFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_0Total = bundle.getString("bundleKey");
+                calorieNow.setText(msg1_0Total);
+            }
+        });
     }
 
     @Override
@@ -131,6 +143,10 @@ public class secondFragment extends Fragment {
         proteinGoal = view.findViewById(R.id.proteinGoal);
         carbonGoal = view.findViewById(R.id.carbonGoal);
         fatGoal = view.findViewById(R.id.fatGoal);
+        calorieNow = view.findViewById(R.id.calorieNow);
+        proteinNow = view.findViewById(R.id.proteinNow);
+        carbonNow = view.findViewById(R.id.carbonNow);
+        fatNow = view.findViewById(R.id.fatNow);
         kojin_purpose = view.findViewById(R.id.kojin_purpose);
 
         List<Fragment> list = new ArrayList<>();
@@ -213,30 +229,3 @@ public class secondFragment extends Fragment {
     }
 }
 
-/*
-<ScrollView
-        android:id="@+id/scrollView2"
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:layout_marginBottom="50dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:context=".MainActivity">
-
-<androidx.gridlayout.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/grid_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodRegistButton">
-
-
-</androidx.gridlayout.widget.GridLayout>
-</ScrollView>
-
- */

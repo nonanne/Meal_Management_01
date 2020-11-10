@@ -1,6 +1,5 @@
 package com.example.eiyoukun.mealFragments;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -9,10 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.view.KeyEvent;
-import android.view.inputmethod.InputMethodManager;
-import android.view.MenuItem;
-import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,17 +15,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import androidx.fragment.app.Fr;
 
-import com.example.eiyoukun.FoodActivity;
-import com.example.eiyoukun.FoodAddActivity;
+
 import com.example.eiyoukun.MySQLiteOpenHelper;
 import com.example.eiyoukun.Product;
 import com.example.eiyoukun.R;
 
-import static androidx.core.content.ContextCompat.getSystemService;
+import java.util.ArrayList;
 
 public class PageFragment1 extends Fragment {
 
@@ -92,6 +84,8 @@ public class PageFragment1 extends Fragment {
 
     private ArrayList<Product> products;
     private MySQLiteOpenHelper helper;
+
+
 
     @Nullable
     @Override
@@ -340,14 +334,19 @@ public class PageFragment1 extends Fragment {
     }
 
     public void EiyouTotal (){
-        String msg0Total = String.valueOf(msg1_0 + msg2_0 + msg3_0 + msg4_0);
-        calorieTotalForm.setText(msg0Total);
-        String msg1Total = String.valueOf(msg1_1 + msg2_1 + msg3_1 + msg4_1);
-        protainTotalForm.setText(msg1Total);
-        String msg2Total = String.valueOf(msg1_2 + msg2_2 + msg3_2 + msg4_2);
-        carbonTotalForm.setText(msg2Total);
-        String msg3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
-        fatTotalForm.setText(msg3Total);
+        String msg1_0Total = String.valueOf(msg1_0 + msg2_0 + msg3_0 + msg4_0);
+        calorieTotalForm.setText(msg1_0Total);
+        String msg1_1Total = String.valueOf(msg1_1 + msg2_1 + msg3_1 + msg4_1);
+        protainTotalForm.setText(msg1_1Total);
+        String msg1_2Total = String.valueOf(msg1_2 + msg2_2 + msg3_2 + msg4_2);
+        carbonTotalForm.setText(msg1_2Total);
+        String msg1_3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
+        fatTotalForm.setText(msg1_3Total);
+
+        Bundle result = new Bundle();
+        result.putString("bundleKey", msg1_0Total);
+        getParentFragmentManager().setFragmentResult("requestKey", msg1_0Total);
+
     }
 
 
