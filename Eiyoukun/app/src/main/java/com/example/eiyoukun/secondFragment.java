@@ -16,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -111,14 +112,7 @@ public class secondFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        getChildFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
-                // We use a String here, but any type that can be put in a Bundle is supported
-                String msg1_0Total = bundle.getString("bundleKey");
-                calorieNow.setText(msg1_0Total);
-            }
-        });
+
     }
 
     @Override
@@ -160,6 +154,20 @@ public class secondFragment extends Fragment {
         };
         pager.setAdapter(pagerAdapter);
 
+        getChildFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_0Total = bundle.getString("bundleKey1_0");
+                calorieNow.setText(msg1_0Total);
+                String msg1_1Total = bundle.getString("bundleKey1_1");
+                proteinNow.setText(msg1_1Total);
+                String msg1_2Total = bundle.getString("bundleKey1_2");
+                carbonNow.setText(msg1_2Total);
+                String msg1_3Total = bundle.getString("bundleKey1_3");
+                fatNow.setText(msg1_3Total);
+            }
+        });
 
     // activity_main内のregistButtonを取得
     Button gofoodActivityButton = view.findViewById(R.id.foodRegistButton);

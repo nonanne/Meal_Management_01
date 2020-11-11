@@ -15,7 +15,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.Fr;
 
 
 import com.example.eiyoukun.MySQLiteOpenHelper;
@@ -343,10 +342,18 @@ public class PageFragment1 extends Fragment {
         String msg1_3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
         fatTotalForm.setText(msg1_3Total);
 
-        Bundle result = new Bundle();
-        result.putString("bundleKey", msg1_0Total);
-        getParentFragmentManager().setFragmentResult("requestKey", msg1_0Total);
-
+        Bundle result0 = new Bundle();
+        result0.putString("bundleKey1_0", msg1_0Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_0", result0);
+        Bundle result1 = new Bundle();
+        result1.putString("bundleKey1_1", msg1_1Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_1", result1);
+        Bundle result2 = new Bundle();
+        result2.putString("bundleKey1_2", msg1_2Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_2", result2);
+        Bundle result3 = new Bundle();
+        result3.putString("bundleKey1_3", msg1_3Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_3", result3);
     }
 
 
