@@ -112,10 +112,41 @@ public class secondFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        getChildFragmentManager().setFragmentResultListener("requestKey1_0", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_0Total = bundle.getString("bundleKey1_0");
+                calorieNow.setText(msg1_0Total);
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey1_1", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_1Total = bundle.getString("bundleKey1_1");
+                proteinNow.setText(msg1_1Total);
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey1_2", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_2Total = bundle.getString("bundleKey1_2");
+                carbonNow.setText(msg1_2Total);
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey1_3", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                String msg1_3Total = bundle.getString("bundleKey1_3");
+                fatNow.setText(msg1_3Total);
+            }
+        });
 
     }
 

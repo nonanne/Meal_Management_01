@@ -1,5 +1,6 @@
 package com.example.eiyoukun.mealFragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -341,6 +342,9 @@ public class PageFragment1 extends Fragment {
         carbonTotalForm.setText(msg1_2Total);
         String msg1_3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
         fatTotalForm.setText(msg1_3Total);
+
+
+
 
         Bundle result0 = new Bundle();
         result0.putString("bundleKey1_0", msg1_0Total);

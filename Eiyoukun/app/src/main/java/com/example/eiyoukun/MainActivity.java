@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
         NavController navController = Navigation.findNavController(this, R.id.fragment2);
         NavigationUI.setupWithNavController(bottomNav, navController);
-        Log.d("onClick","Fragment2に遷移");
         //bottomNav.setOnNavigationItemReselectedListener((BottomNavigationView.OnNavigationItemReselectedListener) navListener);
         //getFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, new firstFragment()).commit();
 
