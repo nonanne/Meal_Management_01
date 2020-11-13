@@ -87,6 +87,8 @@ public class secondFragment extends Fragment {
         // Required empty public constructor
     }
 
+
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -103,6 +105,8 @@ public class secondFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+
+
     }
 
     @Override
@@ -153,6 +157,7 @@ public class secondFragment extends Fragment {
         pagerAdapter = new SidePagerAdapter(getChildFragmentManager(), list) {
         };
         pager.setAdapter(pagerAdapter);
+
 
         getChildFragmentManager().setFragmentResultListener("key", this, new FragmentResultListener() {
             @Override
