@@ -1,6 +1,5 @@
 package com.example.eiyoukun.mealFragments;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,11 +11,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 
 import com.example.eiyoukun.MySQLiteOpenHelper;
 import com.example.eiyoukun.Product;
@@ -334,6 +332,7 @@ public class PageFragment1 extends Fragment {
     }
 
     public void EiyouTotal (){
+
         String msg1_0Total = String.valueOf(msg1_0 + msg2_0 + msg3_0 + msg4_0);
         calorieTotalForm.setText(msg1_0Total);
         String msg1_1Total = String.valueOf(msg1_1 + msg2_1 + msg3_1 + msg4_1);
@@ -342,10 +341,14 @@ public class PageFragment1 extends Fragment {
         carbonTotalForm.setText(msg1_2Total);
         String msg1_3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
         fatTotalForm.setText(msg1_3Total);
+        Bundle result0 = new Bundle();
+        result0.putString("totalCalorie1", msg1_0Total);
+        result0.putString("totalProtein1", msg1_1Total);
+        result0.putString("totalCarbon1", msg1_2Total);
+        result0.putString("totalFat1", msg1_3Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_0", result0);
 
-
-
-
+/*　今後上記のコードと比較したいからわざと残しています
         Bundle result0 = new Bundle();
         result0.putString("bundleKey1_0", msg1_0Total);
         getParentFragmentManager().setFragmentResult("requestKey1_0", result0);
@@ -358,6 +361,7 @@ public class PageFragment1 extends Fragment {
         Bundle result3 = new Bundle();
         result3.putString("bundleKey1_3", msg1_3Total);
         getParentFragmentManager().setFragmentResult("requestKey1_3", result3);
+ */
     }
 
 

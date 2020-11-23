@@ -233,25 +233,25 @@ public class firstFragment extends Fragment {
         // case文で処理したい
         double calorie = 0;
         if (strSex.equals("男性") && strActivityLevel.equals("ほぼ運動しない")) {
-            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.2; //  String msg0　時に四捨五入
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.5; //  String msg0　時に四捨五入
         } else if (strSex.equals("男性") && strActivityLevel.equals("軽い運動をしている")) {
-            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.375;
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.625;
         } else if (strSex.equals("男性") && strActivityLevel.equals("中程度の運動をしている")) {
-            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.55;
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.75;
         } else if (strSex.equals("男性") && strActivityLevel.equals("激しい運動をしている")) {
-            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.725;
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.875;
         } else if (strSex.equals("男性") && strActivityLevel.equals("非常に激しい運動をしている")) {
-            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.9;
+            calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 2.0;
         } else if (strSex.equals("女性") && strActivityLevel.equals("ほぼ運動しない")) {
-            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.2) * 10) / 10.0; // この時点で四捨五入
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.5) * 10) / 10.0; // この時点で四捨五入
         } else if (strSex.equals("女性") && strActivityLevel.equals("軽い運動をしている")) {
-            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.375) * 10) / 10.0;
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.625) * 10) / 10.0;
         } else if (strSex.equals("女性") && strActivityLevel.equals("中程度の運動をしている")) {
-            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.55) * 10) / 10.0;
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.75) * 10) / 10.0;
         } else if (strSex.equals("女性") && strActivityLevel.equals("激しい運動をしている")) {
-            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.725) * 10) / 10.0;
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.875) * 10) / 10.0;
         } else if (strSex.equals("女性") && strActivityLevel.equals("非常に激しい運動をしている")) {
-            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.9) * 10) / 10.0;
+            calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 2.0) * 10) / 10.0;
         }
 
         protein = weight * 2.3;

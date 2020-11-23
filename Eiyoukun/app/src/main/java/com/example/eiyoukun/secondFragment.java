@@ -52,6 +52,27 @@ public class secondFragment extends Fragment {
     private TextView fatNow;
     private TextView kojin_purpose;
 
+    private String totalCalorie1;
+    private String totalProtein1;
+    private String totalCarbon1;
+    private String totalFat1;
+    private String totalCalorie2;
+    private String totalProtein2;
+    private String totalCarbon2;
+    private String totalFat2;
+    private String totalCalorie3;
+    private String totalProtein3;
+    private String totalCarbon3;
+    private String totalFat3;
+    private String totalCalorie4;
+    private String totalProtein4;
+    private String totalCarbon4;
+    private String totalFat4;
+
+    private String msg1;
+    private String msg2;
+    private String msg3;
+    private String msg4;
 
     private SharedPreferences EiyouInf;
     private static final String SHARED_PREF_NAME1 = "EiyouInf";
@@ -112,6 +133,63 @@ public class secondFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getChildFragmentManager().setFragmentResultListener("requestKey1_0", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                totalCalorie1 = bundle.getString("totalCalorie1");
+                totalProtein1 = bundle.getString("totalProtein1");
+                totalCarbon1 = bundle.getString("totalCarbon1");
+                totalFat1 = bundle.getString("totalFat1");
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey2_0", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                totalCalorie2 = bundle.getString("totalCalorie2");
+                totalProtein2 = bundle.getString("totalProtein2");
+                totalCarbon2 = bundle.getString("totalCarbon2");
+                totalFat2 = bundle.getString("totalFat2");
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey3_0", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                totalCalorie3 = bundle.getString("totalCalorie3");
+                totalProtein3 = bundle.getString("totalProtein3");
+                totalCarbon3 = bundle.getString("totalCarbon3");
+                totalFat3 = bundle.getString("totalFat3");
+            }
+        });
+
+        getChildFragmentManager().setFragmentResultListener("requestKey4_0", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+                // We use a String here, but any type that can be put in a Bundle is supported
+                totalCalorie4 = bundle.getString("totalCalorie4");
+                totalProtein4 = bundle.getString("totalProtein4");
+                totalCarbon4 = bundle.getString("totalCarbon4");
+                totalFat4 = bundle.getString("totalFat4");
+            }
+        });
+
+        msg1 = totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4;
+        msg2 = totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4;
+        msg3 = totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4;
+        msg4 = totalFat1 + totalFat2 + totalFat3 + totalFat4;
+
+        carbonNow.setText(msg1);
+        proteinNow.setText(msg2);
+        carbonNow.setText(msg3);
+        fatNow.setText(msg4);
+
+
+        /*　今後上記のコードと比較したいからわざと残しています
         getChildFragmentManager().setFragmentResultListener("requestKey1_0", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
@@ -147,7 +225,7 @@ public class secondFragment extends Fragment {
                 fatNow.setText(msg1_3Total);
             }
         });
-
+*/
     }
 
     @Override

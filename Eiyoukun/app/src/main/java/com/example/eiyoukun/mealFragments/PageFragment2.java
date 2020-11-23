@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -105,6 +106,271 @@ public class PageFragment2 extends Fragment {
         foodlist2 = (AutoCompleteTextView)view.findViewById(R.id.foodForm2_2);
         foodlist3= (AutoCompleteTextView)view.findViewById(R.id.foodForm2_3);
         foodlist4= (AutoCompleteTextView)view.findViewById(R.id.foodForm2_4);
+        calorieSum1 = view.findViewById(R.id.calorieForm2_1);
+        calorieSum2 = view.findViewById(R.id.calorieForm2_2);
+        calorieSum3 = view.findViewById(R.id.calorieForm2_3);
+        calorieSum4 = view.findViewById(R.id.calorieForm2_4);
+        protainSum1 = view.findViewById(R.id.proteinForm2_1);
+        protainSum2 = view.findViewById(R.id.proteinForm2_2);
+        protainSum3 = view.findViewById(R.id.proteinForm2_3);
+        protainSum4 = view.findViewById(R.id.proteinForm2_4);
+        carbonSum1 = view.findViewById(R.id.carbonForm2_1);
+        carbonSum2 = view.findViewById(R.id.carbonForm2_2);
+        carbonSum3 = view.findViewById(R.id.carbonForm2_3);
+        carbonSum4 = view.findViewById(R.id.carbonForm2_4);
+        fatSum1 = view.findViewById(R.id.fatForm2_1);
+        fatSum2 = view.findViewById(R.id.fatForm2_2);
+        fatSum3 = view.findViewById(R.id.fatForm2_3);
+        fatSum4 = view.findViewById(R.id.fatForm2_4);
+        foodGramForm1 = view.findViewById(R.id.foodGramForm2_1);
+        foodGramForm2 = view.findViewById(R.id.foodGramForm2_2);
+        foodGramForm3 = view.findViewById(R.id.foodGramForm2_3);
+        foodGramForm4 = view.findViewById(R.id.foodGramForm2_4);
+        calorieTotalForm = view.findViewById(R.id.calorieSumForm1);
+        protainTotalForm = view.findViewById(R.id.proteinSumForm1);
+        carbonTotalForm = view.findViewById(R.id.carbonSumForm1);
+        fatTotalForm = view.findViewById(R.id.fatSumForm1);
+
+        mydb = new MySQLiteOpenHelper(requireActivity());
+        db = mydb.getReadableDatabase();
+        final String [] mydata;
+        ArrayList<String> array = new ArrayList<>();
+        String sql = "SELECT * FROM Products";
+        Cursor cr = db.rawQuery(sql, null);
+        cr.moveToFirst();
+        mydata = new String[cr.getCount()];
+        int i = 0;
+        do {
+            mydata[i] = cr.getString(1);
+            i ++;
+        }while (cr.moveToNext());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
+                android.R.layout.simple_dropdown_item_1line, mydata);
+        foodlist1.setAdapter(adapter);
+        foodlist2.setAdapter(adapter);
+        foodlist3.setAdapter(adapter);
+        foodlist4.setAdapter(adapter);
+
+
+
+
+    Button foodButton1 = view.findViewById(R.id.foodButton1_1);
+    //ボタンがクリックされた時の処理
+        foodButton1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String name = foodlist1.getText().toString();
+            Cursor cr = db.query(
+                    "Products",
+                    new String[] {
+                            "id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"
+                    },
+                    "foodName = ?",
+                    new String[]{ name },
+                    null, null, null
+            );
+            boolean exist = cr.moveToNext();
+            if (exist){
+                foodgram = cr.getDouble(2);
+                calorie = cr.getDouble(3);
+                protain = cr.getDouble(4);
+                carbon = cr.getDouble(5);
+                fat = cr.getDouble(6);
+            } else {
+                foodgram = 0;
+                calorie = 0;
+                protain = 0;
+                carbon = 0;
+                fat = 0;
+            }
+
+            // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
+            msg1_0 = calorie * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+            msg1_1 = protain * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+            msg1_2 = carbon * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+            msg1_3 = fat * Double.parseDouble(foodGramForm1.getText().toString()) / foodgram;
+            calorieSum1.setText(String.valueOf(msg1_0));
+            protainSum1.setText(String.valueOf(msg1_1));
+            carbonSum1.setText(String.valueOf(msg1_2));
+            fatSum1.setText(String.valueOf(msg1_3));
+
+            EiyouTotal();
+
+        }
+    });
+
+    Button foodButton2 = view.findViewById(R.id.foodButton1_2);
+    //ボタンがクリックされた時の処理
+        foodButton2.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String name = foodlist2.getText().toString();
+            Cursor cr = db.query(
+                    "Products",
+                    new String[] {
+                            "id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"
+                    },
+                    "foodName = ?",
+                    new String[]{ name },
+                    null, null, null
+            );
+            boolean exist = cr.moveToNext();
+            if (exist){
+                foodgram = cr.getDouble(2);
+                calorie = cr.getDouble(3);
+                protain = cr.getDouble(4);
+                carbon = cr.getDouble(5);
+                fat = cr.getDouble(6);
+            } else {
+                foodgram = 0;
+                calorie = 0;
+                protain = 0;
+                carbon = 0;
+                fat = 0;
+            }
+
+            // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
+            msg2_0 = calorie * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+            msg2_1 = protain * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+            msg2_2 = carbon * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+            msg2_3 = fat * Double.parseDouble(foodGramForm2.getText().toString()) / foodgram;
+            calorieSum2.setText(String.valueOf(msg2_0));
+            protainSum2.setText(String.valueOf(msg2_1));
+            carbonSum2.setText(String.valueOf(msg2_2));
+            fatSum2.setText(String.valueOf(msg2_3));
+
+            EiyouTotal();
+        }
+    });
+
+    Button foodButton3 = view.findViewById(R.id.foodButton1_3);
+    //ボタンがクリックされた時の処理
+        foodButton3.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String name = foodlist3.getText().toString();
+            Cursor cr = db.query(
+                    "Products",
+                    new String[] {
+                            "id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"
+                    },
+                    "foodName = ?",
+                    new String[]{ name },
+                    null, null, null
+            );
+            boolean exist = cr.moveToNext();
+            if (exist){
+                foodgram = cr.getDouble(2);
+                calorie = cr.getDouble(3);
+                protain = cr.getDouble(4);
+                carbon = cr.getDouble(5);
+                fat = cr.getDouble(6);
+            } else {
+                foodgram = 0;
+                calorie = 0;
+                protain = 0;
+                carbon = 0;
+                fat = 0;
+            }
+
+            // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
+            msg3_0 = calorie * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+            msg3_1 = protain * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+            msg3_2 = carbon * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+            msg3_3 = fat * Double.parseDouble(foodGramForm3.getText().toString()) / foodgram;
+            calorieSum3.setText(String.valueOf(msg3_0));
+            protainSum3.setText(String.valueOf(msg3_1));
+            carbonSum3.setText(String.valueOf(msg3_2));
+            fatSum3.setText(String.valueOf(msg3_3));
+
+            EiyouTotal();
+        }
+    });
+
+    Button foodButton4 = view.findViewById(R.id.foodButton1_4);
+    //ボタンがクリックされた時の処理
+        foodButton4.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String name = foodlist4.getText().toString();
+            Cursor cr = db.query(
+                    "Products",
+                    new String[] {
+                            "id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"
+                    },
+                    "foodName = ?",
+                    new String[]{ name },
+                    null, null, null
+            );
+            boolean exist = cr.moveToNext();
+            if (exist){
+                foodgram = cr.getDouble(2);
+                calorie = cr.getDouble(3);
+                protain = cr.getDouble(4);
+                carbon = cr.getDouble(5);
+                fat = cr.getDouble(6);
+            } else {
+                foodgram = 0;
+                calorie = 0;
+                protain = 0;
+                carbon = 0;
+                fat = 0;
+            }
+            // * ★double -> String の変換を記述。一番手短な方法のためにコードは正直よくないです。
+            msg4_0 = calorie * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+            msg4_1 = protain * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+            msg4_2 = carbon * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+            msg4_3 = fat * Double.parseDouble(foodGramForm4.getText().toString()) / foodgram;
+            calorieSum4.setText(String.valueOf(msg4_0));
+            protainSum4.setText(String.valueOf(msg4_1));
+            carbonSum4.setText(String.valueOf(msg4_2));
+            fatSum4.setText(String.valueOf(msg4_3));
+
+            EiyouTotal();
+        }
+    });
+
+
+}
+
+    public void EiyouTotal (){
+
+        String msg2_0Total = String.valueOf(msg1_0 + msg2_0 + msg3_0 + msg4_0);
+        calorieTotalForm.setText(msg2_0Total);
+        String msg2_1Total = String.valueOf(msg1_1 + msg2_1 + msg3_1 + msg4_1);
+        protainTotalForm.setText(msg2_1Total);
+        String msg2_2Total = String.valueOf(msg1_2 + msg2_2 + msg3_2 + msg4_2);
+        carbonTotalForm.setText(msg2_2Total);
+        String msg2_3Total = String.valueOf(msg1_3 + msg2_3 + msg3_3 + msg4_3);
+        fatTotalForm.setText(msg2_3Total);
+        Bundle result0 = new Bundle();
+        result0.putString("totalCalorie2", msg2_0Total);
+        result0.putString("totalProtein2", msg2_1Total);
+        result0.putString("totalCarbon2", msg2_2Total);
+        result0.putString("totalFat2", msg2_3Total);
+        getParentFragmentManager().setFragmentResult("requestKey2_0", result0);
+
+/*　今後上記のコードと比較したいからわざと残しています
+        Bundle result0 = new Bundle();
+        result0.putString("bundleKey1_0", msg1_0Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_0", result0);
+        Bundle result1 = new Bundle();
+        result1.putString("bundleKey1_1", msg1_1Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_1", result1);
+        Bundle result2 = new Bundle();
+        result2.putString("bundleKey1_2", msg1_2Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_2", result2);
+        Bundle result3 = new Bundle();
+        result3.putString("bundleKey1_3", msg1_3Total);
+        getParentFragmentManager().setFragmentResult("requestKey1_3", result3);
+ */
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         mydb = new MySQLiteOpenHelper(requireActivity());
         db = mydb.getReadableDatabase();
         final String [] mydata;
