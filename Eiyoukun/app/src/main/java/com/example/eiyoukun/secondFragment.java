@@ -52,22 +52,22 @@ public class secondFragment extends Fragment {
     private TextView fatNow;
     private TextView kojin_purpose;
 
-    private String totalCalorie1;
-    private String totalProtein1;
-    private String totalCarbon1;
-    private String totalFat1;
-    private String totalCalorie2;
-    private String totalProtein2;
-    private String totalCarbon2;
-    private String totalFat2;
-    private String totalCalorie3;
-    private String totalProtein3;
-    private String totalCarbon3;
-    private String totalFat3;
-    private String totalCalorie4;
-    private String totalProtein4;
-    private String totalCarbon4;
-    private String totalFat4;
+    private double totalCalorie1;
+    private double totalProtein1;
+    private double totalCarbon1;
+    private double totalFat1;
+    private double totalCalorie2;
+    private double totalProtein2;
+    private double totalCarbon2;
+    private double totalFat2;
+    private double totalCalorie3;
+    private double totalProtein3;
+    private double totalCarbon3;
+    private double totalFat3;
+    private double totalCalorie4;
+    private double totalProtein4;
+    private double totalCarbon4;
+    private double totalFat4;
 
     private String msg1;
     private String msg2;
@@ -82,7 +82,7 @@ public class secondFragment extends Fragment {
     private static final String KEY_FAT = "fat";
     private static final String KEY_PURPOSE2 = "purpose2";
 
-    private String strcCalorie;
+    private String strCalorie;
     private String strProtein;
     private String strCarbon;
     private String strFat;
@@ -138,10 +138,26 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                totalCalorie1 = bundle.getString("totalCalorie1");
-                totalProtein1 = bundle.getString("totalProtein1");
-                totalCarbon1 = bundle.getString("totalCarbon1");
-                totalFat1 = bundle.getString("totalFat1");
+                if ("totalCalorie1" == null) {
+                    totalCalorie1 = bundle.getDouble("totalCalorie1");
+                } else {
+                    totalCalorie1 = 0;
+                }
+                if ("totalProtein1" == null) {
+                    totalProtein1 = bundle.getDouble("totalProtein1");
+                } else {
+                    totalProtein1 = 0;
+                }
+                if ("totalCarbon1" == null) {
+                    totalCarbon1 = bundle.getDouble("totalCarbon1");
+                } else {
+                    totalCarbon1 = 0;
+                }
+                if ("totalFat1" == null) {
+                    totalFat1 = bundle.getDouble("totalFat1");
+                } else {
+                    totalFat1 = 0;
+                }
             }
         });
 
@@ -149,10 +165,26 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                totalCalorie2 = bundle.getString("totalCalorie2");
-                totalProtein2 = bundle.getString("totalProtein2");
-                totalCarbon2 = bundle.getString("totalCarbon2");
-                totalFat2 = bundle.getString("totalFat2");
+                if ("totalCalorie2" == null) {
+                    totalCalorie2 = bundle.getDouble("totalCalorie2");
+                } else {
+                    totalCalorie2 = 0;
+                }
+                if ("totalProtein2" == null) {
+                    totalProtein2 = bundle.getDouble("totalProtein2");
+                } else {
+                    totalProtein2 = 0;
+                }
+                if ("totalCarbon2" == null) {
+                    totalCarbon2 = bundle.getDouble("totalCarbon2");
+                } else {
+                    totalCarbon2 = 0;
+                }
+                if ("totalFat2" == null) {
+                    totalFat2 = bundle.getDouble("totalFat2");
+                } else {
+                    totalFat2 = 0;
+                }
             }
         });
 
@@ -160,10 +192,26 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                totalCalorie3 = bundle.getString("totalCalorie3");
-                totalProtein3 = bundle.getString("totalProtein3");
-                totalCarbon3 = bundle.getString("totalCarbon3");
-                totalFat3 = bundle.getString("totalFat3");
+                if ("totalCalorie3" == null) {
+                    totalCalorie3 = bundle.getDouble("totalCalorie3");
+                } else {
+                    totalCalorie3 = 0;
+                }
+                if ("totalProtein3" == null) {
+                    totalProtein3 = bundle.getDouble("totalProtein3");
+                } else {
+                    totalProtein3 = 0;
+                }
+                if ("totalCarbon3" == null) {
+                    totalCarbon3 = bundle.getDouble("totalCarbon3");
+                } else {
+                    totalCarbon3 = 0;
+                }
+                if ("totalFat3" == null) {
+                    totalFat3 = bundle.getDouble("totalFat3");
+                } else {
+                    totalFat3 = 0;
+                }
             }
         });
 
@@ -171,22 +219,40 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                totalCalorie4 = bundle.getString("totalCalorie4");
-                totalProtein4 = bundle.getString("totalProtein4");
-                totalCarbon4 = bundle.getString("totalCarbon4");
-                totalFat4 = bundle.getString("totalFat4");
+                if ("totalCalorie4" == null) {
+                    totalCalorie4 = bundle.getDouble("totalCalorie4");
+                } else {
+                    totalCalorie4 = 0;
+                }
+                if ("totalProtein4" == null) {
+                    totalProtein4 = bundle.getDouble("totalProtein4");
+                } else {
+                    totalProtein4 = 0;
+                }
+                if ("totalCarbon4" == null) {
+                    totalCarbon4 = bundle.getDouble("totalCarbon4");
+                } else {
+                    totalCarbon4 = 0;
+                }
+                if ("totalFat4" == null) {
+                    totalFat4 = bundle.getDouble("totalFat4");
+                } else {
+                    totalFat4 = 0;
+                }
             }
         });
 
-        msg1 = totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4;
-        msg2 = totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4;
-        msg3 = totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4;
-        msg4 = totalFat1 + totalFat2 + totalFat3 + totalFat4;
-
+        msg1 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
+        msg2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
+        msg3 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
+        msg4 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
+        
         carbonNow.setText(msg1);
         proteinNow.setText(msg2);
         carbonNow.setText(msg3);
         fatNow.setText(msg4);
+
+
 
 
         /*　今後上記のコードと比較したいからわざと残しています
@@ -256,6 +322,16 @@ public class secondFragment extends Fragment {
         fatNow = view.findViewById(R.id.fatNow);
         kojin_purpose = view.findViewById(R.id.kojin_purpose);
 
+        msg1 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
+        msg2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
+        msg3 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
+        msg4 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
+
+        carbonNow.setText(msg1);
+        proteinNow.setText(msg2);
+        carbonNow.setText(msg3);
+        fatNow.setText(msg4);
+
         List<Fragment> list = new ArrayList<>();
         list.add(new PageFragment1());
         list.add(new PageFragment2());
@@ -314,16 +390,16 @@ public class secondFragment extends Fragment {
     public void loadData() {
         //fragmentはsharedPreferenceを直接呼び出せないので、親のactivityを呼んでそこから取得する
         EiyouInf = requireActivity().getSharedPreferences(SHARED_PREF_NAME1, Context.MODE_PRIVATE);
-        strcCalorie = EiyouInf.getString(KEY_CALORIE, "");
+        strCalorie = EiyouInf.getString(KEY_CALORIE, "");
         strProtein = EiyouInf.getString(KEY_PROTAIN, "");
         strCarbon = EiyouInf.getString(KEY_CARBON, "");
-        strFat = EiyouInf.getString(KEY_FAT, "string");
-        strPurpose2 = EiyouInf.getString(KEY_PURPOSE2, "string");
+        strFat = EiyouInf.getString(KEY_FAT, "");
+        strPurpose2 = EiyouInf.getString(KEY_PURPOSE2, "");
 
     }
 
     public void setData() {
-        calorieGoal.setText(strcCalorie);
+        calorieGoal.setText(strCalorie);
         proteinGoal.setText(strProtein);
         carbonGoal.setText(strCarbon);
         fatGoal.setText(strFat);
