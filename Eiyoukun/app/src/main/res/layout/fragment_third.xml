@@ -12,17 +12,19 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/tabLayout"
-       android:textColor="#FFFFFF"
-       android:textStyle="bold"
+       app:tabTextColor="@color/greenColor"
+       app:tabSelectedTextColor="@color/darkgreenColor"
+       app:tabTextAppearance="@style/ToolTabStyle"
        android:background="@color/colorPrimary"
-       android:minHeight="?attr/actionBarSize"
-       >
-
-
+       android:minHeight="?attr/actionBarSize">
    </com.google.android.material.tabs.TabLayout>
+
 
    <androidx.viewpager.widget.ViewPager
        android:id="@+id/pagerThird"
        android:layout_width="match_parent"
-       android:layout_height="match_parent" />
+       android:layout_height="590dp">
+   </androidx.viewpager.widget.ViewPager>
+
+
 </LinearLayout>

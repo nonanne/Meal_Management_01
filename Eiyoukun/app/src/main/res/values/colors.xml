@@ -3,7 +3,17 @@
     <color name="colorPrimary">#6b8e23</color>
     <color name="TextcolorPrimary">#6b8e23</color>
     <color name="colorPrimaryDark">#f5f5f5</color>
-    <color name="colorAccent">#006400</color>
+    <color name="colorAccent">#004400</color>
     <color name="white">#ffffff</color>
     <color name="yellow">#FFFDE7</color>
+
+    <color name="grayColor">#777</color>
+    <color name="blueColor">#00F</color>
+    <color name="redColor">#F00</color>
+    <color name="whiteColor">#FFF</color>
+    <color name="blackColor">#000</color>
+    <color name="whiteSmokeColor">#FEFDFD</color>
+    <color name="greenColor">#006400</color>
+    <color name="darkgreenColor">#004400</color>
+
 </resources>

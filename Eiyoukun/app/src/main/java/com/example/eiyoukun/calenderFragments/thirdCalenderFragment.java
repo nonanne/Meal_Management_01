@@ -1,11 +1,16 @@
 package com.example.eiyoukun.calenderFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.eiyoukun.R;
+import com.example.eiyoukun.CalendarAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,11 @@ import com.example.eiyoukun.R;
  *
  */
 public class thirdCalenderFragment extends Fragment {
+
+    private TextView titleText;
+    private Button prevButton, nextButton;
+    private CalendarAdapter mCalendarAdapter;
+    private GridView calendarGridView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +68,37 @@ public class thirdCalenderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third_calender, container, false);
+        View v = inflater.inflate(R.layout.fragment_third_calender, container, false);
+
+        return v;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        titleText = view.findViewById(R.id.titleText);
+        prevButton = view.findViewById(R.id.prevButton);
+        prevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCalendarAdapter.prevMonth();
+                titleText.setText(mCalendarAdapter.getTitle());
+            }
+        });
+        nextButton = view.findViewById(R.id.nextButton);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCalendarAdapter.nextMonth();
+                titleText.setText(mCalendarAdapter.getTitle());
+            }
+        });
+        calendarGridView = view.findViewById(R.id.calendarGridView);
+        mCalendarAdapter = new CalendarAdapter(getContext());
+        calendarGridView.setAdapter(mCalendarAdapter);
+        titleText.setText(mCalendarAdapter.getTitle());
+
+    }
+
 }

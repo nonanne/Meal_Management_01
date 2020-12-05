@@ -4,15 +4,15 @@
     <item
         android:id="@+id/firstFragment"
         android:icon="@drawable/ic_profile"
-        android:title="profile" />
+        android:title="個人" />
 
     <item
         android:id="@+id/secondFragment"
         android:icon="@drawable/ic_food"
-        android:title="food" />
+        android:title="食事" />
 
     <item
         android:id="@+id/thirdFragment"
         android:icon="@drawable/ic_calendar"
-        android:title="calender" />
+        android:title="記録" />
 </menu>

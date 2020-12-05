@@ -1,26 +1,19 @@
 package com.example.eiyoukun;
 
-import android.app.FragmentManager;
-import android.os.Build;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
-import com.example.eiyoukun.calenderFragments.thirdCalenderFragment;
-import com.example.eiyoukun.calenderFragments.thirdWeightFragment;
-import com.example.eiyoukun.mealFragments.PageFragment1;
-import com.example.eiyoukun.mealFragments.PageFragment2;
+
+import com.example.eiyoukun.calenderFragments.SidePagerAdapter2;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,9 +82,10 @@ public class thirdFragment extends Fragment{
 
 
         tabLayout = view.findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("体重"));
+        tabLayout.addTab(tabLayout.newTab().setText("体重グラフ"));
         tabLayout.addTab(tabLayout.newTab().setText("カレンダー"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
 
         pager2 = (ViewPager) getView().findViewById(R.id.pagerThird);
         pagerAdapter2 = new SidePagerAdapter2(getChildFragmentManager(), tabLayout.getTabCount());
