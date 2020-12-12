@@ -24,6 +24,7 @@ public class CalendarAdapter extends BaseAdapter {
     //カスタムセルを拡張したらここでWigetを定義
     private static class ViewHolder {
         public TextView dateText;
+
     }
 
     public CalendarAdapter(Context context){

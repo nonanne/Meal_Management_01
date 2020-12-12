@@ -15,9 +15,9 @@
         android:layout_height="50dp"
         android:layout_gravity="top"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/grid_border"
         android:elevation="3dp"
@@ -67,43 +67,14 @@
         app:layout_constraintTop_toBottomOf="@+id/gridLayout">
 
         <TextView
-            android:id="@+id/textView0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
             android:id="@+id/textViewCalorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="カロリー"
             android:textStyle="bold"
-            app:layout_column="1"
-            app:layout_columnSpan="2"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            app:layout_column="0"
+            app:layout_columnSpan="4"
             app:layout_columnWeight="1"
             app:layout_row="0" />
 
@@ -114,36 +85,18 @@
             android:gravity="center"
             android:text="タンパク質"
             android:textStyle="bold"
-            app:layout_column="5"
-            app:layout_columnSpan="2"
+            app:layout_column="4"
+            app:layout_columnSpan="4"
             app:layout_columnWeight="1"
             app:layout_row="0" />
-
-
-        <TextView
-            android:id="@+id/textView81"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/textView82"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="1" />
 
         <TextView
             android:id="@+id/textView132"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_column="1"
+            android:gravity="center"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
             app:layout_row="1" />
@@ -153,26 +106,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="1" />
-
-        <TextView
-            android:id="@+id/textView156"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="cal"
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="1" />
-
-        <TextView
-            android:id="@+id/textView157"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            android:gravity="center"
+            app:layout_column="1"
+            app:layout_columnSpan="3"
             app:layout_columnWeight="1"
             app:layout_row="1" />
 
@@ -181,7 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_column="5"
+            android:gravity="center"
+            app:layout_column="4"
             app:layout_columnWeight="1"
             app:layout_row="1" />
 
@@ -189,36 +126,20 @@
             android:id="@+id/proteinGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text=""
-            android:gravity="right"
-            app:layout_column="6"
+            app:layout_column="5"
+            app:layout_columnSpan="3"
             app:layout_columnWeight="1"
             app:layout_row="1" />
-
-        <TextView
-            android:id="@+id/textView160"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="1" />
-
-        <TextView
-            android:id="@+id/textView161"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
 
         <TextView
             android:id="@+id/textView162"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_column="1"
+            android:gravity="center"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -227,26 +148,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/textView164"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="cal"
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/textView165"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -255,7 +159,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_column="5"
+            android:gravity="center"
+            app:layout_column="4"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -264,29 +169,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="6"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="5"
             app:layout_columnWeight="1"
             app:layout_row="2" />
-
-
-        <TextView
-            android:id="@+id/textView168"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/textView169"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
 
         <TextView
             android:id="@+id/textViewCarbon"
@@ -295,27 +182,8 @@
             android:gravity="center"
             android:text="炭水化物"
             android:textStyle="bold"
-            app:layout_column="1"
-            app:layout_columnSpan="2"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
-
-
-        <TextView
-            android:id="@+id/textView172"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
-
-        <TextView
-            android:id="@+id/textView173"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            app:layout_column="0"
+            app:layout_columnSpan="4"
             app:layout_columnWeight="1"
             app:layout_row="3" />
 
@@ -326,36 +194,18 @@
             android:gravity="center"
             android:text="脂質"
             android:textStyle="bold"
-            app:layout_column="5"
-            app:layout_columnSpan="2"
+            app:layout_column="4"
+            app:layout_columnSpan="4"
             app:layout_columnWeight="2"
             app:layout_row="3" />
-
-
-        <TextView
-            android:id="@+id/textView176"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
-
-        <TextView
-            android:id="@+id/textView177"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
 
         <TextView
             android:id="@+id/textView178"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_column="1"
+            android:gravity="center"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="4" />
 
@@ -364,26 +214,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/textView180"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/textView181"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="4" />
 
@@ -392,7 +225,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="目標値"
-            app:layout_column="5"
+            android:gravity="center"
+            app:layout_column="4"
             app:layout_columnWeight="1"
             app:layout_row="4" />
 
@@ -401,35 +235,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="6"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="5"
             app:layout_columnWeight="1"
             app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/textView184"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/textView185"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="5" />
 
         <TextView
             android:id="@+id/textView186"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_column="1"
+            android:gravity="center"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="5" />
 
@@ -438,26 +256,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="5" />
-
-        <TextView
-            android:id="@+id/textView188"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="3"
-            app:layout_columnWeight="1"
-            app:layout_row="5" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_column="4"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="5" />
 
@@ -466,7 +267,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="現在値"
-            app:layout_column="5"
+            android:gravity="center"
+            app:layout_column="4"
             app:layout_columnWeight="1"
             app:layout_row="5" />
 
@@ -475,17 +277,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:gravity="right"
-            app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="5" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="7"
+            app:layout_columnSpan="3"
+            android:gravity="center"
+            app:layout_column="5"
             app:layout_columnWeight="1"
             app:layout_row="5" />
 
@@ -497,18 +291,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:elevation="15dp"
         android:text="食事情報追加"
-        android:background="@drawable/button_shape"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/grid_border"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </androidx.viewpager.widget.ViewPager>

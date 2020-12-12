@@ -42,7 +42,7 @@ public class DateManager {
 
     //当月かどうか確認
     public boolean isCurrentMonth(Date date){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM", Locale.US);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM", Locale.JAPAN);
         String currentMonth = format.format(mCalendar.getTime());
         if (currentMonth.equals(format.format(date))){
             return true;

@@ -72,6 +72,7 @@ public class firstFragment extends Fragment {
     private static final String KEY_CARBON = "carbon";
     private static final String KEY_FAT = "fat";
     private static final String KEY_PURPOSE2 = "purpose2";
+    private static final String KEY_WEIGHT2 = "weight2";
 
     private String strUserid;
     private String strAge;
@@ -279,6 +280,7 @@ public class firstFragment extends Fragment {
         editor.putString(KEY_CARBON,carbonForm.getText().toString());
         editor.putString(KEY_FAT,fatForm.getText().toString());
         editor.putString(KEY_PURPOSE2,purposeForm.getText().toString());
+        editor.putString(KEY_WEIGHT2,weightForm.getText().toString());
         editor.apply();
     }
 

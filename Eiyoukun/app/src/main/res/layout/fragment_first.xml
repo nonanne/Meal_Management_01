@@ -40,12 +40,11 @@
         android:id="@+id/purpose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="65dp"
         android:layout_marginRight="65dp"
-        android:layout_marginBottom="31dp"
         android:text="目的"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sex"
         app:layout_constraintEnd_toStartOf="@+id/purposeForm"
         app:layout_constraintTop_toTopOf="@+id/purposeForm" />
 
@@ -420,7 +419,7 @@
         android:layout_marginBottom="10dp"
         android:text="編集"
         android:textColor="#FFFFFF"
-        android:background="@drawable/button_shape"
+        android:background="@drawable/button_shape3"
         android:elevation="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/oneDayNeedEiyou"

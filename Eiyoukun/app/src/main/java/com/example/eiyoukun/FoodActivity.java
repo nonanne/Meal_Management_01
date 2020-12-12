@@ -20,6 +20,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.widget.ListView;
@@ -116,12 +117,13 @@ public class FoodActivity extends AppCompatActivity {
         products = new ArrayList<Product>();
         SQLiteDatabase db = helper.getReadableDatabase();
 
+        String order_by = "foodName ASC";
         String[] columns = {"id", "foodName", "foodgram", "calorie", "protain", "carbon", "fat"};
-
-        Cursor cursor = db.query("Products", columns, null, null, null, null, null);
+        Cursor cursor = db.query("Products", columns, null, null, null, null, order_by);
 
         while(cursor.moveToNext()) {
             int id = cursor.getInt(0) ;
+
             String foodName = cursor.getString(1);
             double foodgram = cursor.getDouble(2);
             double calorie = cursor.getDouble(3);
@@ -145,12 +147,9 @@ public class FoodActivity extends AppCompatActivity {
                 (this, android.R.layout.simple_list_item_single_choice, items);
 
         listView.setAdapter(adapter);
-
         listView.setItemChecked(0, true);
 
         db.close();
     }
-
-
 
 }

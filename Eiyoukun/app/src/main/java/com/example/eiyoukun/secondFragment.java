@@ -1,5 +1,6 @@
 package com.example.eiyoukun;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import androidx.annotation.NonNull;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -69,10 +71,15 @@ public class secondFragment extends Fragment {
     private double totalCarbon4;
     private double totalFat4;
 
-    private String msg1;
-    private String msg2;
-    private String msg3;
-    private String msg4;
+    private String strCalorie2;
+    private String strProtein2;
+    private String strCarbon2;
+    private String strFat2;
+
+    private String strCalorie3;
+    private String strProtein3;
+    private String strCarbon3;
+    private String strFat3;
 
     private SharedPreferences EiyouInf;
     private static final String SHARED_PREF_NAME1 = "EiyouInf";
@@ -81,12 +88,14 @@ public class secondFragment extends Fragment {
     private static final String KEY_CARBON = "carbon";
     private static final String KEY_FAT = "fat";
     private static final String KEY_PURPOSE2 = "purpose2";
+    private static final String KEY_WEIGHT2 = "weight2";
 
     private String strCalorie;
     private String strProtein;
     private String strCarbon;
     private String strFat;
     private String strPurpose2;
+    private String strWeight2;
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -94,6 +103,12 @@ public class secondFragment extends Fragment {
     private ArrayList<Product> products;
     private ListView listView;
     private MySQLiteOpenHelper helper;
+    private EntityUser entityUser;
+
+    RoomDB database;
+    List<EntityUser> dataList = new ArrayList<>();
+    LinearLayoutManager linearLayoutManager;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -138,33 +153,29 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                if (key.equals("totalCalorie1")) {
+                if (!bundle.getString("totalCalorie1").isEmpty()) {
                     totalCalorie1 = Double.parseDouble(bundle.getString("totalCalorie1"));
                 } else {
                     totalCalorie1 = 0;
                 }
-                if (key.equals("totalProtein1")) {
+                if (!bundle.getString("totalProtein1").isEmpty()) {
                     totalProtein1 = Double.parseDouble(bundle.getString("totalProtein1"));
                 } else {
                     totalProtein1 = 0;
                 }
-                if (key.equals("totalCarbon1")) {
+                if (!bundle.getString("totalCarbon1").isEmpty()) {
                     totalCarbon1 = Double.parseDouble(bundle.getString("totalCarbon1"))
                     ;
                 } else {
                     totalCarbon1 = 0;
                 }
-                if (key.equals("totalFat1")) {
+                if (!bundle.getString("totalFat1").isEmpty()) {
                     totalFat1 = Double.parseDouble(bundle.getString("totalFat1"));
                 } else {
                     totalFat1 = 0;
                 }
 
-                //TODO 各PageFragment*から受け取った栄養素を足したものをsetする
-                carbonNow.setText(msg1);
-                proteinNow.setText(msg2);
-                carbonNow.setText(msg3);
-                fatNow.setText(msg4);
+                setPageToSecond();
 
             }
         });
@@ -173,32 +184,28 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                if (key.equals("totalCalorie2")) {
+                if (!bundle.getString("totalCalorie2").isEmpty()) {
                     totalCalorie2 = Double.parseDouble(bundle.getString("totalCalorie2"));
                 } else {
                     totalCalorie2 = 0;
                 }
-                if (key.equals("totalProtein2")) {
+                if (!bundle.getString("totalProtein2").isEmpty()) {
                     totalProtein2 = Double.parseDouble(bundle.getString("totalProtein2"));
                 } else {
                     totalProtein2 = 0;
                 }
-                if (key.equals("totalCarbon2")) {
+                if (!bundle.getString("totalCarbon2").isEmpty()) {
                     totalCarbon2 = Double.parseDouble(bundle.getString("totalCarbon2"));
                 } else {
                     totalCarbon2 = 0;
                 }
-                if (key.equals("totalFat2")) {
+                if (!bundle.getString("totalFat2").isEmpty()) {
                     totalFat2 = Double.parseDouble(bundle.getString("totalFat2"));
                 } else {
                     totalFat2 = 0;
                 }
 
-                //TODO 各PageFragment*から受け取った栄養素を足したものをsetする
-                carbonNow.setText(msg1);
-                proteinNow.setText(msg2);
-                carbonNow.setText(msg3);
-                fatNow.setText(msg4);
+                setPageToSecond();
 
             }
         });
@@ -207,32 +214,28 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                if (key.equals("totalCalorie3")) {
+                if (!bundle.getString("totalCalorie3").isEmpty()) {
                     totalCalorie3 = Double.parseDouble(bundle.getString("totalCalorie3"));
                 } else {
                     totalCalorie3 = 0;
                 }
-                if (key.equals("totalProtein3")) {
+                if (!bundle.getString("totalProtein3").isEmpty()) {
                     totalProtein3 = Double.parseDouble(bundle.getString("totalProtein3"));
                 } else {
                     totalProtein3 = 0;
                 }
-                if (key.equals("totalCarbon3")) {
+                if (!bundle.getString("totalCarbon3").isEmpty()) {
                     totalCarbon3 = Double.parseDouble(bundle.getString("totalCarbon3"));
                 } else {
                     totalCarbon3 = 0;
                 }
-                if (key.equals("totalFat3")) {
+                if (!bundle.getString("totalFat3").isEmpty()) {
                     totalFat3 = Double.parseDouble(bundle.getString("totalFat3"));
                 } else {
                     totalFat3 = 0;
                 }
 
-                //TODO 各PageFragment*から受け取った栄養素を足したものをsetする
-                carbonNow.setText(msg1);
-                proteinNow.setText(msg2);
-                carbonNow.setText(msg3);
-                fatNow.setText(msg4);
+                setPageToSecond();
 
             }
         });
@@ -241,49 +244,31 @@ public class secondFragment extends Fragment {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
                 // We use a String here, but any type that can be put in a Bundle is supported
-                if (key.equals("totalCalorie4")) {
+                if (!bundle.getString("totalCalorie4").isEmpty()) {
                     totalCalorie4 = Double.parseDouble(bundle.getString("totalCalorie4"));
                 } else {
                     totalCalorie4 = 0;
                 }
-                if (key.equals("totalProtein4")) {
+                if (!bundle.getString("totalProtein4").isEmpty()) {
                     totalProtein4 = Double.parseDouble(bundle.getString("totalProtein4"));
                 } else {
                     totalProtein4 = 0;
                 }
-                if (key.equals("totalCarbon4")) {
+                if (!bundle.getString("totalCarbon4").isEmpty()) {
                     totalCarbon4 = Double.parseDouble(bundle.getString("totalCarbon4"));
                 } else {
                     totalCarbon4 = 0;
                 }
-                if (key.equals("totalFat4")) {
+                if (!bundle.getString("totalFat4").isEmpty()) {
                     totalFat4 = Double.parseDouble(bundle.getString("totalFat4"));
                 } else {
                     totalFat4 = 0;
                 }
 
-                //TODO 各PageFragment*から受け取った栄養素を足したものをsetする
-                carbonNow.setText(msg1);
-                proteinNow.setText(msg2);
-                carbonNow.setText(msg3);
-                fatNow.setText(msg4);
+                setPageToSecond();
 
             }
         });
-
-
-        msg1 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
-        msg2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
-        msg3 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
-        msg4 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
-
-
-
-
-
-
-
-
 
 
         /*　今後上記のコードと比較したいからわざと残しています
@@ -302,24 +287,6 @@ public class secondFragment extends Fragment {
                 // We use a String here, but any type that can be put in a Bundle is supported
                 String msg1_1Total = bundle.getString("bundleKey1_1");
                 proteinNow.setText(msg1_1Total);
-            }
-        });
-
-        getChildFragmentManager().setFragmentResultListener("requestKey1_2", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
-                // We use a String here, but any type that can be put in a Bundle is supported
-                String msg1_2Total = bundle.getString("bundleKey1_2");
-                carbonNow.setText(msg1_2Total);
-            }
-        });
-
-        getChildFragmentManager().setFragmentResultListener("requestKey1_3", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
-                // We use a String here, but any type that can be put in a Bundle is supported
-                String msg1_3Total = bundle.getString("bundleKey1_3");
-                fatNow.setText(msg1_3Total);
             }
         });
 */
@@ -352,10 +319,6 @@ public class secondFragment extends Fragment {
         carbonNow = view.findViewById(R.id.carbonNow);
         fatNow = view.findViewById(R.id.fatNow);
         kojin_purpose = view.findViewById(R.id.kojin_purpose);
-
-
-
-
 
         List<Fragment> list = new ArrayList<>();
         list.add(new PageFragment1());
@@ -397,29 +360,16 @@ public class secondFragment extends Fragment {
         }
     });
 
-
         loadData();
         setData();
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        msg1 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
-        msg2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
-        msg3 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
-        msg4 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
-
-        calorieNow.setText(msg1);
-        proteinNow.setText(msg2);
-        carbonNow.setText(msg3);
-        fatNow.setText(msg4);
-
         loadData();
         setData();
-
     }
 
     public void loadData() {
@@ -430,19 +380,17 @@ public class secondFragment extends Fragment {
         strCarbon = EiyouInf.getString(KEY_CARBON, "");
         strFat = EiyouInf.getString(KEY_FAT, "");
         strPurpose2 = EiyouInf.getString(KEY_PURPOSE2, "");
-
+        strWeight2 = EiyouInf.getString(KEY_WEIGHT2, "");
     }
+
 
     public void setData() {
-        calorieGoal.setText(strCalorie);
-        proteinGoal.setText(strProtein);
-        carbonGoal.setText(strCarbon);
-        fatGoal.setText(strFat);
+        calorieGoal.setText(strCalorie + "cal");
+        proteinGoal.setText(strProtein + "g");
+        carbonGoal.setText(strCarbon + "g");
+        fatGoal.setText(strFat + "g");
         kojin_purpose.setText(strPurpose2);
-
     }
-
-
 
     @Override
     public void onActivityResult
@@ -455,10 +403,50 @@ public class secondFragment extends Fragment {
         fatGoal = getView().findViewById(R.id.fatGoal);
         kojin_purpose = getView().findViewById(R.id.kojin_purpose);
 
-
         loadData();
         setData();
+    }
+
+
+    // PageFragment4つから受け取った栄養値の合計値をセット
+    public void setPageToSecond() {
+        strCalorie2 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
+        strProtein2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
+        strCarbon2 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
+        strFat2 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
+        calorieNow.setText(strCalorie2 + "cal");
+        proteinNow.setText(strProtein2 + "g");
+        carbonNow.setText(strCarbon2 + "g");
+        fatNow.setText(strFat2 + "g");
+    }
+
+
+    public void CompareEiyou() {
+        if (Double.parseDouble(strCalorie) >= Double.parseDouble(strCalorie2) && strPurpose2.equals("ダイエット")
+        || (Double.parseDouble(strCalorie) <= Double.parseDouble(strCalorie2) && strPurpose2.equals("デブエット"))) {
+            strCalorie3.equals("〇");
+        } else {
+            strCalorie3.equals("✖");
+        }
+        if (Double.parseDouble(strProtein) >= Double.parseDouble(strProtein2) && strPurpose2.equals("ダイエット")
+                || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
+            strProtein3.equals("〇");
+        } else {
+            strProtein3.equals("✖");
+        }
+        if (Double.parseDouble(strCarbon) >= Double.parseDouble(strCarbon2) && strPurpose2.equals("ダイエット")
+                || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
+            strCarbon3.equals("〇");
+        } else {
+            strCarbon3.equals("✖");
+        }
+        if (Double.parseDouble(strFat) >= Double.parseDouble(strFat2) && strPurpose2.equals("ダイエット")
+                || (Double.parseDouble(strFat) <= Double.parseDouble(strFat2) && strPurpose2.equals("デブエット"))) {
+            strFat3.equals("〇");
+        } else {
+            strFat3.equals("✖");
+        }
 
     }
-}
 
+}

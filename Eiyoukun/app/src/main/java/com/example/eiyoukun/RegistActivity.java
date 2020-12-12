@@ -145,7 +145,7 @@ public class RegistActivity extends Activity {
         }
 
         SpinnerAdapter adapter1 = activityLevelForm.getAdapter();
-        for (int i = 0; i < adapter.getCount(); i++) {
+        for (int i = 0; i < adapter1.getCount(); i++) {
             if (adapter1.getItem(i).equals(strActivityLevel)) {
                 activityLevelForm.setSelection(i);
                 break;
@@ -153,7 +153,7 @@ public class RegistActivity extends Activity {
         }
 
         SpinnerAdapter adapter2 = spinnerPurpose.getAdapter();
-        for (int i = 0; i < adapter.getCount(); i++) {
+        for (int i = 0; i < adapter2.getCount(); i++) {
             if (adapter2.getItem(i).equals(strPurpose)) {
                 spinnerPurpose.setSelection(i);
                 break;

@@ -11,32 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/grid_border"
+        android:radius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         >
-
-
-        <TextView
-            android:id="@+id/title1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     "
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/title1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="    "
-            app:layout_column="1"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
 
         <TextView
             android:id="@+id/title1.3"
@@ -44,40 +24,11 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="食事①"
+            android:background="@drawable/grid_border1"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
-            app:layout_column="2"
-            app:layout_columnSpan="3"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-
-
-        <TextView
-            android:id="@+id/title1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="    "
-            app:layout_column="5"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/title1.5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="    "
-            app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/title1.6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="     "
-            app:layout_column="7"
+            app:layout_column="0"
+            app:layout_columnSpan="8"
             app:layout_columnWeight="1"
             app:layout_row="0" />
 
@@ -87,6 +38,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="カロリー"
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -99,6 +52,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="タンパク質"
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_column="2"
             app:layout_columnSpan="2"
@@ -111,6 +66,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="炭水化物"
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_column="4"
             app:layout_columnSpan="2"
@@ -123,6 +80,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="脂質"
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_column="6"
             app:layout_columnSpan="2"
@@ -133,20 +92,12 @@
             android:id="@+id/calorieSumForm1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="　　　　　"
+            android:gravity="center"
+            android:text=""
+            app:layout_columnSpan="2"
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/calorieSumGram1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="cal"
-            android:textStyle="bold"
-            app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -154,20 +105,12 @@
             android:id="@+id/proteinSumForm1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="　　　　　"
+            android:gravity="center"
+            android:text=""
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/proteinSumGram1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            android:textStyle="bold"
-            app:layout_column="3"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -175,20 +118,12 @@
             android:id="@+id/carbonSumForm1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="　　　　　"
+            android:gravity="center"
+            android:text=""
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             app:layout_column="4"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/carbonSumGram1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            android:textStyle="bold"
-            app:layout_column="5"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -196,20 +131,12 @@
             android:id="@+id/fatSumForm1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="　　　　　"
+            android:gravity="center"
+            android:text=""
+            android:background="@drawable/grid_border2"
+            android:textColor="#FFFFFF"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="2" />
-
-        <TextView
-            android:id="@+id/fatSumGram1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            android:textStyle="bold"
-            app:layout_column="7"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_row="2" />
 
@@ -218,6 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:inputType="text"
             app:layout_column="0"
             app:layout_columnSpan="4"
@@ -233,21 +161,10 @@
             android:text=""
             android:inputType="numberDecimal"
             app:layout_column="4"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_gravity="bottom"
             app:layout_row="5" />
-
-
-        <TextView
-            android:id="@+id/foodGram1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            app:layout_column="5"
-            app:layout_columnWeight="1"
-            app:layout_row="5"
-            android:gravity="fill_vertical"
-            app:layout_gravity="fill" />
 
         <Button
             android:id="@+id/foodButton1.1"
@@ -263,7 +180,7 @@
             android:id="@+id/calorie1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="カロリー："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -274,19 +191,10 @@
             android:id="@+id/calorieForm1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
-
-        <TextView
-            android:id="@+id/calorieCal1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="cal"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="3" />
 
@@ -294,7 +202,7 @@
             android:id="@+id/protein1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="タンパク質："
             app:layout_column="4"
             app:layout_columnSpan="2"
@@ -305,19 +213,10 @@
             android:id="@+id/proteinForm1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="3" />
-
-        <TextView
-            android:id="@+id/proteinGram1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="3" />
 
@@ -325,7 +224,7 @@
             android:id="@+id/carbon1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="炭水化物："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -336,19 +235,10 @@
             android:id="@+id/carbonForm1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/carbonGram1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="4" />
 
@@ -356,8 +246,8 @@
             android:id="@+id/fat1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="　　　脂質："
+            android:gravity="right"
+            android:text="脂質："
             app:layout_column="4"
             app:layout_columnSpan="2"
             app:layout_columnWeight="1"
@@ -367,19 +257,10 @@
             android:id="@+id/fatForm1.1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="4" />
-
-        <TextView
-            android:id="@+id/fatGram1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="4" />
 
@@ -388,6 +269,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:inputType="text"
             app:layout_column="0"
             app:layout_columnSpan="4"
@@ -403,19 +285,9 @@
             android:text=""
             android:inputType="numberDecimal"
             app:layout_column="4"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
-            app:layout_row="8" />
-
-        <TextView
-            android:id="@+id/foodGram1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            android:gravity="fill_vertical"
-            app:layout_gravity="fill"
-            app:layout_column="5"
-            app:layout_columnWeight="1"
             app:layout_row="8" />
 
         <Button
@@ -443,7 +315,8 @@
             android:id="@+id/calorie1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
+            app:layout_gravity="fill"
             android:text="カロリー："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -454,27 +327,19 @@
             android:id="@+id/calorieForm1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
+            app:layout_gravity="fill"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="6" />
-
-        <TextView
-            android:id="@+id/calorieCal1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="cal"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="6" />
 
         <TextView
             android:id="@+id/protein1.2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="23dp"
+            android:gravity="right"
             android:text="タンパク質："
             app:layout_column="4"
             app:layout_columnSpan="2"
@@ -485,19 +350,11 @@
             android:id="@+id/proteinForm1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
+            app:layout_gravity="fill"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="6" />
-
-        <TextView
-            android:id="@+id/proteinGram1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="6" />
 
@@ -505,7 +362,7 @@
             android:id="@+id/carbon1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="炭水化物："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -516,19 +373,11 @@
             android:id="@+id/carbonForm1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
+            app:layout_gravity="fill"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="7" />
-
-        <TextView
-            android:id="@+id/carbonGram1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="7" />
 
@@ -536,8 +385,8 @@
             android:id="@+id/fat1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="　　　脂質："
+            android:gravity="right"
+            android:text="脂質："
             app:layout_column="4"
             app:layout_columnSpan="2"
             app:layout_columnWeight="1"
@@ -547,19 +396,10 @@
             android:id="@+id/fatForm1.2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="7" />
-
-        <TextView
-            android:id="@+id/fatGram1.2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="7" />
 
@@ -568,6 +408,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:inputType="text"
             app:layout_column="0"
             app:layout_columnSpan="4"
@@ -583,19 +424,9 @@
             android:text=""
             android:inputType="numberDecimal"
             app:layout_column="4"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
-            app:layout_row="11" />
-
-        <TextView
-            android:id="@+id/foodGram1.3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            android:gravity="fill_vertical"
-            app:layout_gravity="fill"
-            app:layout_column="5"
-            app:layout_columnWeight="1"
             app:layout_row="11" />
 
         <Button
@@ -622,7 +453,7 @@
             android:id="@+id/calorie1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="カロリー："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -633,19 +464,10 @@
             android:id="@+id/calorieForm1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="9" />
-
-        <TextView
-            android:id="@+id/calorieCal1.3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="cal"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="9" />
 
@@ -653,7 +475,7 @@
             android:id="@+id/protein1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="タンパク質："
             app:layout_column="4"
             app:layout_columnSpan="2"
@@ -664,19 +486,10 @@
             android:id="@+id/proteinForm1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="9" />
-
-        <TextView
-            android:id="@+id/proteinGram1.3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="9" />
 
@@ -684,7 +497,7 @@
             android:id="@+id/carbon1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="炭水化物："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -695,19 +508,10 @@
             android:id="@+id/carbonForm1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="10" />
-
-        <TextView
-            android:id="@+id/carbonGram1.3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="10" />
 
@@ -715,8 +519,8 @@
             android:id="@+id/fat1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="　　　脂質："
+            android:gravity="right"
+            android:text="脂質："
             app:layout_column="4"
             app:layout_columnSpan="2"
             app:layout_columnWeight="1"
@@ -726,19 +530,10 @@
             android:id="@+id/fatForm1.3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="10" />
-
-        <TextView
-            android:id="@+id/fatGram1.3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="10" />
 
@@ -747,13 +542,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:gravity="center"
             android:inputType="text"
             android:completionThreshold="2"
             app:layout_column="0"
             app:layout_columnSpan="4"
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
-            app:layout_row="14" />
+            app:layout_row="14"
+            android:dropDownHeight="300dp">
+        </AutoCompleteTextView>
 
         <EditText
             android:id="@+id/foodGramForm1.4"
@@ -763,19 +561,9 @@
             android:text=""
             android:inputType="numberDecimal"
             app:layout_column="4"
+            app:layout_columnSpan="2"
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
-            app:layout_row="14" />
-
-        <TextView
-            android:id="@+id/foodGram1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g"
-            android:gravity="fill_vertical"
-            app:layout_gravity="fill"
-            app:layout_column="5"
-            app:layout_columnWeight="1"
             app:layout_row="14" />
 
         <Button
@@ -802,7 +590,7 @@
             android:id="@+id/calorie1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="カロリー："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -813,19 +601,10 @@
             android:id="@+id/calorieForm1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="12" />
-
-        <TextView
-            android:id="@+id/calorieCal1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="cal"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="12" />
 
@@ -833,7 +612,7 @@
             android:id="@+id/protein1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="タンパク質："
             app:layout_column="4"
             app:layout_columnSpan="2"
@@ -844,19 +623,10 @@
             android:id="@+id/proteinForm1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
-            app:layout_columnWeight="1"
-            app:layout_row="12" />
-
-        <TextView
-            android:id="@+id/proteinGram1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
             app:layout_columnWeight="1"
             app:layout_row="12" />
 
@@ -864,7 +634,7 @@
             android:id="@+id/carbon1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="right"
             android:text="炭水化物："
             app:layout_column="0"
             app:layout_columnSpan="2"
@@ -875,19 +645,10 @@
             android:id="@+id/carbonForm1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="2"
-            app:layout_columnWeight="1"
-            app:layout_row="13" />
-
-        <TextView
-            android:id="@+id/carbonGram1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="13" />
 
@@ -895,8 +656,8 @@
             android:id="@+id/fat1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="　　　脂質："
+            android:gravity="right"
+            android:text="脂質："
             app:layout_column="4"
             app:layout_columnSpan="2"
             app:layout_columnWeight="1"
@@ -906,21 +667,13 @@
             android:id="@+id/fatForm1.4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="center"
             android:text=""
+            app:layout_columnSpan="2"
             app:layout_column="6"
             app:layout_columnWeight="1"
             app:layout_row="13" />
 
-        <TextView
-            android:id="@+id/fatGram1.4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="g"
-            app:layout_column="7"
-            app:layout_columnWeight="1"
-            app:layout_row="13" />
     </androidx.gridlayout.widget.GridLayout>
 
 
