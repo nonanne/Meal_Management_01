@@ -3,14 +3,22 @@ package com.example.eiyoukun.calenderFragments;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.eiyoukun.EntityUser;
 import com.example.eiyoukun.R;
 import com.example.eiyoukun.CalendarAdapter;
+import com.example.eiyoukun.RoomDB;
+
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +106,9 @@ public class thirdCalenderFragment extends Fragment {
         mCalendarAdapter = new CalendarAdapter(getContext());
         calendarGridView.setAdapter(mCalendarAdapter);
         titleText.setText(mCalendarAdapter.getTitle());
+
+        List<EntityUser> list = RoomDB.getInstance(requireContext()).daoUser().getAll();
+        Log.d("thirdCalenderFragment", String.format("listSize = %d", list.size()));
 
     }
 

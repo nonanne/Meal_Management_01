@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.ColumnInfo;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -418,6 +419,17 @@ public class secondFragment extends Fragment {
         proteinNow.setText(strProtein2 + "g");
         carbonNow.setText(strCarbon2 + "g");
         fatNow.setText(strFat2 + "g");
+
+        EntityUser entityUser = new EntityUser();
+        entityUser.DATE = "2020/12/14";
+        entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
+        entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
+        entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
+        entityUser.FAT_NOW = Double.parseDouble(strFat2);
+        RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
+
+        // TODO すでに今日の分が登録されていたらUpdateする
+
     }
 
 
