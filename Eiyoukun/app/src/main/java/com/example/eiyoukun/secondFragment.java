@@ -1,11 +1,8 @@
 package com.example.eiyoukun;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.format.Time;
 import android.view.LayoutInflater;
@@ -14,20 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 
 import com.example.eiyoukun.mealFragments.PageFragment1;
 import com.example.eiyoukun.mealFragments.PageFragment2;
@@ -418,6 +408,17 @@ public class secondFragment extends Fragment {
         proteinNow.setText(strProtein2 + "g");
         carbonNow.setText(strCarbon2 + "g");
         fatNow.setText(strFat2 + "g");
+
+        EntityUser entityUser = new EntityUser();
+        entityUser.DATE = "2020/12/14";
+        entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
+        entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
+        entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
+        entityUser.FAT_NOW = Double.parseDouble(strFat2);
+        RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
+
+        // TODO すでに今日の分が登録されていたらUpdateする
+
     }
 
 
