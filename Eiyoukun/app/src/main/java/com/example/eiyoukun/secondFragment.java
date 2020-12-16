@@ -11,13 +11,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.room.Dao;
+import androidx.room.Room;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
 
 import com.example.eiyoukun.mealFragments.PageFragment1;
 import com.example.eiyoukun.mealFragments.PageFragment2;
@@ -26,6 +29,9 @@ import com.example.eiyoukun.mealFragments.PageFragment4;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.room.ColumnInfo;
+import com.example.eiyoukun.EntityUser;
+import com.example.eiyoukun.RoomDB;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,6 +77,8 @@ public class secondFragment extends Fragment {
     private String strCarbon3;
     private String strFat3;
 
+    private String date;
+
     private SharedPreferences EiyouInf;
     private static final String SHARED_PREF_NAME1 = "EiyouInf";
     private static final String KEY_CALORIE = "calorie";
@@ -90,14 +98,6 @@ public class secondFragment extends Fragment {
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
 
-    private ArrayList<Product> products;
-    private ListView listView;
-    private MySQLiteOpenHelper helper;
-    private EntityUser entityUser;
-
-    RoomDB database;
-    List<EntityUser> dataList = new ArrayList<>();
-    LinearLayoutManager linearLayoutManager;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -297,7 +297,7 @@ public class secondFragment extends Fragment {
         TextView dateText = view.findViewById(R.id.today);
         Time time = new Time("Asia/Tokyo");
         time.setToNow();
-        String date = (time.month + 1) + "月" + time.monthDay + "日";
+        date = (time.month + 1) + "月" + time.monthDay + "日";
         dateText.setText(date);
 
         calorieGoal = view.findViewById(R.id.calorieGoal);
@@ -375,11 +375,17 @@ public class secondFragment extends Fragment {
 
 
     public void setData() {
+        EntityUser entityUser = new EntityUser();
         calorieGoal.setText(strCalorie + "cal");
         proteinGoal.setText(strProtein + "g");
         carbonGoal.setText(strCarbon + "g");
         fatGoal.setText(strFat + "g");
         kojin_purpose.setText(strPurpose2);
+        if (entityUser.getCALORIE_NOW() == null){
+            calorieNow.setText(strCalorie2 + "cal");
+        } else {
+            calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
+        }
     }
 
     @Override
@@ -400,54 +406,70 @@ public class secondFragment extends Fragment {
 
     // PageFragment4つから受け取った栄養値の合計値をセット
     public void setPageToSecond() {
+
+
         strCalorie2 = String.valueOf(totalCalorie1 + totalCalorie2 + totalCalorie3 + totalCalorie4);
         strProtein2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
         strCarbon2 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
         strFat2 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
+        /*
         calorieNow.setText(strCalorie2 + "cal");
         proteinNow.setText(strProtein2 + "g");
         carbonNow.setText(strCarbon2 + "g");
         fatNow.setText(strFat2 + "g");
+         */
+
+        CompareEiyou();
 
         EntityUser entityUser = new EntityUser();
-        entityUser.DATE = "2020/12/14";
+        entityUser.DATE = date;
+        entityUser.WEIGHT = Double.parseDouble(strWeight2);
+        entityUser.PURPOSE = strPurpose2;
         entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
         entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
         entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
         entityUser.FAT_NOW = Double.parseDouble(strFat2);
+        entityUser.CALORIE_GOAL = Double.parseDouble(strCalorie);
+        entityUser.PROTEIN_GOAL = Double.parseDouble(strProtein);
+        entityUser.CARBON_GOAL = Double.parseDouble(strCarbon);
+        entityUser.FAT_GOAL = Double.parseDouble(strFat);
+        entityUser.CALORIE_COMPARE = strCalorie3;
+        entityUser.PROTEIN_COMPARE = strProtein3;
+        entityUser.CARBON_COMPARE = strCalorie3;
+        entityUser.FAT_COMPARE = strFat3;
         RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
 
-        // TODO すでに今日の分が登録されていたらUpdateする
 
+
+        //すでに今日の分が登録されていたらUpdateする
     }
 
 
     public void CompareEiyou() {
+
         if (Double.parseDouble(strCalorie) >= Double.parseDouble(strCalorie2) && strPurpose2.equals("ダイエット")
         || (Double.parseDouble(strCalorie) <= Double.parseDouble(strCalorie2) && strPurpose2.equals("デブエット"))) {
-            strCalorie3.equals("〇");
+            strCalorie3 = "〇";
         } else {
-            strCalorie3.equals("✖");
+            strCalorie3 = "✖";
         }
         if (Double.parseDouble(strProtein) >= Double.parseDouble(strProtein2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
-            strProtein3.equals("〇");
+            strProtein3 = "〇";
         } else {
-            strProtein3.equals("✖");
+            strProtein3 = "✖";
         }
         if (Double.parseDouble(strCarbon) >= Double.parseDouble(strCarbon2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
-            strCarbon3.equals("〇");
+            strCarbon3 = "〇";
         } else {
-            strCarbon3.equals("✖");
+            strCarbon3 = "✖";
         }
         if (Double.parseDouble(strFat) >= Double.parseDouble(strFat2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strFat) <= Double.parseDouble(strFat2) && strPurpose2.equals("デブエット"))) {
-            strFat3.equals("〇");
+            strFat3 = "〇";
         } else {
-            strFat3.equals("✖");
+            strFat3 = "✖";
         }
-
     }
-
 }

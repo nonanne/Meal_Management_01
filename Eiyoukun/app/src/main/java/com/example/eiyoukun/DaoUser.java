@@ -9,24 +9,24 @@ import java.util.List;
 import static androidx.room.OnConflictStrategy.REPLACE;
 
 @Dao
-public interface DaoUser {
+public abstract class DaoUser {
     //Insert query
     @Insert(onConflict = REPLACE)
-    void insert(EntityUser entityUser);
+    abstract void insert(EntityUser entityUser);
 
     //Delete query
     @Delete
-    void delete(EntityUser entityUser);
+    abstract void delete(EntityUser entityUser);
 
     //Delete all query
     @Delete
-    void reset(List<EntityUser> entityUser);
+    abstract void reset(List<EntityUser> entityUser);
 
     //Update query
     @Query("UPDATE EIYOUKIROKU SET DATE = :sDate WHERE uid = :sID")
-    void update(int sID,String sDate);
+    abstract void update(int sID, String sDate);
 
     //Get all data query
     @Query("SELECT * FROM EIYOUKIROKU")
-    List<EntityUser> getAll();
+    public abstract List<EntityUser> getAll();
 }

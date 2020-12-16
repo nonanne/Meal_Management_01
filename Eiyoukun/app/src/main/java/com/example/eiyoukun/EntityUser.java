@@ -39,15 +39,17 @@ public class EntityUser implements Serializable {
     @ColumnInfo(name = "FAT_NOW")
     public Double FAT_NOW;
     @ColumnInfo(name = "CALORIE_COMPARE")
-    public Double CALORIE_COMPARE;
+    public String CALORIE_COMPARE;
     @ColumnInfo(name = "PROTEIN_COMPARE")
-    public Double PROTEIN_COMPARE;
+    public String PROTEIN_COMPARE;
     @ColumnInfo(name = "CARBON_COMPARE")
-    public Double CARBON_COMPARE;
+    public String CARBON_COMPARE;
     @ColumnInfo(name = "FAT_COMPARE")
-    public Double FAT_COMPARE;
+    public String FAT_COMPARE;
 
     //Generate getter and setter
+
+
     public int getUid() {
         return uid;
     }
@@ -144,35 +146,35 @@ public class EntityUser implements Serializable {
         this.FAT_NOW = FAT_NOW;
     }
 
-    public Double getCALORIE_COMPARE() {
+    public String getCALORIE_COMPARE() {
         return CALORIE_COMPARE;
     }
 
-    public void setCALORIE_COMPARE(Double CALORIE_COMPARE) {
+    public void setCALORIE_COMPARE(String CALORIE_COMPARE) {
         this.CALORIE_COMPARE = CALORIE_COMPARE;
     }
 
-    public Double getPROTEIN_COMPARE() {
+    public String getPROTEIN_COMPARE() {
         return PROTEIN_COMPARE;
     }
 
-    public void setPROTEIN_COMPARE(Double PROTEIN_COMPARE) {
+    public void setPROTEIN_COMPARE(String PROTEIN_COMPARE) {
         this.PROTEIN_COMPARE = PROTEIN_COMPARE;
     }
 
-    public Double getCARBON_COMPARE() {
+    public String getCARBON_COMPARE() {
         return CARBON_COMPARE;
     }
 
-    public void setCARBON_COMPARE(Double CARBON_COMPARE) {
+    public void setCARBON_COMPARE(String CARBON_COMPARE) {
         this.CARBON_COMPARE = CARBON_COMPARE;
     }
 
-    public Double getFAT_COMPARE() {
+    public String getFAT_COMPARE() {
         return FAT_COMPARE;
     }
 
-    public void setFAT_COMPARE(Double FAT_COMPARE) {
+    public void setFAT_COMPARE(String FAT_COMPARE) {
         this.FAT_COMPARE = FAT_COMPARE;
     }
 }

@@ -14,11 +14,11 @@
     >
 
     <string-array name="list2">
-        <item>ほぼ運動しない</item>>
-        <item>軽い運動をしている</item>>
-        <item>中程度の運動をしている</item>>
-        <item>激しい運動をしている</item>>
-        <item>非常に激しい運動をしている</item>>
+        <item>自主的な運動なし</item>>
+        <item>週１～２で運動</item>>
+        <item>週３～４で運動</item>>
+        <item>週５～６で運動</item>>
+        <item>毎日運動をしている</item>>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

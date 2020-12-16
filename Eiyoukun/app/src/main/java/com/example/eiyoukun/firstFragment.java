@@ -193,8 +193,6 @@ public class firstFragment extends Fragment {
         purposeForm.setText(strPurpose);
     }
 
-
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -230,40 +228,39 @@ public class firstFragment extends Fragment {
         weight = Double.parseDouble(strWeight);
         height = Double.parseDouble(strHeight);
 
-
         // case文で処理したい
+        //18~29歳向けのアクティビティレベル計算
         double calorie = 0;
-        if (strSex.equals("男性") && strActivityLevel.equals("ほぼ運動しない")) {
+        if (strSex.equals("男性") && strActivityLevel.equals("自主的な運動なし")) {
             calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.5; //  String msg0　時に四捨五入
-        } else if (strSex.equals("男性") && strActivityLevel.equals("軽い運動をしている")) {
+        } else if (strSex.equals("男性") && strActivityLevel.equals("週１～２で運動")) {
             calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.625;
-        } else if (strSex.equals("男性") && strActivityLevel.equals("中程度の運動をしている")) {
+        } else if (strSex.equals("男性") && strActivityLevel.equals("週３～４で運動")) {
             calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.75;
-        } else if (strSex.equals("男性") && strActivityLevel.equals("激しい運動をしている")) {
+        } else if (strSex.equals("男性") && strActivityLevel.equals("週５～６で運動")) {
             calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 1.875;
-        } else if (strSex.equals("男性") && strActivityLevel.equals("非常に激しい運動をしている")) {
+        } else if (strSex.equals("男性") && strActivityLevel.equals("毎日運動をしている")) {
             calorie = (13.397 * weight + 4.799 * height - 5.677 * age + 88.362) * 2.0;
-        } else if (strSex.equals("女性") && strActivityLevel.equals("ほぼ運動しない")) {
+        } else if (strSex.equals("女性") && strActivityLevel.equals("自主的な運動なし")) {
             calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.5) * 10) / 10.0; // この時点で四捨五入
-        } else if (strSex.equals("女性") && strActivityLevel.equals("軽い運動をしている")) {
+        } else if (strSex.equals("女性") && strActivityLevel.equals("週１～２で運動")) {
             calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.625) * 10) / 10.0;
-        } else if (strSex.equals("女性") && strActivityLevel.equals("中程度の運動をしている")) {
+        } else if (strSex.equals("女性") && strActivityLevel.equals("週３～４で運動")) {
             calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.75) * 10) / 10.0;
-        } else if (strSex.equals("女性") && strActivityLevel.equals("激しい運動をしている")) {
+        } else if (strSex.equals("女性") && strActivityLevel.equals("週５～６で運動")) {
             calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 1.875) * 10) / 10.0;
-        } else if (strSex.equals("女性") && strActivityLevel.equals("非常に激しい運動をしている")) {
+        } else if (strSex.equals("女性") && strActivityLevel.equals("毎日運動をしている")) {
             calorie = (Math.round((9.247 * weight + 3.098 * height - 4.33 * age + 447.593) * 2.0) * 10) / 10.0;
         }
 
-        protein = weight * 2.3;
-        carbon = weight * 2.65;
+        protein = weight * 2.4;
         fat = weight * 0.9;
+        carbon = (calorie - (protein * 4) - (fat * 9)) / 4;
 
         String msg0 = String.format("%.1f", calorie); // 四捨五入
         String msg1 = String.format("%.1f", protein);
         String msg2 = String.format("%.1f", carbon);
         String msg3 = String.format("%.1f", fat);
-
 
         calorieForm.setText(msg0);
         proteinForm.setText(msg1);
