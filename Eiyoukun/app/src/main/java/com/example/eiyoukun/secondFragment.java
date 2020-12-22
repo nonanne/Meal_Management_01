@@ -381,11 +381,14 @@ public class secondFragment extends Fragment {
         carbonGoal.setText(strCarbon + "g");
         fatGoal.setText(strFat + "g");
         kojin_purpose.setText(strPurpose2);
+        /*
         if (entityUser.getCALORIE_NOW() == null){
             calorieNow.setText(strCalorie2 + "cal");
         } else {
             calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
         }
+
+         */
     }
 
     @Override
@@ -412,13 +415,12 @@ public class secondFragment extends Fragment {
         strProtein2 = String.valueOf(totalProtein1 + totalProtein2 + totalProtein3 + totalProtein4);
         strCarbon2 = String.valueOf(totalCarbon1 + totalCarbon2 + totalCarbon3 + totalCarbon4);
         strFat2 = String.valueOf(totalFat1 + totalFat2 + totalFat3 + totalFat4);
-        /*
+/*
         calorieNow.setText(strCalorie2 + "cal");
         proteinNow.setText(strProtein2 + "g");
         carbonNow.setText(strCarbon2 + "g");
         fatNow.setText(strFat2 + "g");
-         */
-
+ */
         CompareEiyou();
 
         EntityUser entityUser = new EntityUser();
@@ -435,10 +437,14 @@ public class secondFragment extends Fragment {
         entityUser.FAT_GOAL = Double.parseDouble(strFat);
         entityUser.CALORIE_COMPARE = strCalorie3;
         entityUser.PROTEIN_COMPARE = strProtein3;
-        entityUser.CARBON_COMPARE = strCalorie3;
+        entityUser.CARBON_COMPARE = strCarbon3;
         entityUser.FAT_COMPARE = strFat3;
         RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
 
+        calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
+        proteinNow.setText(Double.toString(entityUser.getPROTEIN_NOW()) + "g");
+        carbonNow.setText(Double.toString(entityUser.getCARBON_NOW()) + "g");
+        fatNow.setText(Double.toString(entityUser.getFAT_NOW()) + "g");
 
 
         //すでに今日の分が登録されていたらUpdateする

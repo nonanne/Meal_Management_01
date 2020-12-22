@@ -49,6 +49,7 @@ public class CalendarAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder)convertView.getTag();
+
         }
 
         //セルのサイズを指定
