@@ -103,12 +103,11 @@ public class thirdCalenderFragment extends Fragment {
             }
         });
         calendarGridView = view.findViewById(R.id.calendarGridView);
-        mCalendarAdapter = new CalendarAdapter(getContext());
-        calendarGridView.setAdapter(mCalendarAdapter);
-        titleText.setText(mCalendarAdapter.getTitle());
-
         List<EntityUser> list = RoomDB.getInstance(requireContext()).daoUser().getAll();
         Log.d("thirdCalenderFragment", String.format("listSize = %d", list.size()));
+        mCalendarAdapter = new CalendarAdapter(getContext(), list);
+        calendarGridView.setAdapter(mCalendarAdapter);
+        titleText.setText(mCalendarAdapter.getTitle());
 
     }
 

@@ -20,18 +20,31 @@ public class CalendarAdapter extends BaseAdapter {
     private Context mContext;
     private DateManager mDateManager;
     private LayoutInflater mLayoutInflater;
+    private List<EntityUser> userList;
 
     //カスタムセルを拡張したらここでWigetを定義
     private static class ViewHolder {
         public TextView dateText;
+        public TextView weightText;
+        public TextView calorieText;
+        public TextView proteinText;
+        public TextView carbonText;
+        public TextView fatText;
 
     }
 
     public CalendarAdapter(Context context){
+        this(context, null);
+    }
+
+    public CalendarAdapter(Context context, List<EntityUser> userList){
         mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
         mDateManager = new DateManager();
         dateArray = mDateManager.getDays();
+        this.userList = userList;
+
+
     }
 
     @Override
@@ -46,6 +59,11 @@ public class CalendarAdapter extends BaseAdapter {
             convertView = mLayoutInflater.inflate(R.layout.calendar_cell, null);
             holder = new ViewHolder();
             holder.dateText = convertView.findViewById(R.id.dateText);
+            holder.weightText = convertView.findViewById(R.id.weightText);
+            holder.calorieText = convertView.findViewById(R.id.calorieText);
+            holder.proteinText = convertView.findViewById(R.id.proteinText);
+            holder.carbonText = convertView.findViewById(R.id.carbonText);
+            holder.fatText = convertView.findViewById(R.id.fatText);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder)convertView.getTag();
@@ -60,6 +78,16 @@ public class CalendarAdapter extends BaseAdapter {
         //日付のみ表示させる
         SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.US);
         holder.dateText.setText(dateFormat.format(dateArray.get(position)));
+//        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("MM月dd日", Locale.US);
+        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("MM月dd日", Locale.US);
+        if (dateFormatCompare.format(dateArray.get(position)).endsWith(userList.get(0).getDATE())) {
+            holder.weightText.setText(userList.get(0).getWEIGHT() + "kg");
+            holder.calorieText.setText("Cal:" + userList.get(0).getCALORIE_COMPARE());
+            holder.proteinText.setText("pro:" + userList.get(0).getPROTEIN_COMPARE());
+            holder.carbonText.setText("car:" + userList.get(0).getCARBON_COMPARE());
+            holder.fatText.setText("fat:" + userList.get(0).getFAT_COMPARE());
+        }
+
 
         //当月以外のセルをグレーアウト
         if (mDateManager.isCurrentMonth(dateArray.get(position))){

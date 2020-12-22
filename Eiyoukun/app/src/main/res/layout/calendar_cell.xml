@@ -1,19 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CalenderCell">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:id="@+id/dateText"
+        android:layout_height="13dp"
         android:layout_width="80dp"
-        android:layout_height="16dp"
-        android:text="000000"
-        android:textSize="14dp"
+        tools:text="1" android:text=""
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true"/>
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:textSize="12dp"
+        android:id="@+id/dateText"/>
+
+    <TextView
+        android:layout_height="16dp"
+        android:layout_width="80dp"
+        tools:text="71kg"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:textSize="12dp"
+        android:id="@+id/weightText"/>
+
+    <TextView
+        android:layout_height="14dp"
+        android:layout_width="80dp"
+        tools:text="C:○"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:textSize="12dp"
+        android:id="@+id/calorieText"/>
+
+    <TextView
+        android:id="@+id/proteinText"
+        android:layout_width="80dp"
+        android:layout_height="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textSize="12dp"
+        tools:text="p:○" />
+
+    <TextView
+        android:layout_height="15dp"
+        android:layout_width="80dp"
+        tools:text="c:○"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:textSize="12dp"
+        android:id="@+id/carbonText"/>
+
+    <TextView
+        android:layout_height="15dp"
+        android:layout_width="80dp"
+        tools:text="f:✖"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:textSize="12dp"
+        android:id="@+id/fatText"/>
 
     <!--ここに拡張可能-->
 
-</RelativeLayout>
+</LinearLayout>
