@@ -103,6 +103,13 @@ public class CalendarAdapter extends BaseAdapter {
             holder.proteinText.setText("pro:" + user.getPROTEIN_COMPARE());
             holder.carbonText.setText("car:" + user.getCARBON_COMPARE());
             holder.fatText.setText("fat:" + user.getFAT_COMPARE());
+        }else{
+            holder.weightText.setText("");
+            holder.calorieText.setText("");
+            holder.proteinText.setText("");
+            holder.carbonText.setText("");
+            holder.fatText.setText("");
+
         }
 
     /*元のコード----------------------------
