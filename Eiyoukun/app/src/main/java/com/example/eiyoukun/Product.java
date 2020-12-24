@@ -31,18 +31,24 @@ public class Product implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getfoodName() {
+    /*
+    名前修正　getfoodName => getFoodName
+             setfoodName => setFoodName
+    */
+    public String getFoodName() {
         return foodName;
     }
-    public void setfoodName(String foodName) {
+    public void setFoodName(String foodName) {
         this.foodName = foodName;
     }
 
-    public double getfoodgram() {
+    public double getFoodgram() {
         return foodgram;
     }
-    public void setfoodgram(double foodgram) {
+    /*
+    名前修正　setfoodgram => setFoodgram
+    */
+    public void setFoodgram(double foodgram) {
         this.foodgram = foodgram;
     }
 
