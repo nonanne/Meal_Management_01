@@ -27,7 +27,9 @@ import com.example.eiyoukun.mealFragments.PageFragment2;
 import com.example.eiyoukun.mealFragments.PageFragment3;
 import com.example.eiyoukun.mealFragments.PageFragment4;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import androidx.room.ColumnInfo;
 import com.example.eiyoukun.EntityUser;
@@ -371,6 +373,56 @@ public class secondFragment extends Fragment {
         strFat = EiyouInf.getString(KEY_FAT, "");
         strPurpose2 = EiyouInf.getString(KEY_PURPOSE2, "");
         strWeight2 = EiyouInf.getString(KEY_WEIGHT2, "");
+        /*------
+        追加
+         ------*/
+        initEntityUser();
+    }
+    /*------
+    追加
+    ------*/
+
+    private void initEntityUser(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+        Calendar calendar = Calendar.getInstance();
+        String fromSDate = sdf.format(calendar.getTime());
+        String toSDate = sdf.format(calendar.getTime());
+        List<EntityUser> users = RoomDB.getInstance(requireContext()).daoUser().getSearchDateAll(fromSDate,toSDate);
+        if(users.size()>0) {
+            EntityUser entityUser = users.get(0);
+            date = entityUser.getDATE();
+            strWeight2 = String.valueOf(entityUser.WEIGHT);
+            strPurpose2 = entityUser.PURPOSE;
+            strCalorie2 = String.valueOf(entityUser.CALORIE_NOW);
+            strProtein2 = String.valueOf(entityUser.PROTEIN_NOW);
+            strCarbon2 = String.valueOf(entityUser.CARBON_NOW);
+            strFat2 = String.valueOf(entityUser.FAT_NOW);
+            strCalorie = String.valueOf(entityUser.CALORIE_GOAL);
+            strProtein = String.valueOf(entityUser.PROTEIN_GOAL);
+            strCarbon = String.valueOf(entityUser.CARBON_GOAL);
+            strFat = String.valueOf(entityUser.FAT_GOAL);
+            strCalorie3 = entityUser.CALORIE_COMPARE;
+            strProtein3 = entityUser.PROTEIN_COMPARE;
+            strCarbon3 = entityUser.CARBON_COMPARE;
+            strFat3 = entityUser.FAT_COMPARE;
+            if(isTommorow(entityUser.getDATE())) {
+                calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
+                proteinNow.setText(Double.toString(entityUser.getPROTEIN_NOW()) + "g");
+                carbonNow.setText(Double.toString(entityUser.getCARBON_NOW()) + "g");
+                fatNow.setText(Double.toString(entityUser.getFAT_NOW()) + "g");
+            }
+        }
+    }
+    /*------
+    追加
+     ------*/
+
+    //日付「〜月〜日」
+    private boolean isTommorow(String date){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+        Calendar calendar = Calendar.getInstance();
+        String fromSDate = sdf.format(calendar.getTime());
+        return fromSDate.equals(date);
     }
 
 
@@ -422,7 +474,8 @@ public class secondFragment extends Fragment {
         fatNow.setText(strFat2 + "g");
  */
         CompareEiyou();
-
+/* ----------
+        修正更新用が泣いてどんどん追加されていて行ってしまいデータが更新されない
         EntityUser entityUser = new EntityUser();
         entityUser.DATE = date;
         entityUser.WEIGHT = Double.parseDouble(strWeight2);
@@ -440,6 +493,47 @@ public class secondFragment extends Fragment {
         entityUser.CARBON_COMPARE = strCarbon3;
         entityUser.FAT_COMPARE = strFat3;
         RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
+
+ */
+        List<EntityUser> entityUsers = RoomDB.getInstance(requireContext()).daoUser().getSearchDateAll(date,date);
+        EntityUser entityUser;
+        if(entityUsers.size()==0){
+            entityUser = new EntityUser();
+            entityUser.DATE = date;
+            entityUser.WEIGHT = Double.parseDouble(strWeight2);
+            entityUser.PURPOSE = strPurpose2;
+            entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
+            entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
+            entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
+            entityUser.FAT_NOW = Double.parseDouble(strFat2);
+            entityUser.CALORIE_GOAL = Double.parseDouble(strCalorie);
+            entityUser.PROTEIN_GOAL = Double.parseDouble(strProtein);
+            entityUser.CARBON_GOAL = Double.parseDouble(strCarbon);
+            entityUser.FAT_GOAL = Double.parseDouble(strFat);
+            entityUser.CALORIE_COMPARE = strCalorie3;
+            entityUser.PROTEIN_COMPARE = strProtein3;
+            entityUser.CARBON_COMPARE = strCarbon3;
+            entityUser.FAT_COMPARE = strFat3;
+            RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
+        }else{
+            entityUser = entityUsers.get(0);
+            entityUser.DATE = date;
+            entityUser.WEIGHT = Double.parseDouble(strWeight2);
+            entityUser.PURPOSE = strPurpose2;
+            entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
+            entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
+            entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
+            entityUser.FAT_NOW = Double.parseDouble(strFat2);
+            entityUser.CALORIE_GOAL = Double.parseDouble(strCalorie);
+            entityUser.PROTEIN_GOAL = Double.parseDouble(strProtein);
+            entityUser.CARBON_GOAL = Double.parseDouble(strCarbon);
+            entityUser.FAT_GOAL = Double.parseDouble(strFat);
+            entityUser.CALORIE_COMPARE = strCalorie3;
+            entityUser.PROTEIN_COMPARE = strProtein3;
+            entityUser.CARBON_COMPARE = strCarbon3;
+            entityUser.FAT_COMPARE = strFat3;
+            RoomDB.getInstance(requireContext()).daoUser().update(entityUser);
+        }
 
         calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
         proteinNow.setText(Double.toString(entityUser.getPROTEIN_NOW()) + "g");
