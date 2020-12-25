@@ -84,7 +84,7 @@ public class CalendarAdapter extends BaseAdapter {
         //日付のみ表示させる
         SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.US);
         holder.dateText.setText(dateFormat.format(dateArray.get(position)));
-        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("MM月dd日", Locale.US);
+        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
         if (userList != null && userList.size() != 0) {
             for (int i = 0; i < userList.size(); i++) {
                 if (dateFormatCompare.format(dateArray.get(position)).endsWith(userList.get(i).getDATE())) {
