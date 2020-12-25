@@ -36,9 +36,9 @@ public class FoodDeleteActivity extends AppCompatActivity {
         helper = new MySQLiteOpenHelper(this);
 
         TextView deleteFood = (TextView)findViewById(R.id.deleteFood);
-        deleteFood.setText(product.getFoodName());
+        deleteFood.setText(product.getfoodName());
         TextView foodGram = (TextView)findViewById(R.id.foodGram);
-        foodGram.setText(Double.toString(product.getFoodgram()));
+        foodGram.setText(Double.toString(product.getfoodgram()));
         TextView deleteCalorie = (TextView)findViewById(R.id.deleteCalorie);
         deleteCalorie.setText(Double.toString(product.getCalorie()));
         TextView deleteProtain = (TextView)findViewById(R.id.deleteProtain);

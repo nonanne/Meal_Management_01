@@ -7,9 +7,13 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
     <TextView
-        android:layout_height="13dp"
-        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_width="wrap_content"
         tools:text="1" android:text=""
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
@@ -17,35 +21,45 @@
         android:layout_margin="1dp"
         android:textSize="12dp"
         android:id="@+id/dateText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
     <TextView
+        android:id="@+id/weightText"
+        android:layout_width="wrap_content"
         android:layout_height="16dp"
-        android:layout_width="80dp"
-        tools:text="71kg"
-        android:text=""
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
         android:layout_gravity="center"
         android:layout_margin="1dp"
+        android:gravity="center_horizontal"
+        android:text=""
         android:textSize="12dp"
-        android:id="@+id/weightText"/>
+        tools:text="71kg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
 
     <TextView
-        android:layout_height="14dp"
-        android:layout_width="80dp"
-        tools:text="C:○"
-        android:text=""
+        android:id="@+id/calorieText"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
         android:layout_gravity="center"
         android:layout_margin="1dp"
+        android:gravity="center_horizontal"
+        android:text=""
         android:textSize="12dp"
-        android:id="@+id/calorieText"/>
+        tools:text="C:○" />
 
     <TextView
         android:id="@+id/proteinText"
-        android:layout_width="80dp"
-        android:layout_height="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_margin="1dp"
@@ -53,10 +67,14 @@
         android:text=""
         android:textSize="12dp"
         tools:text="p:○" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
     <TextView
-        android:layout_height="15dp"
-        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_width="wrap_content"
         tools:text="c:○"
         android:text=""
         android:layout_centerHorizontal="true"
@@ -67,8 +85,8 @@
         android:id="@+id/carbonText"/>
 
     <TextView
-        android:layout_height="15dp"
-        android:layout_width="80dp"
+        android:layout_height="16dp"
+        android:layout_width="wrap_content"
         tools:text="f:✖"
         android:text=""
         android:layout_centerHorizontal="true"
@@ -77,6 +95,7 @@
         android:layout_margin="1dp"
         android:textSize="12dp"
         android:id="@+id/fatText"/>
+    </LinearLayout>
 
     <!--ここに拡張可能-->
 

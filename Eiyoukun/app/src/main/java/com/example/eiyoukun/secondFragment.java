@@ -27,9 +27,7 @@ import com.example.eiyoukun.mealFragments.PageFragment2;
 import com.example.eiyoukun.mealFragments.PageFragment3;
 import com.example.eiyoukun.mealFragments.PageFragment4;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import androidx.room.ColumnInfo;
 import com.example.eiyoukun.EntityUser;
@@ -80,9 +78,10 @@ public class secondFragment extends Fragment {
     private String strFat3;
 
     private String date;
+    private String date2;
 
     private SharedPreferences EiyouInf;
-    private static final String SHARED_PREF_NAME1 = "EiyouInf";
+    private static final String SHARED_PREF_NAME = "EiyouInf";
     private static final String KEY_CALORIE = "calorie";
     private static final String KEY_PROTAIN = "protain";
     private static final String KEY_CARBON = "carbon";
@@ -90,12 +89,23 @@ public class secondFragment extends Fragment {
     private static final String KEY_PURPOSE2 = "purpose2";
     private static final String KEY_WEIGHT2 = "weight2";
 
+    private SharedPreferences EiyouInf1;
+    private static final String SHARED_PREF_NAME1 = "EiyouInf";
+    private static final String KEY_CALORIE1 = "calorie1";
+    private static final String KEY_PROTAIN1 = "protain1";
+    private static final String KEY_CARBON1 = "carbon1";
+    private static final String KEY_FAT1 = "fat1";
+
     private String strCalorie;
     private String strProtein;
     private String strCarbon;
     private String strFat;
     private String strPurpose2;
     private String strWeight2;
+    private String STRCalorie;
+    private String STRProtein;
+    private String STRCarbon;
+    private String STRFat;
 
     private ViewPager pager;
     private PagerAdapter pagerAdapter;
@@ -299,8 +309,9 @@ public class secondFragment extends Fragment {
         TextView dateText = view.findViewById(R.id.today);
         Time time = new Time("Asia/Tokyo");
         time.setToNow();
-        date = (time.month + 1) + "月" + time.monthDay + "日";
-        dateText.setText(date);
+        date = time.year + "年" + (time.month + 1) + "月" + time.monthDay + "日";
+        date2 =(time.month + 1) + "月" + time.monthDay + "日";
+        dateText.setText(date2);
 
         calorieGoal = view.findViewById(R.id.calorieGoal);
         proteinGoal = view.findViewById(R.id.proteinGoal);
@@ -354,6 +365,8 @@ public class secondFragment extends Fragment {
 
         loadData();
         setData();
+        loadData1();
+        setData1();
     }
 
     @Override
@@ -362,67 +375,19 @@ public class secondFragment extends Fragment {
 
         loadData();
         setData();
+        loadData1();
+        setData1();
     }
 
     public void loadData() {
         //fragmentはsharedPreferenceを直接呼び出せないので、親のactivityを呼んでそこから取得する
-        EiyouInf = requireActivity().getSharedPreferences(SHARED_PREF_NAME1, Context.MODE_PRIVATE);
+        EiyouInf = requireActivity().getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         strCalorie = EiyouInf.getString(KEY_CALORIE, "");
         strProtein = EiyouInf.getString(KEY_PROTAIN, "");
         strCarbon = EiyouInf.getString(KEY_CARBON, "");
         strFat = EiyouInf.getString(KEY_FAT, "");
         strPurpose2 = EiyouInf.getString(KEY_PURPOSE2, "");
         strWeight2 = EiyouInf.getString(KEY_WEIGHT2, "");
-        /*------
-        追加
-         ------*/
-        initEntityUser();
-    }
-    /*------
-    追加
-    ------*/
-
-    private void initEntityUser(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
-        Calendar calendar = Calendar.getInstance();
-        String fromSDate = sdf.format(calendar.getTime());
-        String toSDate = sdf.format(calendar.getTime());
-        List<EntityUser> users = RoomDB.getInstance(requireContext()).daoUser().getSearchDateAll(fromSDate,toSDate);
-        if(users.size()>0) {
-            EntityUser entityUser = users.get(0);
-            date = entityUser.getDATE();
-            strWeight2 = String.valueOf(entityUser.WEIGHT);
-            strPurpose2 = entityUser.PURPOSE;
-            strCalorie2 = String.valueOf(entityUser.CALORIE_NOW);
-            strProtein2 = String.valueOf(entityUser.PROTEIN_NOW);
-            strCarbon2 = String.valueOf(entityUser.CARBON_NOW);
-            strFat2 = String.valueOf(entityUser.FAT_NOW);
-            strCalorie = String.valueOf(entityUser.CALORIE_GOAL);
-            strProtein = String.valueOf(entityUser.PROTEIN_GOAL);
-            strCarbon = String.valueOf(entityUser.CARBON_GOAL);
-            strFat = String.valueOf(entityUser.FAT_GOAL);
-            strCalorie3 = entityUser.CALORIE_COMPARE;
-            strProtein3 = entityUser.PROTEIN_COMPARE;
-            strCarbon3 = entityUser.CARBON_COMPARE;
-            strFat3 = entityUser.FAT_COMPARE;
-            if(isTommorow(entityUser.getDATE())) {
-                calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
-                proteinNow.setText(Double.toString(entityUser.getPROTEIN_NOW()) + "g");
-                carbonNow.setText(Double.toString(entityUser.getCARBON_NOW()) + "g");
-                fatNow.setText(Double.toString(entityUser.getFAT_NOW()) + "g");
-            }
-        }
-    }
-    /*------
-    追加
-     ------*/
-
-    //日付「〜月〜日」
-    private boolean isTommorow(String date){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
-        Calendar calendar = Calendar.getInstance();
-        String fromSDate = sdf.format(calendar.getTime());
-        return fromSDate.equals(date);
     }
 
 
@@ -433,15 +398,37 @@ public class secondFragment extends Fragment {
         carbonGoal.setText(strCarbon + "g");
         fatGoal.setText(strFat + "g");
         kojin_purpose.setText(strPurpose2);
-        /*
-        if (entityUser.getCALORIE_NOW() == null){
-            calorieNow.setText(strCalorie2 + "cal");
-        } else {
-            calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
-        }
-
-         */
     }
+
+    public void saveData1() {
+        EntityUser entityUser = new EntityUser();
+
+        EiyouInf1 = getActivity().getSharedPreferences(SHARED_PREF_NAME1, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = EiyouInf1.edit();
+        editor.putString(KEY_CALORIE1, strCalorie2);
+        editor.putString(KEY_PROTAIN1, strProtein2);
+        editor.putString(KEY_CARBON1, strCarbon2);
+        editor.putString(KEY_FAT1, strFat2);
+        editor.apply();
+    }
+
+    public void loadData1() {
+        //fragmentはsharedPreferenceを直接呼び出せないので、親のactivityを呼んでそこから取得する
+        EiyouInf1 = requireActivity().getSharedPreferences(SHARED_PREF_NAME1, Context.MODE_PRIVATE);
+        STRCalorie = EiyouInf1.getString(KEY_CALORIE1, "");
+        STRProtein = EiyouInf1.getString(KEY_PROTAIN1, "");
+        STRCarbon = EiyouInf1.getString(KEY_CARBON1, "");
+        STRFat = EiyouInf1.getString(KEY_FAT1, "");
+    }
+
+    public void setData1(){
+        calorieNow.setText(STRCalorie + "cal");
+        proteinNow.setText(STRProtein + "g");
+        carbonNow.setText(STRCarbon + "g");
+        fatNow.setText(STRFat + "g");
+    }
+
+
 
     @Override
     public void onActivityResult
@@ -456,6 +443,8 @@ public class secondFragment extends Fragment {
 
         loadData();
         setData();
+        loadData1();
+        setData1();
     }
 
 
@@ -474,8 +463,7 @@ public class secondFragment extends Fragment {
         fatNow.setText(strFat2 + "g");
  */
         CompareEiyou();
-/* ----------
-        修正更新用が泣いてどんどん追加されていて行ってしまいデータが更新されない
+
         EntityUser entityUser = new EntityUser();
         entityUser.DATE = date;
         entityUser.WEIGHT = Double.parseDouble(strWeight2);
@@ -494,51 +482,17 @@ public class secondFragment extends Fragment {
         entityUser.FAT_COMPARE = strFat3;
         RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
 
- */
-        List<EntityUser> entityUsers = RoomDB.getInstance(requireContext()).daoUser().getSearchDateAll(date,date);
-        EntityUser entityUser;
-        if(entityUsers.size()==0){
-            entityUser = new EntityUser();
-            entityUser.DATE = date;
-            entityUser.WEIGHT = Double.parseDouble(strWeight2);
-            entityUser.PURPOSE = strPurpose2;
-            entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
-            entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
-            entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
-            entityUser.FAT_NOW = Double.parseDouble(strFat2);
-            entityUser.CALORIE_GOAL = Double.parseDouble(strCalorie);
-            entityUser.PROTEIN_GOAL = Double.parseDouble(strProtein);
-            entityUser.CARBON_GOAL = Double.parseDouble(strCarbon);
-            entityUser.FAT_GOAL = Double.parseDouble(strFat);
-            entityUser.CALORIE_COMPARE = strCalorie3;
-            entityUser.PROTEIN_COMPARE = strProtein3;
-            entityUser.CARBON_COMPARE = strCarbon3;
-            entityUser.FAT_COMPARE = strFat3;
-            RoomDB.getInstance(requireContext()).daoUser().insert(entityUser);
-        }else{
-            entityUser = entityUsers.get(0);
-            entityUser.DATE = date;
-            entityUser.WEIGHT = Double.parseDouble(strWeight2);
-            entityUser.PURPOSE = strPurpose2;
-            entityUser.CALORIE_NOW = Double.parseDouble(strCalorie2);
-            entityUser.PROTEIN_NOW = Double.parseDouble(strProtein2);
-            entityUser.CARBON_NOW = Double.parseDouble(strCarbon2);
-            entityUser.FAT_NOW = Double.parseDouble(strFat2);
-            entityUser.CALORIE_GOAL = Double.parseDouble(strCalorie);
-            entityUser.PROTEIN_GOAL = Double.parseDouble(strProtein);
-            entityUser.CARBON_GOAL = Double.parseDouble(strCarbon);
-            entityUser.FAT_GOAL = Double.parseDouble(strFat);
-            entityUser.CALORIE_COMPARE = strCalorie3;
-            entityUser.PROTEIN_COMPARE = strProtein3;
-            entityUser.CARBON_COMPARE = strCarbon3;
-            entityUser.FAT_COMPARE = strFat3;
-            RoomDB.getInstance(requireContext()).daoUser().update(entityUser);
-        }
+        saveData1();
+        loadData1();
+        setData1();
 
+        /*
         calorieNow.setText(Double.toString(entityUser.getCALORIE_NOW()) + "cal");
         proteinNow.setText(Double.toString(entityUser.getPROTEIN_NOW()) + "g");
         carbonNow.setText(Double.toString(entityUser.getCARBON_NOW()) + "g");
         fatNow.setText(Double.toString(entityUser.getFAT_NOW()) + "g");
+
+         */
 
 
         //すでに今日の分が登録されていたらUpdateする
@@ -549,27 +503,27 @@ public class secondFragment extends Fragment {
 
         if (Double.parseDouble(strCalorie) >= Double.parseDouble(strCalorie2) && strPurpose2.equals("ダイエット")
         || (Double.parseDouble(strCalorie) <= Double.parseDouble(strCalorie2) && strPurpose2.equals("デブエット"))) {
-            strCalorie3 = "〇";
-        } else {
             strCalorie3 = "✖";
+        } else {
+            strCalorie3 = "〇";
         }
         if (Double.parseDouble(strProtein) >= Double.parseDouble(strProtein2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
-            strProtein3 = "〇";
-        } else {
             strProtein3 = "✖";
+        } else {
+            strProtein3 = "〇";
         }
         if (Double.parseDouble(strCarbon) >= Double.parseDouble(strCarbon2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strProtein) <= Double.parseDouble(strProtein2) && strPurpose2.equals("デブエット"))) {
-            strCarbon3 = "〇";
-        } else {
             strCarbon3 = "✖";
+        } else {
+            strCarbon3 = "〇";
         }
         if (Double.parseDouble(strFat) >= Double.parseDouble(strFat2) && strPurpose2.equals("ダイエット")
                 || (Double.parseDouble(strFat) <= Double.parseDouble(strFat2) && strPurpose2.equals("デブエット"))) {
-            strFat3 = "〇";
-        } else {
             strFat3 = "✖";
+        } else {
+            strFat3 = "〇";
         }
     }
 }

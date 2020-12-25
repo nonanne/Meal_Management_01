@@ -21,7 +21,6 @@ import com.example.eiyoukun.Product;
 import com.example.eiyoukun.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PageFragment2 extends Fragment {
 
@@ -81,11 +80,7 @@ public class PageFragment2 extends Fragment {
     private MySQLiteOpenHelper mydb;
     private SQLiteDatabase db;
 
-    /*-------
-    修正　ArrayList<Product> =>List<Product>
-     Listの抽象クラスの方が利便性があるため
-     */
-    private List<Product> products;
+    private ArrayList<Product> products;
     private MySQLiteOpenHelper helper;
 
     @Nullable
@@ -136,36 +131,27 @@ public class PageFragment2 extends Fragment {
         carbonTotalForm = view.findViewById(R.id.carbonSumForm1);
         fatTotalForm = view.findViewById(R.id.fatSumForm1);
 
-        /*-------
-        削除
         mydb = new MySQLiteOpenHelper(requireActivity());
         db = mydb.getReadableDatabase();
 
-        final String [] mydata;
-        ArrayList<String> array = new ArrayList<>();
         String sql = "SELECT * FROM Products";
         Cursor cr = db.rawQuery(sql, null);
-        if(cr.moveToFirst()) {
-            mydata = new String[cr.getCount()];
-            int i = 0;
-            do {
-                mydata[i] = cr.getString(1);
-                i++;
-            } while (cr.moveToNext());
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
-                    android.R.layout.simple_dropdown_item_1line, mydata);
-            foodlist1.setAdapter(adapter);
-            foodlist2.setAdapter(adapter);
-            foodlist3.setAdapter(adapter);
-            foodlist4.setAdapter(adapter);
+        cr.moveToFirst();
+        final String [] mydata = new String[cr.getCount()];
+        int i = 0;
+        while (cr.moveToNext()) {
+            mydata[i] = cr.getString(1);
+            i ++;
         }
-         -------*/
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
+                android.R.layout.simple_dropdown_item_1line, mydata);
+        foodlist1.setAdapter(adapter);
+        foodlist2.setAdapter(adapter);
+        foodlist3.setAdapter(adapter);
+        foodlist4.setAdapter(adapter);
 
-        /*----
-        追加
-        -------*/
-        initPuroduct();
-        setPuroductToView();
+
+
 
     Button foodButton1 = view.findViewById(R.id.foodButton1_1);
     //ボタンがクリックされた時の処理
@@ -378,91 +364,6 @@ public class PageFragment2 extends Fragment {
 
 
 }
-    /*-----------
-        追加
-      ----------*/
-    private void initPuroduct(){
-        String[] mydata = new String[0];
-        String sql = "SELECT * FROM Products";
-
-        //データベースの取り込み
-        mydb = new MySQLiteOpenHelper(requireActivity());
-        db = mydb.getReadableDatabase();
-        Cursor cr = db.rawQuery(sql, null);
-        products = new  ArrayList();
-        if(cr.moveToFirst()) {
-
-            mydata = new String[cr.getCount()];
-            int i = 0;
-            do {
-                mydata[i] = cr.getString(1);
-                Product product = new Product();
-                product.setFoodName(cr.getString(1));
-                product.setFoodgram(cr.getDouble(2));
-                product.setCalorie(cr.getDouble(3));
-                product.setProtain(cr.getDouble(4));
-                product.setCarbon(cr.getDouble(5));
-                product.setFat(cr.getDouble(6));
-                products.add(product);
-            } while (cr.moveToNext());
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
-                    android.R.layout.simple_dropdown_item_1line, mydata);
-
-            foodlist1.setAdapter(adapter);
-            foodlist2.setAdapter(adapter);
-            foodlist3.setAdapter(adapter);
-            foodlist4.setAdapter(adapter);
-        }
-
-    }
-
-    /*-------
-    追加
-    カロリーなどの情報をViewに反映
-     -------*/
-    private void setPuroductToView(){
-        for(int i=0;i < products.size();i++){
-            Product product = products.get(i);
-            switch (i){
-                case 0:
-                    foodlist1.setText(product.getFoodName());
-                    foodGramForm1.setText(Double.toString(product.getFoodgram()));
-                    calorieForm1.setText(Double.toString(product.getCalorie()) + "cal");
-                    protainForm1.setText(Double.toString(product.getProtain()) + "g");
-                    carbonForm1.setText(Double.toString(product.getCarbon()) + "g");
-                    fatForm1.setText(Double.toString(product.getFat()) + "g");
-                    break;
-                case 1:
-                    foodlist2.setText(product.getFoodName());
-                    foodGramForm2.setText(Double.toString(product.getFoodgram()));
-                    calorieForm2.setText(Double.toString(product.getCalorie()) + "cal");
-                    protainForm2.setText(Double.toString(product.getProtain()) + "g");
-                    carbonForm2.setText(Double.toString(product.getCarbon()) + "g");
-                    fatForm2.setText(Double.toString(product.getFat()) + "g");
-                    break;
-                case 2:
-                    foodlist3.setText(product.getFoodName());
-                    foodGramForm3.setText(Double.toString(product.getFoodgram()));
-                    calorieForm3.setText(Double.toString(product.getCalorie()) + "cal");
-                    protainForm3.setText(Double.toString(product.getProtain()) + "g");
-                    carbonForm3.setText(Double.toString(product.getCarbon()) + "g");
-                    fatForm3.setText(Double.toString(product.getFat()) + "g");
-                    break;
-                case 3:
-                    foodlist4.setText(product.getFoodName());
-                    foodGramForm4.setText(Double.toString(product.getFoodgram()));
-                    calorieForm4.setText(Double.toString(product.getCalorie()) + "cal");
-                    protainForm4.setText(Double.toString(product.getProtain()) + "g");
-                    carbonForm4.setText(Double.toString(product.getCarbon()) + "g");
-                    fatForm4.setText(Double.toString(product.getFat()) + "g");
-                    break;
-            }
-        }
-
-    }
-
-
 
     public void EiyouTotal (){
 
@@ -504,27 +405,22 @@ public class PageFragment2 extends Fragment {
 
         mydb = new MySQLiteOpenHelper(requireActivity());
         db = mydb.getReadableDatabase();
-        final String [] mydata;
-        ArrayList<String> array = new ArrayList<>();
+
         String sql = "SELECT * FROM Products";
         Cursor cr = db.rawQuery(sql, null);
-        /*------
-        修正　落ちる原因データベースの指定のカレントがない場合落ちる
-         ------*/
-        if(cr.moveToFirst()) {
-            mydata = new String[cr.getCount()];
-            int i = 0;
-            do {
-                mydata[i] = cr.getString(1);
-                i++;
-            } while (cr.moveToNext());
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
-                    android.R.layout.simple_dropdown_item_1line, mydata);
-            foodlist1.setAdapter(adapter);
-            foodlist2.setAdapter(adapter);
-            foodlist3.setAdapter(adapter);
-            foodlist4.setAdapter(adapter);
+        cr.moveToFirst();
+        final String [] mydata = new String[cr.getCount()];
+        int i = 0;
+        while (cr.moveToNext()) {
+            mydata[i] = cr.getString(1);
+            i ++;
         }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.requireActivity(),
+                android.R.layout.simple_dropdown_item_1line, mydata);
+        foodlist1.setAdapter(adapter);
+        foodlist2.setAdapter(adapter);
+        foodlist3.setAdapter(adapter);
+        foodlist4.setAdapter(adapter);
     }
 
 
