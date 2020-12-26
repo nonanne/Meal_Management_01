@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private int id ; //ID
     private String foodName; //食べ物名
-    private double foodgram;
+    private int foodgram;
     private double calorie ; //カロリー
     private double protain ; //タンパク質
     private double carbon ; //炭水化物
@@ -14,7 +14,7 @@ public class Product implements Serializable {
     //コンストラクタ
     public Product() {}
 
-    public Product(int id, String foodName, double foodgram, double calorie, double protain, double carbon, double fat){
+    public Product(int id, String foodName, int foodgram, double calorie, double protain, double carbon, double fat){
         this.id = id;
         this.foodName = foodName;
         this.foodgram = foodgram;
@@ -31,25 +31,19 @@ public class Product implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    /*
-    名前修正　getfoodName => getFoodName
-             setfoodName => setFoodName
-    */
-    public String getFoodName() {
+
+    public String getfoodName() {
         return foodName;
     }
-    public void setFoodName(String foodName) {
+    public void setfoodName(String foodName) {
         this.foodName = foodName;
     }
 
-    public double getFoodgram() {
+    public int getfoodgram() {
         return foodgram;
     }
-    /*
-    名前修正　setfoodgram => setFoodgram
-    */
-    public void setFoodgram(double foodgram) {
-        this.foodgram = foodgram;
+    public void setfoodgram(double foodgram) {
+        this.foodgram = (int) foodgram;
     }
 
     public double getCalorie() {

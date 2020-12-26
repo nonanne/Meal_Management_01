@@ -9,7 +9,7 @@ import android.content.ContentValues;
 public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "Sqlite";   // DB名
-    private static int DB_VERSION = 1;           // DBのVersion
+    private static int DB_VERSION = 2;           // DBのVersion
     // コンストラクタ
     // CREATE用のSQLを取得する
     public MySQLiteOpenHelper(Context context){

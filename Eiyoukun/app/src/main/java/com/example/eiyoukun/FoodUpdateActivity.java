@@ -41,9 +41,9 @@ public class FoodUpdateActivity extends AppCompatActivity {
         product = (Product) bundle.getSerializable("PRODUCT");
         helper = new MySQLiteOpenHelper(this);
         updateFoodEdit = (EditText) findViewById(R.id.updateFoodEdit);
-        updateFoodEdit.setText(product.getFoodName());
+        updateFoodEdit.setText(product.getfoodName());
         updatefoodGram = (EditText) findViewById(R.id.foodGram);
-        updatefoodGram.setText(Double.toString(product.getFoodgram()));
+        updatefoodGram.setText(Integer.toString(product.getfoodgram()));
         updateCalorie = (EditText) findViewById(R.id.updateCalorie);
         updateCalorie.setText(Double.toString(product.getCalorie()));
         updateProtain = (EditText) findViewById(R.id.updateProtain);
@@ -92,7 +92,7 @@ public class FoodUpdateActivity extends AppCompatActivity {
         int id = product.getId();
 
         String foodName = updateFoodEdit.getText().toString();
-        double foodgram = Double.parseDouble(updatefoodGram.getText().toString());
+        int foodgram = Integer.parseInt(updatefoodGram.getText().toString());
         double calorie = Double.parseDouble(updateCalorie.getText().toString());
         double protain = Double.parseDouble(updateProtain.getText().toString());
         double carbon = Double.parseDouble(updateCarbon.getText().toString());

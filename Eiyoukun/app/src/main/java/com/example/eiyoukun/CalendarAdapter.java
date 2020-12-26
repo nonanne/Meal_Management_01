@@ -2,16 +2,15 @@ package com.example.eiyoukun;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.AbsListView;
-
-
-import com.example.eiyoukun.data.DateData;
-
+import java.util.GregorianCalendar;
+import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class CalendarAdapter extends BaseAdapter {
-    private List<DateData> dateArray = new ArrayList();
+    private List<Date> dateArray = new ArrayList();
     private Context mContext;
     private DateManager mDateManager;
     private LayoutInflater mLayoutInflater;
@@ -43,14 +42,7 @@ public class CalendarAdapter extends BaseAdapter {
     public CalendarAdapter(Context context, List<EntityUser> userList){
         mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
-        /*-----
-         修正
-         mDateManager = new DateManager();
-         ↓↓↓↓↓↓↓↓↓
-         mDateManager = new DateManager(context);
-        -----*/
-        mDateManager = new DateManager(context);
-
+        mDateManager = new DateManager();
         dateArray = mDateManager.getDays();
         this.userList = userList;
 
@@ -77,12 +69,15 @@ public class CalendarAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder)convertView.getTag();
-
+            holder.dateText = convertView.findViewById(R.id.dateText);
+            holder.weightText.setText("");
+            holder.calorieText.setText("");
+            holder.proteinText.setText("");
+            holder.carbonText.setText("");
+            holder.fatText.setText("");
         }
-        /*-------
-        追加
-         -------*/
-        DateData currentDateData = dateArray.get(position);
+
+
         //セルのサイズを指定
         float dp = mContext.getResources().getDisplayMetrics().density;
         AbsListView.LayoutParams params = new AbsListView.LayoutParams(parent.getWidth()/7 - (int)dp, (parent.getHeight() - (int)dp * mDateManager.getWeeks() ) / mDateManager.getWeeks());
@@ -90,34 +85,22 @@ public class CalendarAdapter extends BaseAdapter {
 
         //日付のみ表示させる
         SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.US);
-        holder.dateText.setText(dateFormat.format(currentDateData.getDate()));
-//        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("MM月dd日", Locale.US);
-        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("MM月dd日", Locale.US);
-        EntityUser user = currentDateData.getUser();
-        /*------
-        修正　落ちる原因データベースの指定のカレントがない場合落ちる
-         ------*/
-        if (user != null && dateFormatCompare.format(currentDateData.getDate()).endsWith(user.getDATE())) {
-            holder.weightText.setText(user.getWEIGHT() + "kg");
-            holder.calorieText.setText("Cal:" + user.getCALORIE_COMPARE());
-            holder.proteinText.setText("pro:" + user.getPROTEIN_COMPARE());
-            holder.carbonText.setText("car:" + user.getCARBON_COMPARE());
-            holder.fatText.setText("fat:" + user.getFAT_COMPARE());
+        holder.dateText.setText(dateFormat.format(dateArray.get(position)));
+        SimpleDateFormat dateFormatCompare = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+        if (userList != null && userList.size() != 0) {
+            for (int i = 0; i < userList.size(); i++) {
+                if (dateFormatCompare.format(dateArray.get(position)).endsWith(userList.get(i).getDATE())) {
+                    holder.weightText.setText(userList.get(i).getWEIGHT() == null ? "" : userList.get(i).getWEIGHT() + "kg");
+                    holder.calorieText.setText(userList.get(i).getCALORIE_COMPARE() == null ? "" : "C:" + userList.get(i).getCALORIE_COMPARE());
+                    holder.proteinText.setText(userList.get(i).getPROTEIN_COMPARE() == null ? "" : "p:" + userList.get(i).getPROTEIN_COMPARE());
+                    holder.carbonText.setText(userList.get(i).getCARBON_COMPARE() == null ? "" : "c:" + userList.get(i).getCARBON_COMPARE());
+                    holder.fatText.setText(userList.get(i).getFAT_COMPARE() == null ? "" : "f:" + userList.get(i).getFAT_COMPARE());
+                }
+            }
         }
-
-    /*元のコード----------------------------
-        if (dateFormatCompare.format(dateArray.get(position)).endsWith(userList.get(0).getDATE())) {
-            holder.weightText.setText(userList.get(0).getWEIGHT() + "kg");
-            holder.calorieText.setText("Cal:" + userList.get(0).getCALORIE_COMPARE());
-            holder.proteinText.setText("pro:" + userList.get(0).getPROTEIN_COMPARE());
-            holder.carbonText.setText("car:" + userList.get(0).getCARBON_COMPARE());
-            holder.fatText.setText("fat:" + userList.get(0).getFAT_COMPARE());
-        }
-
-     */
 
         //当月以外のセルをグレーアウト
-        if (mDateManager.isCurrentMonth(currentDateData.getDate())){
+        if (mDateManager.isCurrentMonth(dateArray.get(position))){
             convertView.setBackgroundColor(Color.WHITE);
         }else {
             convertView.setBackgroundColor(Color.LTGRAY);
@@ -125,7 +108,7 @@ public class CalendarAdapter extends BaseAdapter {
 
         //日曜日を赤、土曜日を青に
         int colorId;
-        switch (mDateManager.getDayOfWeek(currentDateData.getDate())){
+        switch (mDateManager.getDayOfWeek(dateArray.get(position))){
             case 1:
                 colorId = Color.RED;
                 break;

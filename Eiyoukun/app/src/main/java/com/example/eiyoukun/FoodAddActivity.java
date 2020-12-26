@@ -84,11 +84,11 @@ private boolean registRecord() {
 
         SQLiteDatabase db = helper.getWritableDatabase();
         String foodName = addFoodEdit.getText().toString();
-        double foodgram = Integer.parseInt(foodGram.getText().toString());
-        double calorie = Integer.parseInt(addCalorie.getText().toString());
-        double protain = Integer.parseInt(addProtain.getText().toString());
-        double carbon = Integer.parseInt(addCarbon.getText().toString());
-        double fat = Integer.parseInt(addFat.getText().toString());
+        int foodgram = Integer.parseInt(foodGram.getText().toString());
+        double calorie = Double.parseDouble(addCalorie.getText().toString());
+        double protain = Double.parseDouble(addProtain.getText().toString());
+        double carbon = Double.parseDouble(addCarbon.getText().toString());
+        double fat = Double.parseDouble(addFat.getText().toString());
 
         ContentValues value = new ContentValues();
         value.put("foodName", foodName);

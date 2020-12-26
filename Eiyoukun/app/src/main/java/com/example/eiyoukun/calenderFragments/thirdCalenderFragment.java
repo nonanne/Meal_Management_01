@@ -18,6 +18,9 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -109,6 +112,6 @@ public class thirdCalenderFragment extends Fragment {
         calendarGridView.setAdapter(mCalendarAdapter);
         titleText.setText(mCalendarAdapter.getTitle());
 
-    }
 
+    }
 }
