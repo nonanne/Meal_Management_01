@@ -1,3 +1,3 @@
 # Ms.Nutrition
-Only the Italian who are hungry should download my coad.
-Whish you will eat and fix it.
+・This app is my first one that I made.<br>
+・Only the Italian who are hungry should download my coad.
